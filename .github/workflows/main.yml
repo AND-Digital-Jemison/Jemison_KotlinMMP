@@ -27,6 +27,9 @@ jobs:
     
     - name: see the ls of root
       run: ls
+      
+    - name: see the ls of kotlinMMP
+      run: ls KotlinMMP
     
     #- name: Make gradlew executable
      # run: chmod +x gradlew
