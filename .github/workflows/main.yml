@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI- Android build
+name: CI - Android / iOS build
 
 # Controls when the workflow will run
 on:
@@ -21,8 +21,8 @@ jobs:
     - name: Setup Java JDK
       uses: actions/setup-java@v2
       with:
-       distribution: 'adopt'
-       java-version: '11'
+       #distribution: 'adopt'
+       java-version: 16
        
     - name: Tests the project
       run: ./gradlew test
