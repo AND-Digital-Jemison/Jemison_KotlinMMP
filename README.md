@@ -31,3 +31,17 @@ Error with the Gradle Main class :
   ```zsh 
   gradle wrapper
   ```
+Another alternative of brew is to use sdkman. An advantage of sdkman over brew is that many versions of gradle are supported. (brew only supports the latest version and 2.14.) To install sdkman execute:
+ ```zsh 
+curl -s "https://get.sdkman.io" | bash
+ ```
+ 
+ - Once sdkman is installed use the command:
+ ```zsh 
+sdk install gradle
+ ```
+ - Finally run the command 
+  ```zsh 
+  gradle wrapper
+  ```
+ 
