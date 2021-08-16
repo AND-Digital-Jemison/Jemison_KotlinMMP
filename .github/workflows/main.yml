@@ -16,6 +16,8 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    env:
+      working-directory: ./KotlinMMP
     steps:
     - uses: actions/checkout@v2
     - name: Setup Java JDK
@@ -29,14 +31,16 @@ jobs:
      # run: cd KotlinMMP
     - name: see the ls of root
       run: ls
-    - name: see the ls of possible folder KotlinMMP
-      run: ls KotlinMMP
+    #- name: see the ls of possible folder KotlinMMP
+    #  run: ls KotlinMMP
     
-    - name: Make gradlew executable
-      run: chmod +x /KotlinMMP/gradlew
+    #- name: Make gradlew executable
+     # run: chmod +x gradlew
       
     - name: Tests the project
       run: ./gradlew test
+      working-directory: ${{env.working-directory}}
       
     - name: Build the project
       run: ./gradlew assemble
+      working-directory: ${{env.working-directory}
