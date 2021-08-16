@@ -1,6 +1,6 @@
 # **Jemison_KotlinMMP**
 
-##**Pre-requisites**
+## **Pre-requisites**
 
 - Android Studio
 - XCode
@@ -10,7 +10,7 @@
 - cocoapods (iOS)
 - 
 
-##Get **KMMP plugin** for *Android Studio*
+## Get **KMMP plugin** for *Android Studio*
 
 - Open the `KotlinMMP` folder in Android Studio
 - Hit shift twice and type `plugins`, search for `kmm`, install `Kotlin Multiplatform Mobile`
