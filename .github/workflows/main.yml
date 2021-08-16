@@ -21,8 +21,8 @@ jobs:
     - name: Setup Java JDK
       uses: actions/setup-java@v2
       with:
-       #distribution: 'adopt'
-       java-version: 16
+       distribution: 'zulu' # See 'Supported distributions' for available options
+       java-version: '11'
        
     - name: Tests the project
       run: ./gradlew test
