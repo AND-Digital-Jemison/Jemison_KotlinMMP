@@ -27,6 +27,10 @@ jobs:
     
     #- name: Get inside our KotlinMMP directory
      # run: cd KotlinMMP
+    - name: see the ls of root
+      run: ls
+    - name: see the ls of possible folder KotlinMMP
+      run: ls KotlinMMP
     
     - name: Make gradlew executable
       run: chmod +x /KotlinMMP/gradlew
