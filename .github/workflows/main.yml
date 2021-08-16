@@ -15,24 +15,25 @@ on:
 
 jobs:
   build:
+    # set the runner - os that will be used to run the commands, check github actions for more OSes
     runs-on: macos-latest
+    
+    # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
       working-directory: ./KotlinMMP
+      
     steps:
+    # USES - uses alredy pre-defined github actions so they can be reused across other repos
+    # checkout our branch into the runner (OS)  or @v2 or @master
     - uses: actions/checkout@v2
     - name: Setup Java JDK
       uses: actions/setup-java@v1
+      
+      # setup JAVA verssion - check github what other version are available
       with:
        java-version: '11'
       
-    - name: see the ls of kotlinMMP
-      run: ls KotlinMMP
-    
-    - name: see the ls of kotlin/gradle
-      run: ls KotlinMMP/gradle
-    
-    #- name: Make gradlew executable
-     # run: chmod +x gradlew
+    # run commands, similar to local command line ,just needed to specify our working dir  
     - name: Builds gradle wrapper file
       run: gradle wrapper
       working-directory: ${{env.working-directory}}
