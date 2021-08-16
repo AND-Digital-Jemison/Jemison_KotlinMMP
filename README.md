@@ -5,6 +5,7 @@
 - Android Studio
 - XCode
 - git cli
+- Homebrew
 - java/ openjdk
 - gradle
 - cocoapods (iOS)
