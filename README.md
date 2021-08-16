@@ -8,7 +8,7 @@
 - java/ openjdk
 - gradle
 - cocoapods (iOS)
-- 
+
 
 ## Get **KMMP plugin** for *Android Studio*
 
@@ -16,7 +16,7 @@
 - Hit shift twice and type `plugins`, search for `kmm`, install `Kotlin Multiplatform Mobile`
 - Restart AS, then enter the command in your terminal
   ```zsh
-    brew install gradle 
+  brew install gradle 
   ```
 
 ## For iOS
@@ -24,9 +24,9 @@
 Error with the Gradle Main class : 
 - Install gradle by running the command 
   ```zsh 
-    brew install gradle
+  brew install gradle
   ```
 - Run the command 
   ```zsh 
-    gradle wrapper
+  gradle wrapper
   ```
