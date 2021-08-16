@@ -26,6 +26,7 @@ jobs:
      
     # to use the gradlew we need generated gradlew inside our project 
     - name: Tests the project
+      run: chmod +x ./gradlew
       run: ./gradlew test
       
     - name: Build the project
