@@ -24,6 +24,9 @@ jobs:
        distribution: 'zulu' # See 'Supported distributions' for available options
        java-version: '11'
        
+    - name: Build gradle wrapper
+      run: ./gradle wrapper
+    
     - name: Tests the project
       run: ./gradlew test
       
