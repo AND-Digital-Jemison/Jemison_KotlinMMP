@@ -29,7 +29,7 @@ jobs:
      # run: cd KotlinMMP
     
     - name: Make gradlew executable
-      run: chmod +x /KotlinMMP/./gradlew
+      run: chmod +x /KotlinMMP/gradlew
       
     - name: Tests the project
       run: ./gradlew test
