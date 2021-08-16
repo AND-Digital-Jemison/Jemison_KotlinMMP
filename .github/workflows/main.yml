@@ -34,7 +34,7 @@ jobs:
     #- name: Make gradlew executable
      # run: chmod +x gradlew
     - name: Builds gradle wrapper file
-      run: ./gradle wrapper
+      run: ./KotlinMMP/gradle wrapper
       working-directory: ${{env.working-directory}}
       
     - name: Tests the project
