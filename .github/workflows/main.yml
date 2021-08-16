@@ -24,12 +24,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
        java-version: '11'
-    
-    - name: see the ls of root
-      run: ls
       
     - name: see the ls of kotlinMMP
       run: ls KotlinMMP
+    
+    - name: see the ls of kotlin/gradle
+      run: ls KotlinMMP/gradle
     
     #- name: Make gradlew executable
      # run: chmod +x gradlew
