@@ -25,6 +25,9 @@ jobs:
      
     # to use the gradlew we need generated gradlew inside our project 
     
+    - name: Get inside our KotlinMMP directory
+      run: cd KotlinMMP
+    
     - name: Make gradlew executable
       run: chmod +x ./gradlew
       
