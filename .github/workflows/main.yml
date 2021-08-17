@@ -8,12 +8,12 @@ on:
   # will not run the action on specified files, so when updating readmes...
   push:
     branches: [ main ]
-     paths-ignore:
+    paths-ignore:
       - '**/README.md'
       - '**/Android.md'
   pull_request:
     branches: [ main ]
-     paths-ignore:
+    paths-ignore:
       - '**/README.md'
       - '**/Android.md'
 
