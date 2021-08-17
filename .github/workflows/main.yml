@@ -9,13 +9,11 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - '**/README.md'
-      - '**/Android.md'
+      - '**.md'
   pull_request:
     branches: [ main ]
     paths-ignore:
-      - '**/README.md'
-      - '**/Android.md'
+      - '**.md'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,7 +40,7 @@ jobs:
       
     # run commands, similar to local command line ,just needed to specify our working dir  
     - name: Builds gradle wrapper file
-      run: gradle wrapper
+      run: gradle --build-cache wrapper
       working-directory: ${{env.working-directory}}
    
     - name: Cache Gradle packages
@@ -64,7 +62,7 @@ jobs:
       working-directory: ${{env.working-directory}}
       
     - name: Build the project
-      run: ./gradlew assemble
+      run: ./gradlew --build-cache assemble
       working-directory: ${{env.working-directory}}
       
     #- name: Cleanup Gradle Cache
