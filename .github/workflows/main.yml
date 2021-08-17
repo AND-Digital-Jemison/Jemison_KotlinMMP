@@ -48,12 +48,12 @@ jobs:
     - name: Cache Gradle packages
       uses: actions/cache@v2
         with:
-        path: |
-          ~/KotlinMMP/.gradle/caches
-          ~/KotlinMMP/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-
+          path: |
+            ~/KotlinMMP/.gradle/caches
+            ~/KotlinMMP/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       
     - name: Check the code with the LINTer
       run: ./gradlew lint
