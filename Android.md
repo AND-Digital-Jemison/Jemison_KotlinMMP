@@ -27,3 +27,19 @@ Its **most significant use is in the launching of activities**, where it can be 
 It is basically a passive data structure holding an abstract description of an action to be performed.
 
 
+
+## Layout
+
+### units
+
+Google recommends to use there units for fluid layouts instead of pixels
+
+*Layout itself:* 
+`DP` - Density-independent Pixels
+     - each device have different pixel density, android will adjust the sizing accordingly
+
+
+*Fonts:*
+`SP` - Scale-independent Pixels 
+     - android will adjust the font size according to user scaling preference 
+    
