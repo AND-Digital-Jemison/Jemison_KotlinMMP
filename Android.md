@@ -34,11 +34,13 @@ It is basically a passive data structure holding an abstract description of an a
 
 Google recommends to use there units for fluid layouts instead of pixels
 
+
 *Layout itself:* 
 
 `DP` 
 - Density-independent Pixels
 - each device have different pixel density, android will adjust the sizing accordingly
+
 
 
 *Fonts:*
