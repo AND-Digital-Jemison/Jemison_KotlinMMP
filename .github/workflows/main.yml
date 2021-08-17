@@ -41,9 +41,19 @@ jobs:
        java-version: '11'
       
     # run commands, similar to local command line ,just needed to specify our working dir  
-    - name: Builds gradle wrapper file
-      run: gradle wrapper
-      working-directory: ${{env.working-directory}}
+   # - name: Builds gradle wrapper file
+   #   run: gradle wrapper
+   #   working-directory: ${{env.working-directory}}
+   
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+        with:
+        path: |
+          ~/KotlinMMP/.gradle/caches
+          ~/KotlinMMP/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
       
     - name: Check the code with the LINTer
       run: ./gradlew lint
@@ -56,3 +66,10 @@ jobs:
     - name: Build the project
       run: ./gradlew assemble
       working-directory: ${{env.working-directory}}
+      
+    #- name: Cleanup Gradle Cache
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+    #run: |
+    #  rm -f ~/.gradle/caches/modules-2/modules-2.lock
+    #  rm -f ~/.gradle/caches/modules-2/gc.properties
