@@ -37,21 +37,26 @@ jobs:
       # setup JAVA verssion - check github what other version are available
       with:
        java-version: '11'
-      
-    # run commands, similar to local command line ,just needed to specify our working dir  
-    - name: Builds gradle wrapper file
-      run: gradle --build-cache wrapper
-      working-directory: ${{env.working-directory}}
-   
+       
+    - name: Gradle Wrapper Validation
+      uses: gradle/wrapper-validation-action@v1
+    
+    # use the cache before run any caching comand
     - name: Cache Gradle packages
       uses: actions/cache@v2
       with:
         path: |
           ~/KotlinMMP/.gradle/caches
           ~/KotlinMMP/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/KotlinMMP/*.gradle*', '**/KotlinMMP/gradle-wrapper.properties') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
+          
+          
+    # run commands, similar to local command line ,just needed to specify our working dir  
+    - name: Builds gradle wrapper file
+      run: gradle --build-cache wrapper
+      working-directory: ${{env.working-directory}}
       
     - name: Check the code with the LINTer
       run: ./gradlew lint
