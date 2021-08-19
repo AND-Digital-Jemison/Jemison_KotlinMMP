@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI - Android / iOS build
+name: CI - Android build - Ubuntu runner
 
 # Controls when the workflow will run
 on:
@@ -39,21 +39,21 @@ jobs:
       with:
        java-version: '11'
     
-    # use the cache before run any caching comand
-    - name: Cache Gradle packages
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/KotlinMMP/.gradle/caches
-          ~/KotlinMMP/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/KotlinMMP/*.gradle*', '**/KotlinMMP/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-
+    # use the cache before run any caching command
+#     - name: Cache Gradle packages
+#       uses: actions/cache@v2
+#       with:
+#         path: |
+#           ~/KotlinMMP/.gradle/caches
+#           ~/KotlinMMP/.gradle/wrapper
+#         key: ${{ runner.os }}-gradle-${{ hashFiles('**/KotlinMMP/*.gradle*', '**/KotlinMMP/gradle-wrapper.properties') }}
+#         restore-keys: |
+#           ${{ runner.os }}-gradle-
           
           
     # run commands, similar to local command line ,just needed to specify our working dir  
     - name: Builds gradle wrapper file
-      run: gradle --build-cache wrapper
+      run: gradle wrapper
       working-directory: ${{env.working-directory}}
       
     # adding github gradle validator to validate created wrapper .jar file  
@@ -69,7 +69,7 @@ jobs:
       working-directory: ${{env.working-directory}}
       
     - name: Build the project
-      run: ./gradlew --build-cache assemble
+      run: ./gradlew assemble
       working-directory: ${{env.working-directory}}
       
     #- name: Cleanup Gradle Cache
