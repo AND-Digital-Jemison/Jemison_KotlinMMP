@@ -6,7 +6,6 @@ class InMemoryRepository : ITaskRepository {
         fun markDone() {
             done = true
         }
-
     }
 
     private var tasks = mutableListOf<Task>()
@@ -19,7 +18,7 @@ class InMemoryRepository : ITaskRepository {
     }
 
     override fun removeTask(s: String) {
-        tasks.removeIf { t -> t.taskName == s }
+        tasks.removeAll { t->t.taskName==s }
     }
 
     override fun markTaskAsDone(s: String) {
