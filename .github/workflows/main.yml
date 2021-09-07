@@ -59,6 +59,10 @@ jobs:
 #    # adding github gradle validator to validate created wrapper .jar file  
 #    - name: Gradle Wrapper Validation
 #      uses: gradle/wrapper-validation-action@v1
+
+    - name: Build
+      run: ./gradlew build
+      working-directory: ${{env.working-directory}}
       
     - name: Check the code with the LINTer
       run: ./gradlew lint
