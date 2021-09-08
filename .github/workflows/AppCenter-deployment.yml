@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI - Android App Center deployment
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  # will not run the action on specified files, so when updating readmes...
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    # set the runner - os that will be used to run the commands, check github actions for more OSes
+    #runs-on: macos-latest
+    runs-on: ubuntu-latest
+    
+    # set the working directory - we dont have project in git root dir but inside KotlinMMP
+    env:
+      working-directory: ./KotlinMMP
+      
+    steps:
+    # USES - uses alredy pre-defined github actions so they can be reused across other repos
+    # checkout our branch into the runner (OS)  or @v2 or @master
+    - uses: actions/checkout@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      
+      # setup JAVA verssion - check github what other version are available
+      with:
+       java-version: '11'
+       
+       
+    - name: build release
+      run: ./gradlew assembleRelease
+      working-directory: ${{env.working-directory}}
+      
+    - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: wzieba/Sample-App
+        token: ${{secrets.APP_CENTER_TOKEN}}
+        group: Testers
+        file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/app-release-unsigned.apk
+        notifyTesters: true
+        debug: false
+    
