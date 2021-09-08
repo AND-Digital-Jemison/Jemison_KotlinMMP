@@ -48,7 +48,7 @@ jobs:
       uses: wzieba/AppCenter-Github-Action@v1
       with:
         appName: wzieba/Sample-App
-        token: ${{secrets.APP_CENTER_TOKEN}}
+        token: ${{secrets.APP_CENTER_KEY}}
         group: Testers
         file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/app-release-unsigned.apk
         notifyTesters: true
