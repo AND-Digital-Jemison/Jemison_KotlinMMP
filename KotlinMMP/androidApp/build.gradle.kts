@@ -16,7 +16,7 @@ dependencies {
 
 }
 
-val appCenterKey: String = gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY")
+val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY") else "123"
 
 android {
     compileSdkVersion(31)
