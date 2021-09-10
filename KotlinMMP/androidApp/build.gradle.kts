@@ -16,7 +16,7 @@ dependencies {
 
 }
 
-val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY") else "\"123\""
+val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
 
 android {
     compileSdkVersion(31)
@@ -26,13 +26,14 @@ android {
         targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0"
+
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
         getByName("debug") {
-            buildConfigField("String", "APP_CENTER_KEY", appCenterKey)
+            buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
         }
     }
 }

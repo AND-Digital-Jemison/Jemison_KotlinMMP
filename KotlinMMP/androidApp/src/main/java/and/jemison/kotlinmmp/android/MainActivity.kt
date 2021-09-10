@@ -15,11 +15,14 @@ fun greet(): String {
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val appCenterKey = BuildConfig.APP_CENTER_KEY
+        val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
-        AppCenter.start(application, appCenterKey,
-         Analytics::class.java, Crashes::class.java)
-
+        if(appCenterKey != "noLocalKey") {
+            AppCenter.start(
+                application, appCenterKey,
+                Analytics::class.java, Crashes::class.java
+            )
+        }
         setContentView(R.layout.activity_main)
 
         val tv: TextView = findViewById(R.id.text_view)
