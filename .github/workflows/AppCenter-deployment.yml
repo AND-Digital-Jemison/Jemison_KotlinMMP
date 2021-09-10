@@ -56,7 +56,7 @@ jobs:
         appName: wzieba/Sample-App
         token: ${{secrets.APP_CENTER_KEY}}
         group: Testers
-        file: ${{env.working-directory}}/androidApp/build/outputs/apk/debug/androidApp-debug.apk
+        file: ${{env.working-directory}/androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk
         notifyTesters: true
         debug: false
     
