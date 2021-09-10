@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -14,6 +16,8 @@ dependencies {
 
 }
 
+val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
+
 android {
     compileSdkVersion(31)
     defaultConfig {
@@ -22,11 +26,14 @@ android {
         targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "APP_CENTER_KEY", "\"dave\"")
+        buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+        }
+        getByName("debug") {
+            buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
         }
     }
 }

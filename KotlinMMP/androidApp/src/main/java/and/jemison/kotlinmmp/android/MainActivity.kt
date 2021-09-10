@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         val data = ArrayList<ItemsViewModel>()
 
+
         for (i in 1..10){
             data.add(ItemsViewModel("Item " + i))
         }
@@ -27,9 +29,14 @@ class MainActivity : AppCompatActivity() {
         val adapter = CustomAdapter(data)
         recyclerView.adapter = adapter
 
-        AppCenter.start(application, BuildConfig.APP_CENTER_KEY,
-         Analytics::class.java, Crashes::class.java)
+        if(BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
+            val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
+            AppCenter.start(
+                application, appCenterKey,
+                Analytics::class.java, Crashes::class.java
+            )
+        }
         setContentView(R.layout.activity_main)
     }
 }
