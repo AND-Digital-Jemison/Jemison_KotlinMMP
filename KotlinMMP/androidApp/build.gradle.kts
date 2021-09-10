@@ -26,7 +26,7 @@ android {
         targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
     }
     buildTypes {
         getByName("release") {
