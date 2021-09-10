@@ -39,9 +39,15 @@ jobs:
       with:
        java-version: '11'
        
-       
-    - name: build release
+     # builds APK  
+    - name: build release package  (APK)
       run: ./gradlew assembleRelease
+      working-directory: ${{env.working-directory}}
+      
+      # builds AAB bundle
+      # default path (not MMP)    app/build/outputs/bundle/release
+    - name: build release bundle (AAB)
+      run: ./gradlew bundleRelease
       working-directory: ${{env.working-directory}}
       
     - name: upload artefact to App Center
@@ -50,7 +56,7 @@ jobs:
         appName: wzieba/Sample-App
         token: ${{secrets.APP_CENTER_KEY}}
         group: Testers
-        file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/app-release-unsigned.apk
+        file: ${{env.working-directory}}/androidApp/build/outputs/apk/debug/androidApp-debug.apk
         notifyTesters: true
         debug: false
     
