@@ -15,9 +15,10 @@ fun greet(): String {
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
-        if(appCenterKey != "noLocalKey") {
+        if(BuildConfig.APP_CENTER_KEY_LOCAL != null) {
+            val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
+
             AppCenter.start(
                 application, appCenterKey,
                 Analytics::class.java, Crashes::class.java
