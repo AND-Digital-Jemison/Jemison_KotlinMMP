@@ -78,6 +78,7 @@ jobs:
       with:
         amplify_command: publish
         amplify_env: gitci
+        amplify_cli_version: '5.5.0'
         project_dir: ./KotlinMMP
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
