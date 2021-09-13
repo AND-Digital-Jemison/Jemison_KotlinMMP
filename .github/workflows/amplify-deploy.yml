@@ -54,7 +54,7 @@ jobs:
       uses: ambientlight/amplify-cli-action@0.3.0
       with:
         amplify_command: add_env
-        amplify_env: github-ci-env
+        amplify_env: gitci
         amplify_cli_version: '5.5.0'
         project_dir: ./KotlinMMP
       env:
@@ -78,7 +78,7 @@ jobs:
       if: failure() || success()
       with:
         amplify_command: delete_env
-        amplify_env: github-ci-env
+        amplify_env: gitci
         amplify_cli_version: '5.5.0'
         project_dir: ./KotlinMMP
         delete_lock: false
