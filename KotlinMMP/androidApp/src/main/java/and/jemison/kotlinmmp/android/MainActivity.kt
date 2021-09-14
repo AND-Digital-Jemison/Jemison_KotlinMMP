@@ -37,6 +37,5 @@ class MainActivity : AppCompatActivity() {
                 Analytics::class.java, Crashes::class.java
             )
         }
-        setContentView(R.layout.activity_main)
     }
 }
