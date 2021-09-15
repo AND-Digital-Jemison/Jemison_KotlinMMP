@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(private val mList: List<ItemsViewModel>): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(private val mList: List<String>): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //inflates card view desing that holds list item
         val view = LayoutInflater.from(parent.context)
@@ -16,9 +16,9 @@ class CustomAdapter(private val mList: List<ItemsViewModel>): RecyclerView.Adapt
     //binds list items to a view
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ItemsViewModel = mList[position]
+        val task = mList[position]
         //sets text to text view from itemHolder
-        holder.textView.text = ItemsViewModel.text
+        holder.textView.text = task
     }
 
     //returns number of items in list
