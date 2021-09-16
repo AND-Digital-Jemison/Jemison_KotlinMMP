@@ -14,7 +14,7 @@ dependencies {
     var appCenterSdkVersion = "4.3.1"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
-    implementation("com.amplifyframework:core-kotlin:0.2.0")
+    implementation ("com.amplifyframework:core:1.24.0")
 
 }
 
