@@ -8,7 +8,6 @@
 *.ctxt
 
 # Amplify recommended ignore files
-amplify/team-provider-info.json
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/backend/amplify-meta.json
