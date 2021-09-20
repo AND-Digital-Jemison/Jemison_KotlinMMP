@@ -86,17 +86,17 @@ jobs:
         AWS_REGION: eu-west-2
       
     # remove created amplify environment
-    - name: undeploy test environment
-      uses: ambientlight/amplify-cli-action@0.3.0
-      # run even if previous step fails
-      if: failure() || success()
-      with:
-        amplify_command: delete_env
-        amplify_env: gitci
-        amplify_cli_version: '5.5.0'
-        project_dir: ./KotlinMMP
-        delete_lock: false
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION:  eu-west-2
+    # - name: undeploy test environment
+      # uses: ambientlight/amplify-cli-action@0.3.0
+      # # run even if previous step fails
+      # if: failure() || success()
+      # with:
+      #   amplify_command: delete_env
+      #   amplify_env: gitci
+      #   amplify_cli_version: '5.5.0'
+      #   project_dir: ./KotlinMMP
+      #   delete_lock: false
+      # env:
+      #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #   AWS_REGION:  eu-west-2
