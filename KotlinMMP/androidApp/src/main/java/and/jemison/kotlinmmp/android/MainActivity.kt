@@ -19,8 +19,7 @@ import com.amplifyframework.datastore.AWSDataStorePlugin
 import com.amplifyframework.api.aws.AWSApiPlugin
 import com.amplifyframework.datastore.generated.model.TASK
 import android.util.Log
-
-
+import com.google.android.play.core.tasks.Tasks
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,9 +42,19 @@ class MainActivity : AppCompatActivity() {
                 taskListData.addTask(todoTitle)
                 val adapter = CustomAdapter(taskListData.getAllTasks())
                 recyclerView.adapter = adapter
+
+                val task = TASK.builder()
+                    .name(todoTitle)
+                    .build()
+                Amplify.DataStore.save(task,
+                    { Log.i("MyAmplifyApp", "Saved a post") },
+                    { Log.e("MyAmplifyApp", "Save failed", it) }
+                )
+
                 taskText.text.clear()
             }
         }
+
 
         if(BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
             val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
