@@ -14,7 +14,12 @@ dependencies {
     var appCenterSdkVersion = "4.3.1"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
+
+
+    // Amplify plugins
     implementation ("com.amplifyframework:core:1.24.0")
+    implementation ("com.amplifyframework:aws-api:1.24.0")
+    implementation ("com.amplifyframework:aws-datastore:1.24.0")
 
 }
 
