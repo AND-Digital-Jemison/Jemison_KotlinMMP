@@ -31,18 +31,27 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val taskListData = TaskList(InMemoryRepository())
-
         val btnAddTodo = findViewById<Button>(R.id.btnAddTodo)
         val taskText = findViewById<EditText>(R.id.taskText)
+
+        Amplify.DataStore.query(TASK::class.java,
+            { tasks ->
+                val list: MutableList<String> = ArrayList()
+
+                while (tasks.hasNext()) {
+                    val task = tasks.next()
+                    list.add(task.name)
+                    Log.i("MyAmplifyApp", "Title: ${task.name}")
+                }
+                val adapter = CustomAdapter(list)
+                recyclerView.adapter = adapter
+            },
+            { Log.e("MyAmplifyApp", "Query failed", it) }
+        )
 
         btnAddTodo.setOnClickListener {
             val todoTitle = taskText.text.toString()
             if(todoTitle.isNotEmpty()) {
-                taskListData.addTask(todoTitle)
-                val adapter = CustomAdapter(taskListData.getAllTasks())
-                recyclerView.adapter = adapter
-
                 val task = TASK.builder()
                     .name(todoTitle)
                     .build()
