@@ -53,9 +53,9 @@ jobs:
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
-        appName: wzieba/Sample-App
+        appName: jon-earl/The Mobile App - android
         token: ${{secrets.APP_CENTER_KEY}}
-        group: Testers
+        group: Collaborators
         file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk
         notifyTesters: true
         debug: false
