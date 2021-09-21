@@ -16,8 +16,9 @@ class CustomAdapter(private val mList: List<String>): RecyclerView.Adapter<Custo
     //binds list items to a view
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Get the data model based on position
         val task = mList[position]
-        //sets text to text view from itemHolder
+        // Set item views based on your views and data model
         holder.textView.text = task
     }
 
