@@ -53,8 +53,8 @@ jobs:
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
-        appName: AND-Digital-Jemison/The-Mobile-App-android
-        token: ${{secrets.APP_CENTER_KEY}}
+        appName: jon.earl-and.digital/Jemison_KotlinMMP
+        token: aa8c3741-e437-497c-86f1-5356608ac269
         group: Testers
         file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk
         notifyTesters: true
