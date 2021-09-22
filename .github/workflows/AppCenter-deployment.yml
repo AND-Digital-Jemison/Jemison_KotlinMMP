@@ -58,5 +58,5 @@ jobs:
         group: Collaborators
         file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk
         notifyTesters: true
-        debug: false
+        debug: true
     
