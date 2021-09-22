@@ -28,9 +28,19 @@ android {
         versionName = "1.0"
         buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
     }
+    signingConfigs {
+        create("release") {
+            storeFile = file("../app-keystore.jks")
+            keyAlias = "app-key"
+            storePassword = project.property("storePw") as String?
+            keyPassword = project.property("keyPw") as String?
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
             buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
