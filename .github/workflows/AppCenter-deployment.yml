@@ -56,7 +56,7 @@ jobs:
         appName: AND-Digital-Jemison/The-Mobile-App-android
         token: ${{secrets.APP_CENTER_KEY}}
         group: Collaborators
-        file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk
+        file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
         notifyTesters: true
         debug: true
     
