@@ -41,13 +41,7 @@ jobs:
        
      # builds APK  
     - name: build release package  (APK)
-      run: ./gradlew assembleRelease
-      working-directory: ${{env.working-directory}}
-      
-      # builds AAB bundle
-      # default path (not MMP)    app/build/outputs/bundle/release
-    - name: build release bundle (AAB)
-      run: ./gradlew bundleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
+      run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
       working-directory: ${{env.working-directory}}
       
     - name: upload artefact to App Center
