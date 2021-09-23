@@ -32,8 +32,8 @@ android {
         create("release") {
             storeFile = file("../app-keystore.jks")
             keyAlias = "app-key"
-            storePassword = project.property("storePw") as String?
-            keyPassword = project.property("keyPw") as String?
+            storePassword = project.findProperty("storePw") as String?
+            keyPassword = project.findProperty("keyPw") as String?
         }
     }
 
