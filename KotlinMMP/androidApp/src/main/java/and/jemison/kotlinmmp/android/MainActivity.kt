@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val btnAddTodo = findViewById<Button>(R.id.btnAddTodo)
         val taskText = findViewById<EditText>(R.id.taskText)
 
+        btnAddTodo.text = "This has been changed!"
         btnAddTodo.setOnClickListener {
             val todoTitle = taskText.text.toString()
             if(todoTitle.isNotEmpty()) {
