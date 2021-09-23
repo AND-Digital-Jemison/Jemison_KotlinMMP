@@ -44,4 +44,12 @@ sdk install gradle
   ```zsh 
   gradle wrapper
   ```
+- For pod install run the command 
+```zsh 
+sudo gem install cocoapods
+  ```
+Then change the directory to iOSApp and run :
+```zsh 
+pod install
+  ```
  
