@@ -7,11 +7,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # will not run the action on specified files, so when updating readmes...
   push:
-    branches: [ main ]
+    branches: [ prod ]
     paths-ignore:
       - '**.md'
   pull_request:
-    branches: [ main ]
+    branches: [ prod ]
     paths-ignore:
       - '**.md'
 
