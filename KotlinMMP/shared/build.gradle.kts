@@ -6,6 +6,13 @@ plugins {
     id("com.android.library")
 }
 
+dependencies {
+    // Amplify plugins
+    implementation ("com.amplifyframework:core:1.24.0")
+    implementation ("com.amplifyframework:aws-api:1.24.0")
+    implementation ("com.amplifyframework:aws-datastore:1.24.0")
+}
+
 version = "1.0"
 
 kotlin {

@@ -7,7 +7,7 @@
   "frontend": "android",
   "android": {
     "config": {
-      "ResDir": "shared/src/commonMain/res"
+      "ResDir": "shared/src/main/res"
     }
   }
 }
