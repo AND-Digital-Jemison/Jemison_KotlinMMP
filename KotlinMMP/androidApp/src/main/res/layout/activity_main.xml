@@ -12,21 +12,21 @@
         android:layout_height="611dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/helloTextBox"
             android:layout_width="286dp"
             android:layout_height="96dp"
             android:layout_marginTop="43dp"
-            android:text="Hello World!" />
+            android:text="@string/helloWorld" />
 
         <TextView
             android:id="@+id/greetingsTextBox"
             android:layout_width="286dp"
             android:layout_height="96dp"
-            android:text="Greetings" />
+            android:text="@string/greetings" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
