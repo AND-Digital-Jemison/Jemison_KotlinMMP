@@ -48,8 +48,13 @@ jobs:
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
-      run: ./gradlew connectedAndroidTest
-      working-directory: ${{env.working-directory}}
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 30
+        target: default
+        arch: x86
+        profile: Pixel 2
+        script: ./gradlew connectedCheck --stacktrace
        
     # builds APK  
     - name: build release package  (APK)
