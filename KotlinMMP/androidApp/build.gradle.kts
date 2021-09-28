@@ -12,6 +12,7 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.test.ext:junit-ktx:1.1.3")
 
     val appCenterSdkVersion = "4.3.1"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
@@ -31,6 +32,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -51,4 +53,10 @@ android {
             buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
         }
     }
+
+    dependencies {
+        androidTestImplementation("androidx.test:runner:1.4.0")
+        androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    }
+
 }

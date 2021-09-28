@@ -4,41 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="visible">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="611dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="5"
-        tools:listitem="@layout/card_view_design"
-        />
+        tools:layout_editor_absoluteX="1dp">
 
-    <EditText
-        android:id="@+id/taskText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Todo Title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnAddTodo"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/helloTextBox"
+            android:layout_width="286dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="43dp"
+            android:text="Hello World!" />
 
-    <Button
-        android:id="@+id/btnAddTodo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Task"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnDeleteDoneTodos" />
+        <TextView
+            android:id="@+id/greetingsTextBox"
+            android:layout_width="286dp"
+            android:layout_height="96dp"
+            android:text="Greetings" />
 
-    <Button
-        android:id="@+id/btnDeleteDoneTodos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Task"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

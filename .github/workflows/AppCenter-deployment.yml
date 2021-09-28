@@ -7,11 +7,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # will not run the action on specified files, so when updating readmes...
   push:
-    branches: [ prod ]
+    branches: [ main ]
     paths-ignore:
       - '**.md'
   pull_request:
-    branches: [ prod ]
+    branches: [ main ]
     paths-ignore:
       - '**.md'
 
@@ -43,8 +43,12 @@ jobs:
       run: ./gradlew lint
       working-directory: ${{env.working-directory}}
       
-    - name: Tests the project
+    - name: Unit tests
       run: ./gradlew test
+      working-directory: ${{env.working-directory}}
+
+    - name: Platform tests
+      run: ./gradlew connectedAndroidTest
       working-directory: ${{env.working-directory}}
        
     # builds APK  
