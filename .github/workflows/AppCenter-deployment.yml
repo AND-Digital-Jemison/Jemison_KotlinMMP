@@ -54,6 +54,7 @@ jobs:
         target: default
         arch: x86
         profile: Pixel 2
+        run: sudo lsof -i -P | grep LISTEN
         script: ./gradlew connectedCheck --stacktrace
        
     # builds APK  
