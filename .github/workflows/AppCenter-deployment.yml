@@ -48,7 +48,7 @@ jobs:
       # run: sudo lsof -i -P | grep LISTEN
       # run: adb devices
       # run: ~/Library/Android/sdk/platform-tools/adb
-      run: pwd && ls -la
+      run: ls / && cd /home && ls && cd work && ls
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
