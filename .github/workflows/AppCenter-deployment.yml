@@ -46,7 +46,12 @@ jobs:
 
     - name: touch
       #run: touch ~/.android/repositories.cfg
-      run: ls -la ~
+      #run: ls -la ~
+      run: mkdir ~/.android
+      working-directory: ${{env.working-directory}}
+
+    - name: touch 2
+      run: touch ~/.android/repositories.cfg
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
