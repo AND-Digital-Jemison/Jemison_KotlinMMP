@@ -41,26 +41,35 @@ jobs:
 
     - name: Check the code with the LINTer
       #run: ./gradlew lint
-      # run: rm -rf /usr/local/lib/android/sdk/ndk-bundle # <==  removes warnings
       run: ls
       working-directory: ${{env.working-directory}}
 
-    - name: touch
-      #run: touch ~/.android/repositories.cfg
-      #run: ls -la ~
+    - name: emulator-5554 error - Remove ndk-bundle folder
+      # this makes it point to the correct ndk folder
+      run: rm -rf /usr/local/lib/android/sdk/ndk-bundle
+      working-directory: ${{env.working-directory}}
+
+    - name: emulator-5554 error - Create .android folder
+      # requires ~/.android/repositories.cfg files
+      # https://stackoverflow.com/questions/68300009/warning-failed-to-find-package-system-imagesandroid-30google-apis-playstore
       run: mkdir ~/.android
       working-directory: ${{env.working-directory}}
 
-    - name: touch 2
+    - name: emulator-5554 error - Create cfg file
+      # requires ~/.android/repositories.cfg files
+      # https://stackoverflow.com/questions/68300009/warning-failed-to-find-package-system-imagesandroid-30google-apis-playstore
       run: touch ~/.android/repositories.cfg
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
       # run: ./gradlew test
-      run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
+      run: /usr/bin/sh -c \sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
+      # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
+      # below line works but when sdkmanager path is run as \sdkmanager in ./gradlew connectedCheck script creates continue-on-error:
+      # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 30
