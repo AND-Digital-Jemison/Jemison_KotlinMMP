@@ -46,7 +46,8 @@ jobs:
       
     - name: Unit tests
       # run: ./gradlew test
-      run: /usr/local/lib/android/sdk/platform-tools/adb devices
+      # run: /usr/local/lib/android/sdk/platform-tools/adb devices
+      run: ls -la
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
