@@ -45,8 +45,8 @@ jobs:
       working-directory: ${{env.working-directory}}
 
     - name: touch
-        run: touch /home/runner/.android/repositories.cfg
-        working-directory: ${{env.working-directory}}
+      run: touch /home/runner/.android/repositories.cfg
+      working-directory: ${{env.working-directory}}
 
     - name: Unit tests
       # run: ./gradlew test
