@@ -40,11 +40,13 @@ jobs:
        java-version: '11'
 
     - name: Check the code with the LINTer
-      run: ./gradlew lint
+      #run: ./gradlew lint
+      run: ls -la /usr/local/lib/android/sdk
       working-directory: ${{env.working-directory}}
       
     - name: Unit tests
-      run: ./gradlew test
+      # run: ./gradlew test
+      run: pwd
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
