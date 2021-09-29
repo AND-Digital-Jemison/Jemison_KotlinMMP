@@ -72,9 +72,9 @@ jobs:
       run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       working-directory: ${{env.working-directory}}
 
-        - name: emulator-5554 error - list available adb devices
-          run: /usr/local/lib/android/sdk/platform-tools/adb devices
-          working-directory: ${{env.working-directory}}
+    - name: emulator-5554 error - list available adb devices
+      run: /usr/local/lib/android/sdk/platform-tools/adb devices
+      working-directory: ${{env.working-directory}}
 
     - name: Platform tests
       # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
