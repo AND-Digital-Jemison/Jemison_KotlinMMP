@@ -21,8 +21,9 @@ dependencies {
 
 
 android {
-    compileSdk = 31
 
+    compileSdk = 31
+    ndkVersion = "21.4.7075529"
     val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
 
     defaultConfig {
