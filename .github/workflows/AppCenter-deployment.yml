@@ -45,7 +45,8 @@ jobs:
       
     - name: Unit tests
       # run: ./gradlew test
-      run: sudo lsof -i -P | grep LISTEN
+      # run: sudo lsof -i -P | grep LISTEN
+      run: adb devices
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
