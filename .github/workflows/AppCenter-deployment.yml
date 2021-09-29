@@ -45,7 +45,8 @@ jobs:
       working-directory: ${{env.working-directory}}
 
     - name: touch
-      run: touch ~/.android/repositories.cfg
+      #run: touch ~/.android/repositories.cfg
+      run: ls -la ~
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
