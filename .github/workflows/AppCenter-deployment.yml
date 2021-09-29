@@ -44,7 +44,8 @@ jobs:
       working-directory: ${{env.working-directory}}
       
     - name: Unit tests
-      run: ./gradlew test
+      # run: ./gradlew test
+      run: sudo lsof -i -P | grep LISTEN
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
@@ -54,7 +55,6 @@ jobs:
         target: default
         arch: x86
         profile: Pixel 2
-        run: sudo lsof -i -P | grep LISTEN
         script: ./gradlew connectedCheck --stacktrace
        
     # builds APK  
