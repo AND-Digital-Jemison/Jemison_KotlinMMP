@@ -41,12 +41,13 @@ jobs:
 
     - name: Check the code with the LINTer
       #run: ./gradlew lint
-      run: ls -la /usr/local/lib/android/sdk/ndk
+      #run: ls -la /usr/local/lib/android/sdk/ndk
+      run: rm -rf /usr/local/lib/android/sdk/ndk-bundle
       working-directory: ${{env.working-directory}}
       
     - name: Unit tests
       # run: ./gradlew test
-      run: pwd
+      run: ls -la /usr/local/lib/android/sdk
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
