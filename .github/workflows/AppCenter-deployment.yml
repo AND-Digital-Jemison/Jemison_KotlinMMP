@@ -40,8 +40,7 @@ jobs:
        java-version: '11'
 
     - name: Check the code with the LINTer
-      #run: ./gradlew lint
-      run: ls
+      run: ./gradlew lint
       working-directory: ${{env.working-directory}}
 
     - name: emulator-5554 error - Remove ndk-bundle folder
@@ -62,13 +61,15 @@ jobs:
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
-      # run: ./gradlew test
-      run: /usr/bin/sh -c \sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
-      # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
+      run: ./gradlew test
+      working-directory: ${{env.working-directory}}
+
+    - name: emulator-5554 error - run sdkmanager
+      # below line works but when sdkmanager path is run as \sdkmanager in Platform tests below by ./gradlew connectedCheck script creates error
+      run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
-      # below line works but when sdkmanager path is run as \sdkmanager in ./gradlew connectedCheck script creates continue-on-error:
       # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       uses: reactivecircus/android-emulator-runner@v2
       with:
