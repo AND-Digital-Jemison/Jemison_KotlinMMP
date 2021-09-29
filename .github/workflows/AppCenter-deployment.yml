@@ -47,7 +47,8 @@ jobs:
       # run: ./gradlew test
       # run: sudo lsof -i -P | grep LISTEN
       # run: adb devices
-      run: ~/Library/Android/sdk/platform-tools/adb
+      # run: ~/Library/Android/sdk/platform-tools/adb
+      run: pwd && ls -la
       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
