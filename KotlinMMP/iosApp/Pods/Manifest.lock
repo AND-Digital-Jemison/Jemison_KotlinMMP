@@ -1,0 +1,30 @@
+PODS:
+  - AppCenter (4.3.0):
+    - AppCenter/Analytics (= 4.3.0)
+    - AppCenter/Crashes (= 4.3.0)
+  - AppCenter/Analytics (4.3.0):
+    - AppCenter/Core
+  - AppCenter/Core (4.3.0)
+  - AppCenter/Crashes (4.3.0):
+    - AppCenter/Core
+  - shared (1.0)
+
+DEPENDENCIES:
+  - AppCenter
+  - shared (from `../shared`)
+
+SPEC REPOS:
+  trunk:
+    - AppCenter
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
+  shared: 29346581d099b8843a69aab157c4d0577c3c8287
+
+PODFILE CHECKSUM: 7272db9b499283da4afcd850a936535901d03b10
+
+COCOAPODS: 1.11.2
