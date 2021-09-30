@@ -21,8 +21,8 @@ on:
 jobs:
   build:
     # set the runner - os that will be used to run the commands, check github actions for more OSes
-    #runs-on: macos-latest
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+    #runs-on: ubuntu-latest
     
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
@@ -40,37 +40,34 @@ jobs:
        java-version: '11'
 
     - name: Check the code with the LINTer
-      # run: ./gradlew lint
-      run: ls
+      run: ./gradlew lint
       working-directory: ${{env.working-directory}}
 
-    - name: emulator-5554 error - Remove ndk-bundle folder, Create .android folder, Create cfg file
-      # this makes it point to the correct ndk folder
-      run: rm -rf /usr/local/lib/android/sdk/ndk-bundle && mkdir ~/.android && touch ~/.android/repositories.cfg
-      working-directory: ${{env.working-directory}}
+#     - name: emulator-5554 error - Remove ndk-bundle folder, Create .android folder, Create cfg file
+#       # this makes it point to the correct ndk folder
+#       run: rm -rf /usr/local/lib/android/sdk/ndk-bundle && mkdir ~/.android && touch ~/.android/repositories.cfg
+#       working-directory: ${{env.working-directory}}
 
-    - name: Unit tests
-      run: ./gradlew test
-      working-directory: ${{env.working-directory}}
+#     - name: Unit tests
+#       run: ./gradlew test
+#       working-directory: ${{env.working-directory}}
 
-    - name: emulator-5554 error - run sdkmanager
-      # below line works but when sdkmanager path is run as \sdkmanager in Platform tests below by ./gradlew connectedCheck script creates error
-      run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
-      working-directory: ${{env.working-directory}}
+#     - name: emulator-5554 error - run sdkmanager
+#       # below line works but when sdkmanager path is run as \sdkmanager in Platform tests below by ./gradlew connectedCheck script creates error
+#       run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
+#       working-directory: ${{env.working-directory}}
 
-    - name: emulator-5554 error - list available adb devices
-      run: /usr/local/lib/android/sdk/platform-tools/adb devices
-      working-directory: ${{env.working-directory}}
+#     - name: emulator-5554 error - list available adb devices
+#       run: /usr/local/lib/android/sdk/platform-tools/adb devices
+#       working-directory: ${{env.working-directory}}
 
     - name: Platform tests
       # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 30
-        target: default
-        arch: x86
-        profile: Pixel 2
-        script: ./gradlew connectedCheck --stacktrace
+        api-level: 29
+        script: ./gradlew connectedCheck
+        working-directory: ${{env.working-directory}}
        
     # builds APK  
     - name: build release package  (APK)
