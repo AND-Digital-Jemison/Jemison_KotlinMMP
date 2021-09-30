@@ -66,11 +66,8 @@ jobs:
       # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 25
-        target: default
-        arch: x86
-        profile: Pixel 2
-        script: ./gradlew connectedCheck --stacktrace
+        api-level: 29
+        script: ./gradlew connectedCheck
        
     # builds APK  
     - name: build release package  (APK)
