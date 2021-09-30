@@ -9,6 +9,9 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**.md'
+      - 'iosApp/**'
+      - 'shared/src/iosMain/**'
+      - 'shared/src/iosTest/**'
       
   workflow_dispatch:
   
@@ -99,7 +102,7 @@ jobs:
         appName: AND-Digital-Jemison/The-Mobile-App-android
         token: ${{secrets.APP_CENTER_KEY}}
         group: Collaborators
-        file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
+        file: androidApp-release.apk
         notifyTesters: true
         debug: true
     
