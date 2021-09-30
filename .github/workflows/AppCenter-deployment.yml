@@ -44,21 +44,23 @@ jobs:
       run: ls
       working-directory: ${{env.working-directory}}
 
-    - name: emulator-5554 error - Remove ndk-bundle folder
+    - name: emulator-5554 error - Remove ndk-bundle folder, Create .android folder, Create cfg file
       # this makes it point to the correct ndk folder
-      run: rm -rf /usr/local/lib/android/sdk/ndk-bundle
+      run: rm -rf /usr/local/lib/android/sdk/ndk-bundle && mkdir ~/.android && touch ~/.android/repositories.cfg
       working-directory: ${{env.working-directory}}
 
     - name: emulator-5554 error - Create .android folder
       # requires ~/.android/repositories.cfg files
       # https://stackoverflow.com/questions/68300009/warning-failed-to-find-package-system-imagesandroid-30google-apis-playstore
-      run: mkdir ~/.android
+      # run: mkdir ~/.android
+      run: ls
       working-directory: ${{env.working-directory}}
 
     - name: emulator-5554 error - Create cfg file
       # requires ~/.android/repositories.cfg files
       # https://stackoverflow.com/questions/68300009/warning-failed-to-find-package-system-imagesandroid-30google-apis-playstore
-      run: touch ~/.android/repositories.cfg
+      # run: touch ~/.android/repositories.cfg
+      run: ls
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
