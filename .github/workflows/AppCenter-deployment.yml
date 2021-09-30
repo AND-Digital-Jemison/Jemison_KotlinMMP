@@ -49,6 +49,7 @@ jobs:
 
   test:
     runs-on: macos-latest
+    needs: build
     steps:
     - name: Platform tests
       # run: /usr/bin/sh -c /usr/local/lib/android/sdk/tools/bin/sdkmanager --install 'system-images;android-30;default;x86' --channel=0 > /dev/null
@@ -60,6 +61,7 @@ jobs:
        
   final-build-upload:
     runs-on: ubuntu-latest
+    needs: test
     # builds APK 
     steps:
     - name: build release package  (APK)
