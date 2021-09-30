@@ -23,6 +23,5 @@ class MainActivityTest {
     @Test
     fun listGoesOverTheFold() {
         onView(withText("Hello World!")).check(matches(isDisplayed()))
-        Assert.assertTrue("This will fail", false)
     }
 }

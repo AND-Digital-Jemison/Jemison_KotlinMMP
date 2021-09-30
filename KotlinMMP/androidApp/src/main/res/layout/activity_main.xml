@@ -7,42 +7,26 @@
     android:layout_height="match_parent"
     android:visibility="visible">
 
-
-
     <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:background="#444444"
-        android:padding="25dp"
-        android:orientation="vertical">
+        android:layout_width="410dp"
+        android:layout_height="611dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="109dp"
-            android:padding="30dp"
-            android:text="All The Feels"
-            android:textColor="#6dffbf"
-            android:textSize="25dp" />
+            android:id="@+id/helloTextBox"
+            android:layout_width="286dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="43dp"
+            android:text="@string/helloWorld" />
 
-        <Button
-            android:id="@+id/btn_moodtracker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mood Tracker"
-
-            />
-
-
-        <Button
-            android:id="@+id/btn_coffeeroom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  Coffee Room  "
-
-            />
-
+        <TextView
+            android:id="@+id/greetingsTextBox"
+            android:layout_width="286dp"
+            android:layout_height="96dp"
+            android:text="@string/greetings" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
