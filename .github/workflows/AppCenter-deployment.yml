@@ -67,6 +67,7 @@ jobs:
       with:
         api-level: 29
         script: ./gradlew connectedCheck
+        working-directory: ${{env.working-directory}}
        
     # builds APK  
     - name: build release package  (APK)
