@@ -3,6 +3,8 @@ package and.jemison.kotlinmmp.android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import and.jemison.kotlinmmp.Greeting
+import android.content.Intent
+import android.widget.Button
 import android.widget.TextView
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
@@ -14,6 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var btn_moodtracker = findViewById(R.id.btn_moodtracker) as Button
+
+        btn_moodtracker.setOnClickListener {
+
+            val intent = Intent(this, onboarding_page :: class.java)
+            startActivity(intent)
+
+        }
         if (BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
             val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
@@ -23,6 +33,6 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        findViewById<TextView>(R.id.greetingsTextBox)?.setText(Greeting().greeting())
+        //findViewById<TextView>(R.id.greetingsTextBox)?.setText(Greeting().greeting())
     }
 }
