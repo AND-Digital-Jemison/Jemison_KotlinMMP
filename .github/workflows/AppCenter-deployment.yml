@@ -59,8 +59,7 @@ jobs:
     - name: emulator-5554 error - Create cfg file
       # requires ~/.android/repositories.cfg files
       # https://stackoverflow.com/questions/68300009/warning-failed-to-find-package-system-imagesandroid-30google-apis-playstore
-      # run: touch ~/.android/repositories.cfg
-      run: ls
+      run: touch ~/.android/repositories.cfg
       working-directory: ${{env.working-directory}}
 
     - name: Unit tests
