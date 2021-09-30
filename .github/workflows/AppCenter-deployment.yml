@@ -78,12 +78,21 @@ jobs:
     - name: build release bundle (AAB)
       run: ./gradlew bundleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
       working-directory: ${{env.working-directory}}
+      
+    - uses: actions/upload-artifact@v2
+      with:
+        name: release-apk
+        path: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
         
   upload-app-center:
     runs-on: ubuntu-latest
     needs: [build-package, unit-tests, ui-tests, linting]
       
     steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: release-apk
+    
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
