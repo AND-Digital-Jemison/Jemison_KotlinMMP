@@ -1,0 +1,72 @@
+name: CI - Android App Center deployment
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'iosApp/**'
+      - 'shared/src/iosMain/**'
+      - 'shared/src/iosTest/**'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'iosApp/**'
+      - 'shared/src/iosMain/**'
+      - 'shared/src/iosTest/**'
+      
+  workflow_dispatch:
+  
+env:
+  working-directory: ./KotlinMMP
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+      
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+       java-version: '11'
+     
+    - name: Build
+      run: ./gradlew build -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
+      working-directory: ${{env.working-directory}}
+
+    - name: Check the code with the LINTer
+      run: ./gradlew lint
+      working-directory: ${{env.working-directory}}
+
+  unit-tests:
+    runs-on: ubuntu-latest
+      
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+       java-version: '11'
+
+    - name: Unit tests
+      run: ./gradlew test
+      working-directory: ${{env.working-directory}}
+
+  ui-tests:
+    runs-on: macos-latest
+      
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+       java-version: '11'
+       
+    - name: Emulator tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: ./gradlew connectedCheck
+        working-directory: ${{env.working-directory}}
