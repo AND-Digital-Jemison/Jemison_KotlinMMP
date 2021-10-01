@@ -7,6 +7,7 @@ class AndroidGreetingTest {
 
     @Test
     fun greetingContainsAndroid() {
-        assertTrue("Check Android is mentioned", Greeting().greeting().contains("Android") )s
+        assertTrue("Check Android is mentioned", Greeting().greeting().contains("Android") )
+        assertTrue(false)
     }
 }
