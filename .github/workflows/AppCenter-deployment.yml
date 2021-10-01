@@ -101,4 +101,15 @@ jobs:
         file: androidApp-release.apk
         notifyTesters: true
         debug: true
+
+  push-to-prod:
+    runs-on: ubuntu-latest
+    needs: [upload-app-center]
+
+    steps:
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: prod
     
