@@ -1,13 +1,6 @@
-name: CI - Android App Center deployment
+name: Pull request Testing
 
 on:
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - '**.md'
-      - 'iosApp/**'
-      - 'shared/src/iosMain/**'
-      - 'shared/src/iosTest/**'
   pull_request:
     branches: [ main ]
     paths-ignore:
