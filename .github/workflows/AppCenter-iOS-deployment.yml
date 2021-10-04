@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # will not run the action on specified files, so when updating readmes...
   push:
-    branches: [main]
+    branches: [ios-Github-Actions]
     paths-ignore:
       - "**.md"
   pull_request:
@@ -26,37 +26,15 @@ jobs:
 
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
-      working-directory: ./KotlinMMP
+     XC_VERSION: ${{ '11.4' }}
+     XC_WORKSPACE: ${{ 'iosApp.xcworkspace' }}
+     XC_SCHEME: ${{ 'iosApp' }}
 
     steps:
-      # USES - uses alredy pre-defined github actions so they can be reused across other repos
-      # checkout our branch into the runner (OS)  or @v2 or @master
-      - uses: actions/checkout@v2
-      - name: Setup Java JDK
-        uses: actions/setup-java@v1
+    - name: Select latest Xcode
+      run: "sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app"
+    - uses: actions/checkout@v2
 
-        # setup JAVA verssion - check github what other version are available
-        with:
-          java-version: "11"
-
-      - name: Check the code with the LINTer
-        run: ./gradlew lint
-        working-directory: ${{env.working-directory}}
-
-      - name: Tests the project
-        run: ./gradlew test
-        working-directory: ${{env.working-directory}}
-
-      # builds APK
-      # - name: build release package  (APK)
-      #   run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-      #   working-directory: ${{env.working-directory}}
-
-      # builds AAB bundle
-      # default path (not MMP)    app/build/outputs/bundle/release
-      # - name: build release bundle (AAB)
-      #   run: ./gradlew bundleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-      #   working-directory: ${{env.working-directory}}
 
       # - name: upload artefact to App Center
       #   uses: wzieba/AppCenter-Github-Action@v1
