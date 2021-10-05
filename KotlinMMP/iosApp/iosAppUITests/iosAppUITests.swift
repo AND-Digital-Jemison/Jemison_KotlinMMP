@@ -22,5 +22,6 @@ class iosAppUITests: XCTestCase {
         let helloWorld = app.staticTexts["Hello, iOS 15.0!"]
         
         XCTAssert(helloWorld.exists)
+        XCTAssertTrue(false);
     }
 }
