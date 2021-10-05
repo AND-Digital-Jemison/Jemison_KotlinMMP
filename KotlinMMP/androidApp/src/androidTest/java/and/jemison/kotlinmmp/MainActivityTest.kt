@@ -28,7 +28,8 @@ class MainActivityTest {
         onView(withText("Doing good")).check(matches(isCompletelyDisplayed()))
         onView(withText("Doing not so good")).check(doesNotExist())
         onView(withId(R.id.view_pager)).perform(swipeLeft())
+        Thread.sleep(1000)
         onView(withText("Doing not so good")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing good")).check(doesNotExist());
+        onView(withText("Doing good")).check(doesNotExist())
     }
 }
