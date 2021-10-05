@@ -19,7 +19,7 @@ class iosAppUITests: XCTestCase {
     func testHelloIos() throws {
         // UI tests must launch the application that they test.
         app.launch()
-        let helloWorld = app.staticTexts["Hello, iOS 14.4!"]
+        let helloWorld = app.staticTexts["Hello, iOS 15.0!"]
         
         XCTAssert(helloWorld.exists)
     }
