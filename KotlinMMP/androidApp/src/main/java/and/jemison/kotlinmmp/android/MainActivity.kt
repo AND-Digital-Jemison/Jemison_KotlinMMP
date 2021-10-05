@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import and.jemison.kotlinmmp.Greeting
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
@@ -14,6 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
+        val fragments: ArrayList<Fragment> = arrayListOf(
+            Page2Fragment(), Page1Fragment()
+        )
+
+        val adapter = ViewPagerAdapter(fragments, this)
+        viewPager.adapter = adapter
+
         if (BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
             val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
@@ -23,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        findViewById<TextView>(R.id.greetingsTextBox)?.setText(Greeting().greeting())
+       // findViewById<TextView>(R.id.greetingsTextBox)?.setText(Greeting().greeting())
     }
+    
 }

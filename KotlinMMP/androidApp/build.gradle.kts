@@ -5,6 +5,7 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-android")
 }
 
 dependencies {
@@ -13,6 +14,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation("androidx.test.ext:junit-ktx:1.1.3")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     val appCenterSdkVersion = "4.3.1"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
@@ -58,6 +60,7 @@ android {
     dependencies {
         androidTestImplementation("androidx.test:runner:1.4.0")
         androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+        implementation("androidx.viewpager2:viewpager2:1.0.0")
     }
 
 }

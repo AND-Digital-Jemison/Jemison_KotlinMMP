@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="greetings">Greetings</string>
+    <string name="greetings">How are you doing today?</string>
+    <string name="howAreYou">How are you doing today?</string>
+    <string name="swipe">(Swipe to change mood)</string>
     <string name="helloWorld">Hello World!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submitText">This is completely anonymous.</string>
+    <string name="submitButton">Submit</string>
+    <string name="notGreat">Doing not so good</string>
+    <string name="good">Doing good</string>
+    <string name="great">Feeling great</string>
 </resources>
