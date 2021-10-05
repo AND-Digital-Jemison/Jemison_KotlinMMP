@@ -1,4 +1,4 @@
-name: CI - Android App Center deployment
+name: Deployment Pipeline
 
 on:
   push:
@@ -112,7 +112,7 @@ jobs:
         
   upload-app-center:
     runs-on: ubuntu-latest
-    needs: [build-package, unit-tests, ui-tests, linting]
+    needs: [build-package, unit-tests, android-ui-tests, ios-ui-tests, linting]
       
     steps:
     - uses: actions/download-artifact@v2
