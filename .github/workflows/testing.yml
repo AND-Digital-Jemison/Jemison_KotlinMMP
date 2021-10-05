@@ -43,7 +43,7 @@ jobs:
       run: ./gradlew test
       working-directory: ${{env.working-directory}}
 
-  ui-tests:
+  android-ui-tests:
     runs-on: macos-latest
       
     steps:
@@ -59,3 +59,20 @@ jobs:
         api-level: 29
         script: ./gradlew connectedCheck
         working-directory: ${{env.working-directory}}
+
+  ios-ui-tests:
+    runs-on: macos-latest
+      
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+       java-version: '11'
+       
+    - name: Emulator tests
+      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      working-directory: ${{env.working-directory}}/iosApp
+
