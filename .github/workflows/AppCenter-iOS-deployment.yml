@@ -50,6 +50,9 @@ jobs:
 #         cd ${{env.working-directory}}/iosApp
 #         pod install
 
+    - name: gradle version
+      run: gradle -v
+
     - uses: yukiarrr/ios-build-action@v1.4.0
       with:
         project-path: ${{env.working-directory}}/iosApp/iosApp.xcodeproj
