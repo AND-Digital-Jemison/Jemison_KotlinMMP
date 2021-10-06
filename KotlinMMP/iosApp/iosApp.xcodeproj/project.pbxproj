@@ -305,7 +305,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Jon Earl (K3S9UCJ559)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NXQ795GAN6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -315,6 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = and.jemison.mood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Mood Sampling (GC - Jemison)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -326,7 +328,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Jon Earl (K3S9UCJ559)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NXQ795GAN6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -336,6 +339,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = and.jemison.mood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Mood Sampling (GC - Jemison)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
