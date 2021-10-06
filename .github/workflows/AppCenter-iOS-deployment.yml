@@ -62,6 +62,7 @@ jobs:
         team-id: ${{ secrets.TEAM_ID }}
         workspace-path: ${{env.working-directory}}/iosApp/iosApp.xcworkspace 
         certificate-password: ${{ secrets.CERT_PASSWORD }}
+        export-method: development
 
 
       # - name: upload artefact to App Center
