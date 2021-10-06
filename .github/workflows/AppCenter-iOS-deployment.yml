@@ -42,7 +42,7 @@ jobs:
        java-version: '11'
 
     - name: Gradle build
-      run: ./gradlew build
+      run: ./gradlew build -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
       working-directory: ${{env.working-directory}}
       
     - name: Pod install
