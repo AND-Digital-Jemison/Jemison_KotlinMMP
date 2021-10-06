@@ -35,6 +35,11 @@ jobs:
        
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+      
+    - name: Pod install
+      run: | 
+        cd ${{env.working-directory}}
+        pod install
 
     - uses: yukiarrr/ios-build-action@v1.4.0
       with:
