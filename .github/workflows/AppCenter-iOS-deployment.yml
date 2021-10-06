@@ -26,14 +26,18 @@ jobs:
 
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
-     XC_VERSION: ${{ '11.4' }}
-     XC_WORKSPACE: ${{ 'iosApp.xcworkspace' }}
-     XC_SCHEME: ${{ 'iosApp' }}
+      working-directory: ./KotlinMMP/iosApp
 
     steps:
-    - name: Select latest Xcode
-      run: "sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app"
-    - uses: actions/checkout@v2
+      - uses: yukiarrr/ios-build-action@v1.4.0
+        with:
+          project-path: iosApp.xcodeproj
+          p12-key-base64: ${{ secrets.P12_KEY_BASE64 }}
+          p12-cer-base64: ${{ secrets.P12_CER_BASE64 }}
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          team-id: ${{ secrets.TEAM_ID }}
+          workspace-path: iosApp.xcworkspace # optional
 
 
       # - name: upload artefact to App Center
