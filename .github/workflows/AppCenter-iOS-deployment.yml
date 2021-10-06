@@ -56,3 +56,27 @@ jobs:
         file: iosApp.ipa
         notifyTesters: true
         debug: true
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: release-apk
+        path: iosApp.ipa
+
+  upload-app-center:
+    runs-on: ubuntu-latest
+    needs: [build]
+      
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: release-apk
+    
+     - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: AND-Digital-Jemison/The-Mobile-App-android
+        token: ${{secrets.APP_CENTER_KEY_IOS}}
+        group: Collaborators
+        file: iosApp.ipa
+        notifyTesters: true
+        debug: true
