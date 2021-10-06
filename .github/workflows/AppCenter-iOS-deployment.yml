@@ -31,12 +31,12 @@ jobs:
     steps:
       - uses: yukiarrr/ios-build-action@v1.4.0
         with:
-          project-path: iosApp.xcodeproj
+          project-path: ${{env.working-directory}}/iosApp.xcodeproj
           p12-base64: ${{ secrets.P12_CER_BASE64 }}
           mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
-          workspace-path: iosApp.xcworkspace # optional
+          workspace-path: ${{env.working-directory}}/iosApp.xcworkspace 
           certificate-password: ${{ secrets.CERT_PASSWORD }}
 
 
