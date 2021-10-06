@@ -71,7 +71,7 @@ jobs:
       with:
         name: release-apk
     
-     - name: upload artefact to App Center
+    - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
         appName: AND-Digital-Jemison/The-Mobile-App-android
