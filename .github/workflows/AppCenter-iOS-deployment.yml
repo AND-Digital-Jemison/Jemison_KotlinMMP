@@ -21,7 +21,7 @@ on:
 jobs:
   build:
     # set the runner - os that will be used to run the commands, check github actions for more OSes
-    runs-on: macos-11.1
+    runs-on: macos-11
     #runs-on: ubuntu-latest
 
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
