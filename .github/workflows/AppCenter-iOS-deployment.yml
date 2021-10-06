@@ -64,7 +64,7 @@ jobs:
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
-        appName: AND-Digital-Jemison/The-Mobile-App-android
+        appName: AND-Digital-Jemison/The-Mobile-App-iOS
         token: ${{secrets.APP_CENTER_KEY_IOS}}
         group: Collaborators
         file: iosApp.ipa
