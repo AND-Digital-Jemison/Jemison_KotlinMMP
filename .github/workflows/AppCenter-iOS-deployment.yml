@@ -21,23 +21,30 @@ on:
 jobs:
   build:
     # set the runner - os that will be used to run the commands, check github actions for more OSes
-    runs-on: macos-latest
+    runs-on: macos-11
     #runs-on: ubuntu-latest
 
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
       working-directory: KotlinMMP/iosApp
-
+      
     steps:
-      - uses: yukiarrr/ios-build-action@v1.4.0
-        with:
-          project-path: ${{env.working-directory}}/iosApp.xcodeproj
-          p12-base64: ${{ secrets.P12_CER_BASE64 }}
-          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
-          team-id: ${{ secrets.TEAM_ID }}
-          workspace-path: ${{env.working-directory}}/iosApp.xcworkspace 
-          certificate-password: ${{ secrets.CERT_PASSWORD }}
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+       
+   # - name: Force xcode 13
+    #  run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+
+    - uses: yukiarrr/ios-build-action@v1.4.0
+      with:
+        project-path: ${{env.working-directory}}/iosApp.xcodeproj
+        p12-base64: ${{ secrets.P12_CER_BASE64 }}
+        mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+        code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+        team-id: ${{ secrets.TEAM_ID }}
+        workspace-path: ${{env.working-directory}}/iosApp.xcworkspace 
+        certificate-password: ${{ secrets.CERT_PASSWORD }}
 
 
       # - name: upload artefact to App Center
