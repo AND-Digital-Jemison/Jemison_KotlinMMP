@@ -36,19 +36,19 @@ jobs:
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
       
-    - name: Setup Java JDK
-      uses: actions/setup-java@v1
-      with:
-       java-version: '11'
+#     - name: Setup Java JDK
+#       uses: actions/setup-java@v1
+#       with:
+#        java-version: '11'
 
-    - name: Gradle build
-      run: ./gradlew build -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-      working-directory: ${{env.working-directory}}
+#     - name: Gradle build
+#       run: ./gradlew build -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
+#       working-directory: ${{env.working-directory}}
       
-    - name: Pod install
-      run: | 
-        cd ${{env.working-directory}}/iosApp
-        pod install
+#     - name: Pod install
+#       run: | 
+#         cd ${{env.working-directory}}/iosApp
+#         pod install
 
     - uses: yukiarrr/ios-build-action@v1.4.0
       with:
