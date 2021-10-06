@@ -1,11 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI - iOS App Center deployment
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  # will not run the action on specified files, so when updating readmes...
   push:
     branches: [ios-Github-Actions]
     paths-ignore:
@@ -15,16 +10,12 @@ on:
     paths-ignore:
       - "**.md"
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   build:
-    # set the runner - os that will be used to run the commands, check github actions for more OSes
     runs-on: macos-11
-    #runs-on: ubuntu-latest
 
-    # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
       working-directory: KotlinMMP
       
@@ -41,15 +32,6 @@ jobs:
       with:
        java-version: '16'
 
-#     - name: Gradle build
-#       run: ./gradlew build -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-#       working-directory: ${{env.working-directory}}
-      
-#     - name: Pod install
-#       run: | 
-#         cd ${{env.working-directory}}/iosApp
-#         pod install
-
     - name: gradle version
       run: gradle -v
 
@@ -63,14 +45,14 @@ jobs:
         workspace-path: ${{env.working-directory}}/iosApp/iosApp.xcworkspace 
         certificate-password: ${{ secrets.CERT_PASSWORD }}
         export-method: development
+        output-path: iosApp.ipa
 
-
-      # - name: upload artefact to App Center
-      #   uses: wzieba/AppCenter-Github-Action@v1
-      #   with:
-      #     appName: AND-Digital-Jemison/The-Mobile-App-android
-      #     token: ${{secrets.APP_CENTER_KEY_IOS}}
-      #     group: Collaborators
-      #     file: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
-      #     notifyTesters: true
-      #     debug: true
+    - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: AND-Digital-Jemison/The-Mobile-App-android
+        token: ${{secrets.APP_CENTER_KEY_IOS}}
+        group: Collaborators
+        file: iosApp.ipa
+        notifyTesters: true
+        debug: true
