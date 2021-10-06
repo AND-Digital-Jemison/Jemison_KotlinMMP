@@ -38,6 +38,7 @@ jobs:
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
           workspace-path: iosApp.xcworkspace # optional
+          certificate-password: ${{ secrets.CERT_PASSWORD }}
 
 
       # - name: upload artefact to App Center
