@@ -26,7 +26,7 @@ jobs:
 
     # set the working directory - we dont have project in git root dir but inside KotlinMMP
     env:
-      working-directory: ./KotlinMMP/iosApp
+      working-directory: KotlinMMP/iosApp
 
     steps:
       - uses: yukiarrr/ios-build-action@v1.4.0
