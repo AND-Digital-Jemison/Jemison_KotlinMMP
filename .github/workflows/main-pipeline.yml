@@ -2,7 +2,7 @@ name: Deployment Pipeline
 
 on:
   push:
-    branches: [ ios-Github-Actions ]
+    branches: [main]
     paths-ignore:
       - '**.md'
       
