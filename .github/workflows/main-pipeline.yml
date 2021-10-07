@@ -148,7 +148,7 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: release-apk
+        name: release-ipa
         path: iosApp.ipa
 
   ios-upload-app-center:
@@ -158,7 +158,7 @@ jobs:
     steps:
     - uses: actions/download-artifact@v2
       with:
-        name: release-apk
+        name: release-ipa
     
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
