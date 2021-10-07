@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greeting()
+    @State private var selectedTab = "great"
 
 	var body: some View {
         Text("How are you doing today?")
@@ -12,14 +12,17 @@ struct ContentView: View {
             .lineSpacing(10)
        
         ZStack{
-            TabView {
+            TabView(selection: $selectedTab) {
                     Text("I'm Great!")
                         .foregroundColor(.green)
                         .bold()
-        
+                        .tag("great")
+
                     Text("I'm not Well")
                         .foregroundColor(.red)
                         .bold()
+                        .tag("not well")
+                      
             
                  }
             .padding(.top,-100)
@@ -28,7 +31,7 @@ struct ContentView: View {
         }
      
         Button("Submit") {
-            print("Button tapped!")
+            print("Button tapped!", selectedTab)
         }
             .padding()
             .background(Color.black)
