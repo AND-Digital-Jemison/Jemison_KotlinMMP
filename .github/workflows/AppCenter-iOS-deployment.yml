@@ -66,7 +66,7 @@ jobs:
       with:
         appName: AND-Digital-Jemison/The-Mobile-App-iOS
         token: ${{secrets.APP_CENTER_KEY_IOS}}
-        group: Members;Collaborators
+        group: Collaborators;Testers
         file: iosApp.ipa
         notifyTesters: true
         debug: true
