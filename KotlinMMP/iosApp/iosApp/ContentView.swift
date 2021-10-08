@@ -10,6 +10,8 @@ struct ContentView: View {
             .multilineTextAlignment(.center)
             .padding(.top, 100)
             .lineSpacing(10)
+        Text("(Swipe to change mood)")
+            .multilineTextAlignment(.center)
        
         ZStack{
             TabView(selection: $selectedTab) {
@@ -30,6 +32,9 @@ struct ContentView: View {
          
         }
      
+        Text("This is anonymous")
+            .multilineTextAlignment(.center)
+        
         Button("Submit") {
             print("Button tapped! Response selected: ", selectedTab)
         }
