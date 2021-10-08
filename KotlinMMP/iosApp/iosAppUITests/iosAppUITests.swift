@@ -30,7 +30,6 @@ class iosAppUITests: XCTestCase {
     func testSwipeRightToLeft() throws {
         app.launch()
         app.swipeLeft()
-        sleep(10)
         
         let question = app.staticTexts["How are you doing today?"]
         let answer = app.staticTexts["Not so great"]
@@ -45,7 +44,6 @@ class iosAppUITests: XCTestCase {
         app.swipeLeft()
         app.swipeRight()
         
-        sleep(10)
         let question = app.staticTexts["How are you doing today?"]
         let answer = app.staticTexts["Doing Great!"]
         let button = app.buttons.element
