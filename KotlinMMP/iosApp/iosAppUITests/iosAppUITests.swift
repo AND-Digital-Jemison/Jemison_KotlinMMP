@@ -40,6 +40,7 @@ class iosAppUITests: XCTestCase {
     
     func testSwipeLeftToRight() throws {
         app.launch()
+        app.swipeLeft()
         app.swipeRight()
         let question = app.staticTexts["How are you doing today?"]
         let answer = app.staticTexts["Doing Great!"]
