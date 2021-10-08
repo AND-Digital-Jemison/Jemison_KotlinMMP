@@ -1,4 +1,4 @@
-package and.jemison.kotlinmmp.android.util
+package utils
 
 import androidx.test.espresso.idling.CountingIdlingResource
 
@@ -17,6 +17,4 @@ object EspressoIdlingResource {
             countingIdlingResource.decrement()
         }
     }
-
-
 }

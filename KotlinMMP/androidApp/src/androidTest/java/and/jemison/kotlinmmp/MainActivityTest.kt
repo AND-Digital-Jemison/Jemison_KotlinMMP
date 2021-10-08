@@ -17,12 +17,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import and.jemison.kotlinmmp.android.util.EspressoIdlingResource
-import android.view.View
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
+import utils.EspressoIdlingResource
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
-import org.hamcrest.Matcher
 
 //import android.R
 
@@ -33,7 +29,6 @@ class MainActivityTest {
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
-
 
     @Before
     fun registerIdlingResource(){
@@ -47,11 +42,10 @@ class MainActivityTest {
 
     @Test
     fun showMoodOptions() {
-        onView(withText("Doing good")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing not so good")).check(doesNotExist())
+        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
+        onView(withText("Doing Great!")).check(doesNotExist())
         onView(withId(R.id.view_pager)).perform(swipeLeft())
-        Thread.sleep(200)
-        onView(withText("Doing not so good")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing good")).check(doesNotExist())
+        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
+        onView(withText("Not So Great!")).check(doesNotExist())
     }
 }
