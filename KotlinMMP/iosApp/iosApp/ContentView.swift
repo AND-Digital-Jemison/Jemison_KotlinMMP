@@ -13,15 +13,15 @@ struct ContentView: View {
        
         ZStack{
             TabView(selection: $selectedTab) {
-                    Text("I'm Great!")
+                    Text("Doing Great!")
                         .foregroundColor(.green)
                         .bold()
                         .tag("great")
 
-                    Text("I'm not Well")
+                    Text("Not so great")
                         .foregroundColor(.red)
                         .bold()
-                        .tag("not well")
+                        .tag("not great")
                       
             
                  }
@@ -31,7 +31,7 @@ struct ContentView: View {
         }
      
         Button("Submit") {
-            print("Button tapped!", selectedTab)
+            print("Button tapped! Response selected: ", selectedTab)
         }
             .padding()
             .background(Color.black)

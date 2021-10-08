@@ -16,11 +16,36 @@ class iosAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testHelloIos() throws {
+    func testLaunchPageInformation() throws {
         // UI tests must launch the application that they test.
         app.launch()
-        let helloWorld = app.staticTexts["Hello, iOS 15.0!"]
-        
-        XCTAssert(helloWorld.exists)
+        let question = app.staticTexts["How are you doing today?"]
+        let answer = app.staticTexts["Doing Great!"]
+        let button = app.buttons.element
+        XCTAssert(question.exists)
+        XCTAssert(answer.exists)
+        XCTAssert(button.exists)
+    }
+    
+    func testSwipeRightToLeft() throws {
+        app.launch()
+        app.swipeLeft()
+        let question = app.staticTexts["How are you doing today?"]
+        let answer = app.staticTexts["Not so great"]
+        let button = app.buttons.element
+        XCTAssert(question.exists)
+        XCTAssert(answer.exists)
+        XCTAssert(button.exists)
+    }
+    
+    func testSwipeLeftToRight() throws {
+        app.launch()
+        app.swipeRight()
+        let question = app.staticTexts["How are you doing today?"]
+        let answer = app.staticTexts["Doing Great!"]
+        let button = app.buttons.element
+        XCTAssert(question.exists)
+        XCTAssert(answer.exists)
+        XCTAssert(button.exists)
     }
 }
