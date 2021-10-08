@@ -3,6 +3,7 @@ package and.jemison.kotlinmmp.android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import and.jemison.kotlinmmp.Greeting
+import and.jemison.kotlinmmp.android.util.EspressoIdlingResource
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         val fragments: ArrayList<Fragment> = arrayListOf(
-            Page2Fragment(), Page1Fragment()
+            MoodOption("Good", ""), MoodOption("Bad", "")
         )
 
         val adapter = ViewPagerAdapter(fragments, this)

@@ -15,6 +15,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation("androidx.test.ext:junit-ktx:1.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.test.espresso:espresso-idling-resource:3.4.0")
+    implementation("androidx.test.espresso:espresso-contrib:3.4.0")
 
     val appCenterSdkVersion = "4.3.1"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
