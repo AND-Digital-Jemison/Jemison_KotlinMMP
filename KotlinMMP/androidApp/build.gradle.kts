@@ -12,7 +12,7 @@ dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     implementation("androidx.test.ext:junit-ktx:1.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.test.espresso:espresso-idling-resource:3.4.0")

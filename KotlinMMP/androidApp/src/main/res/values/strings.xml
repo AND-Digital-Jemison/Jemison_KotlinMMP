@@ -5,4 +5,5 @@
     <string name="submitText">This is completely anonymous.</string>
     <string name="submitButton">Submit</string>
     <string name="defaultMood">I\'m Okay</string>
+    <string name="mood_image">Mood image</string>
 </resources>

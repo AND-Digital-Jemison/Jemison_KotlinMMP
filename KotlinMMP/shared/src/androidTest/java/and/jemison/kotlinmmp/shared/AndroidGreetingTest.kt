@@ -1,4 +1,4 @@
-package and.jemison.kotlinmmp
+package and.jemison.kotlinmmp.shared
 
 import org.junit.Assert.assertTrue
 import org.junit.Test
