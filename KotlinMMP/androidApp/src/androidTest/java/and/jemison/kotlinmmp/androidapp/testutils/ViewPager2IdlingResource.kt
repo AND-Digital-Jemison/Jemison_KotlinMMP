@@ -1,3 +1,5 @@
+package and.jemison.kotlinmmp.androidapp.testutils
+
 import androidx.test.espresso.IdlingResource
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2

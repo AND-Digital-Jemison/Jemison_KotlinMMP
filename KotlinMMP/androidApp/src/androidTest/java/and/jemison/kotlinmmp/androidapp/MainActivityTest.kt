@@ -1,8 +1,6 @@
-package and.jemison.kotlinmmp
+package and.jemison.kotlinmmp.androidapp
 
-import ViewPager2IdlingResource
-import and.jemison.kotlinmmp.android.MainActivity
-import and.jemison.kotlinmmp.android.R
+import and.jemison.kotlinmmp.androidapp.testutils.ViewPager2IdlingResource
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.swipeLeft

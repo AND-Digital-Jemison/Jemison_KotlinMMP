@@ -1,4 +1,4 @@
-package and.jemison.kotlinmmp.android
+package and.jemison.kotlinmmp.androidapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

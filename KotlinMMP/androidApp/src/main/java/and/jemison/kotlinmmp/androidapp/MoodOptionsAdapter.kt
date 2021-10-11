@@ -1,9 +1,8 @@
-package and.jemison.kotlinmmp.android
+package and.jemison.kotlinmmp.androidapp
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-
 
 class MoodOptionsAdapter (
     private val items: ArrayList<Fragment>,

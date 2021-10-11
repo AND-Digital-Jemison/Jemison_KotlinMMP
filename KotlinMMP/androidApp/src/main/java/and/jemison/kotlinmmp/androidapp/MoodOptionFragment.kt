@@ -1,4 +1,4 @@
-package and.jemison.kotlinmmp.android
+package and.jemison.kotlinmmp.androidapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
