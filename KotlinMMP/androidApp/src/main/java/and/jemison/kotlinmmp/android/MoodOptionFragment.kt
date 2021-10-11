@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import utils.EspressoIdlingResource
 
 class MoodOptionFragment(private val text: String, private val colour: Int) : Fragment() {
     override fun onCreateView(
