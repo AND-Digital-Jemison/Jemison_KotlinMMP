@@ -1,26 +1,24 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.androidapp.databinding.MoodOptionBinding
+import and.jemison.kotlinmmp.shared.Mood
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 
-class MoodOptionFragment(private val text: String, private val colour: Int) : Fragment() {
+class MoodOptionFragment(private val mood: Mood) : Fragment() {
+
+    private var _binding: MoodOptionBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.mood_option, container, false)
-        setMoodOption(view)
-
-        return view
-    }
-
-    private fun setMoodOption(view: View) {
-        val moodOption: TextView? = view.findViewById(R.id.moodOption)
-        moodOption?.text = this.text
-        moodOption?.setBackgroundColor(colour)
+    ): View {
+        _binding = MoodOptionBinding.inflate(inflater, container, false)
+        binding.mood = mood
+        return binding.root
     }
 }
