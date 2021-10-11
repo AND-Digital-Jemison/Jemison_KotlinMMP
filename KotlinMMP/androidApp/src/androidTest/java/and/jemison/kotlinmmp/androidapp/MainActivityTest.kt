@@ -30,7 +30,10 @@ class MainActivityTest {
     fun setUp() {
         activityRule.scenario.onActivity {
             viewPager2IdlingResource =
-                ViewPager2IdlingResource(it.findViewById(R.id.mood_options_view_pager), "viewPagerIdlingResource")
+                ViewPager2IdlingResource(
+                    it.findViewById(R.id.mood_options_view_pager),
+                    "viewPagerIdlingResource"
+                )
             IdlingRegistry.getInstance().register(viewPager2IdlingResource)
         }
     }
@@ -42,17 +45,29 @@ class MainActivityTest {
 
     @Test
     fun showMoodOptions() {
-        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing Great!")).check(doesNotExist())
+        checkGoodMoodDisplayed()
 
         onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
 
-        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Not So Great!")).check(doesNotExist())
+        checkBadMoodDisplayed()
 
         onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
 
-        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing Great!")).check(doesNotExist())
+        checkGoodMoodDisplayed()
+    }
+
+    private fun checkGoodMoodDisplayed() {
+        onView(withText(GOOD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
+        onView(withText(BAD_MOOD_TEXT)).check(doesNotExist())
+    }
+
+    private fun checkBadMoodDisplayed() {
+        onView(withText(BAD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
+        onView(withText(GOOD_MOOD_TEXT)).check(doesNotExist())
+    }
+
+    companion object {
+        private const val GOOD_MOOD_TEXT = "Doing Great!"
+        private const val BAD_MOOD_TEXT = "Not So Great!"
     }
 }
