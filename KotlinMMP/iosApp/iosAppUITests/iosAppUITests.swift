@@ -4,20 +4,11 @@ class iosAppUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app = XCUIApplication()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testLaunchPageInformation() throws {
-        // UI tests must launch the application that they test.
         app.launch()
         let question = app.staticTexts["How are you doing today?"]
         let answer = app.staticTexts["Doing Great!"]
@@ -27,28 +18,21 @@ class iosAppUITests: XCTestCase {
         XCTAssert(button.exists)
     }
     
-    func testSwipeRightToLeft() throws {
+    func testSwipe() throws {
         app.launch()
+        
+        let doingGreat = app.staticTexts["Doing Great!"]
+        XCTAssert(doingGreat.exists)
+        
         app.swipeLeft()
         
-        let question = app.staticTexts["How are you doing today?"]
-        let answer = app.staticTexts["Not so great"]
-        let button = app.buttons.element
-        XCTAssert(question.exists)
-        XCTAssert(answer.exists)
-        XCTAssert(button.exists)
-    }
-    
-    func testSwipeLeftToRight() throws {
-        app.launch()
-        app.swipeLeft()
+        let notSoGreat = app.staticTexts["Not so great"]
+        XCTAssert(notSoGreat.exists)
+        XCTAssert(!doingGreat.exists)
+        
         app.swipeRight()
         
-        let question = app.staticTexts["How are you doing today?"]
-        let answer = app.staticTexts["Doing Great!"]
-        let button = app.buttons.element
-        XCTAssert(question.exists)
-        XCTAssert(answer.exists)
-        XCTAssert(button.exists)
+        XCTAssert(doingGreat.exists)
+        XCTAssert(!notSoGreat.exists)
     }
 }
