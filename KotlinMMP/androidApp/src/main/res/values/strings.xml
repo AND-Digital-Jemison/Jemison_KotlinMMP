@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="greetings">Greetings</string>
-    <string name="helloWorld">Hello World!</string>
+    <string name="howAreYou">How are you doing today?</string>
+    <string name="swipe">(Swipe to change mood)</string>
+    <string name="submitText">This is completely anonymous.</string>
+    <string name="submitButton">Submit</string>
+    <string name="defaultMood">I\'m Okay</string>
 </resources>

@@ -2,7 +2,7 @@ name: Deployment Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
       - '**.md'
       
@@ -14,11 +14,12 @@ env:
 jobs:
   linting:
     runs-on: ubuntu-latest
-      
+
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
@@ -30,11 +31,12 @@ jobs:
 
   unit-tests:
     runs-on: ubuntu-latest
-      
+
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
@@ -51,6 +53,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
@@ -61,15 +64,43 @@ jobs:
       with:
         api-level: 29
         script: ./gradlew connectedCheck
+        disable-animations: true
         working-directory: ${{env.working-directory}}
 
-  ios-ui-tests:
-    runs-on: 	macos-11
+  android-build-package:
+    runs-on: ubuntu-latest
       
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+       java-version: '11'
+
+    - name: build release package  (APK)
+      run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
+      working-directory: ${{env.working-directory}}
+
+    - name: build release bundle (AAB)
+      run: ./gradlew bundleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
+      working-directory: ${{env.working-directory}}
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: release-apk
+        path: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
+
+  ios-ui-tests:
+    runs-on: 	macos-11
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
@@ -77,45 +108,78 @@ jobs:
        
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
-       
+
     - name: Emulator tests
       run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       working-directory: ${{env.working-directory}}/iosApp
-       
-  build-package:
-    runs-on: ubuntu-latest
+      
+  ios-build-package:
+    runs-on: macos-11
+
+    env:
+      working-directory: KotlinMMP
       
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+     
+    - name: Force xcode 13
+      run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+      
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
-       java-version: '11'
-       
-    - name: build release package  (APK)
-      run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-      working-directory: ${{env.working-directory}}
-    
-    - name: build release bundle (AAB)
-      run: ./gradlew bundleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
-      working-directory: ${{env.working-directory}}
-      
+       java-version: '16'
+
+    - name: gradle version
+      run: gradle -v
+
+    - uses: yukiarrr/ios-build-action@v1.4.0
+      with:
+        project-path: ${{env.working-directory}}/iosApp/iosApp.xcodeproj
+        p12-base64: ${{ secrets.P12_CER_BASE64 }}
+        mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+        code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+        team-id: ${{ secrets.TEAM_ID }}
+        workspace-path: ${{env.working-directory}}/iosApp/iosApp.xcworkspace 
+        certificate-password: ${{ secrets.CERT_PASSWORD }}
+        export-method: development
+        output-path: iosApp.ipa
+
     - uses: actions/upload-artifact@v2
       with:
-        name: release-apk
-        path: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
-        
-  upload-app-center:
+        name: release-ipa
+        path: iosApp.ipa
+
+  ios-upload-app-center:
     runs-on: ubuntu-latest
-    needs: [build-package, unit-tests, android-ui-tests, ios-ui-tests, linting]
+    needs: [linting, unit-tests, android-ui-tests, android-build-package, ios-ui-tests, ios-build-package]
       
     steps:
     - uses: actions/download-artifact@v2
       with:
-        name: release-apk
+        name: release-ipa
     
+    - name: upload artefact to App Center
+      uses: wzieba/AppCenter-Github-Action@v1
+      with:
+        appName: AND-Digital-Jemison/The-Mobile-App-iOS
+        token: ${{secrets.APP_CENTER_KEY_IOS}}
+        group: Collaborators
+        file: iosApp.ipa
+        notifyTesters: true
+        debug: true
+
+  android-upload-app-center:
+    runs-on: ubuntu-latest
+    needs: [linting, unit-tests, android-ui-tests, android-build-package, ios-ui-tests, ios-build-package]
+
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: release-apk
+
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
       with:
@@ -128,7 +192,7 @@ jobs:
 
   push-to-prod:
     runs-on: ubuntu-latest
-    needs: [upload-app-center]
+    needs: [android-upload-app-center, ios-upload-app-center]
 
     steps:
     - uses: actions/checkout@v2
@@ -136,7 +200,7 @@ jobs:
         ref: ${{ github.head_ref }}
         persist-credentials: false 
         fetch-depth: 0      
-          
+
     - uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
