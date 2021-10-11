@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val moodOptionsPage: ViewPager2 = findViewById(R.id.view_pager)
+        val moodOptionsPage: ViewPager2 = findViewById(R.id.mood_options_view_pager)
+
         val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
             MoodOptionFragment("Not So Great!", ContextCompat.getColor(applicationContext, R.color.red)),
             MoodOptionFragment("Doing Great!", ContextCompat.getColor(applicationContext, R.color.yellow))

@@ -35,7 +35,7 @@
             android:gravity="center"/>
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
+            android:id="@+id/mood_options_view_pager"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             app:layout_constraintEnd_toEndOf="parent"

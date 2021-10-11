@@ -15,13 +15,8 @@ class MoodOptionFragment(private val text: String, private val colour: Int) : Fr
     ): View? {
         val view = inflater.inflate(R.layout.mood_option, container, false)
         setMoodOption(view)
-        EspressoIdlingResource.increment()
-        return view
-    }
 
-    override fun onResume() {
-        super.onResume()
-        EspressoIdlingResource.decrement()
+        return view
     }
 
     private fun setMoodOption(view: View) {
