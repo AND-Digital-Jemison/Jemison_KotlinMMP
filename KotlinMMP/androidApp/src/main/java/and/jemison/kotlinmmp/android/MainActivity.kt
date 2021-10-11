@@ -13,17 +13,6 @@ import com.microsoft.appcenter.crashes.Crashes;
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val moodOptionsPage: ViewPager2 = findViewById(R.id.mood_options_view_pager)
-
-        val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
-            MoodOptionFragment("Not So Great!", ContextCompat.getColor(applicationContext, R.color.red)),
-            MoodOptionFragment("Doing Great!", ContextCompat.getColor(applicationContext, R.color.yellow))
-        )
-
-        val adapter = MoodOptionsAdapter(moodOptionFragments, this)
-        moodOptionsPage.adapter = adapter
 
         if (BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
             val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
@@ -33,5 +22,20 @@ class MainActivity : AppCompatActivity() {
                 Analytics::class.java, Crashes::class.java
             )
         }
+
+        setContentView(R.layout.activity_main)
+        renderMoodOptionsPager()
+    }
+
+    private fun renderMoodOptionsPager() {
+        val moodOptionsPager: ViewPager2 = findViewById(R.id.mood_options_view_pager)
+
+        val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
+            MoodOptionFragment("Not So Great!", ContextCompat.getColor(applicationContext, R.color.red)),
+            MoodOptionFragment("Doing Great!", ContextCompat.getColor(applicationContext, R.color.yellow))
+        )
+
+        val adapter = MoodOptionsAdapter(moodOptionFragments, this)
+        moodOptionsPager.adapter = adapter
     }
 }
