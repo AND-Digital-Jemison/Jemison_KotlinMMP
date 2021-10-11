@@ -1,4 +1,4 @@
-package and.jemison.kotlinmmp
+package and.jemison.kotlinmmp.shared
 
 import kotlin.test.Test
 import kotlin.test.assertTrue
