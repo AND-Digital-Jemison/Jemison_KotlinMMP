@@ -74,6 +74,6 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
        
     - name: Emulator tests
-      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=14.1,name=iPhone 12' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | tee xcodebuild.log | xcpretty
+      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | tee xcodebuild.log | xcpretty
       working-directory: ${{env.working-directory}}/iosApp
 
