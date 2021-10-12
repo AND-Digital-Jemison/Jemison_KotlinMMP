@@ -66,6 +66,9 @@ jobs:
     steps:
     - name: gradle-version
       run: gradle -v
+      
+    - name: macos-version
+      run: sw_vers
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
