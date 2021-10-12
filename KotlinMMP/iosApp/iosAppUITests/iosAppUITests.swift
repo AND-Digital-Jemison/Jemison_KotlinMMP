@@ -18,17 +18,17 @@ class iosAppUITests: XCTestCase {
         XCTAssert(button.exists)
     }
     
-    func testSwipeRightToLeft() throws {
-           app.launch()
-           app.swipeLeft()
-           
-           let question = app.staticTexts["How are you doing today?"]
-           let answer = app.staticTexts["Not so great"]
-           let button = app.buttons.element
-           XCTAssert(question.exists)
-           XCTAssert(answer.exists)
-           XCTAssert(button.exists)
-       }
+//    func testSwipeRightToLeft() throws {
+//           app.launch()
+//           app.swipeLeft()
+//           
+//           let question = app.staticTexts["How are you doing today?"]
+//           let answer = app.staticTexts["Not so great"]
+//           let button = app.buttons.element
+//           XCTAssert(question.exists)
+//           XCTAssert(answer.exists)
+//           XCTAssert(button.exists)
+//       }
        
        func testSwipeLeftToRight() throws {
            app.launch()
