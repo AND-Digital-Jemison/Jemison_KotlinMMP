@@ -30,13 +30,9 @@ class iosAppUITests: XCTestCase {
         XCTAssert(notSoGreat.exists)
         XCTAssert(!doingGreat.exists)
         
-        print("Not so great: " + String(notSoGreat.exists))
-        
         app.swipeRight()
         
         XCTAssert(doingGreat.exists)
         XCTAssert(!notSoGreat.exists)
-        
-        print("Doing great: " + String(doingGreat.exists))
     }
 }
