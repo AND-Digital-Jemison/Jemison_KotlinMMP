@@ -1,11 +1,10 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
-
-
 plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-android")
+    kotlin("kapt")
 }
 
 dependencies {
@@ -28,7 +27,10 @@ android {
 
     compileSdk = 31
     ndkVersion = "21.4.7075529"
-    val appCenterKey: String = if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") != null) gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
+    val appCenterKey: String =
+        if (gradleLocalProperties(rootDir).getProperty("APP_CENTER_KEY_LOCAL") != null) gradleLocalProperties(
+            rootDir
+        ).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
 
     defaultConfig {
         applicationId = "and.jemison.kotlinmmp.android"
@@ -57,6 +59,10 @@ android {
         getByName("debug") {
             buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
         }
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 
     dependencies {

@@ -1,8 +1,9 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.shared.Mood
+import and.jemison.kotlinmmp.shared.MoodService
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.microsoft.appcenter.AppCenter
@@ -30,9 +31,9 @@ class MainActivity : AppCompatActivity() {
     private fun renderMoodOptionsPager() {
         val moodOptionsPager: ViewPager2 = findViewById(R.id.mood_options_view_pager)
 
+        val moodService = MoodService()
         val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
-            MoodOptionFragment("Not So Great!", ContextCompat.getColor(applicationContext, R.color.red)),
-            MoodOptionFragment("Doing Great!", ContextCompat.getColor(applicationContext, R.color.yellow))
+            MoodOptionFragment(moodService.getMood(0)), MoodOptionFragment(moodService.getMood(1))
         )
 
         val adapter = MoodOptionsAdapter(moodOptionFragments, this)
