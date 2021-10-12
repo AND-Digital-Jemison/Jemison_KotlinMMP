@@ -22,19 +22,14 @@ class iosAppUITests: XCTestCase {
            app.launch()
         
            let greatText = app.staticTexts["Doing Great!"]
-           let question = app.staticTexts["How are you doing today?"]
-        
            XCTAssert(greatText.exists)
-           XCTAssert(question.exists)
         
            greatText.swipeLeft()
-
            let notGreatText = app.staticTexts["Not so great"]
-           
            XCTAssert(notGreatText.exists)
         
            notGreatText.swipeRight()
-        
            XCTAssert(greatText.exists)
        }
+
 }

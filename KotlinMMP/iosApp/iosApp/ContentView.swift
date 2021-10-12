@@ -12,25 +12,22 @@ struct ContentView: View {
             .lineSpacing(10)
         Text("(Swipe to change mood)")
             .multilineTextAlignment(.center)
+       
+        TabView(selection: $selectedTab) {
+                Text("Doing Great!")
+                    .foregroundColor(.green)
+                    .bold()
+                    .tag("great")
 
-        ZStack{
-            TabView(selection: $selectedTab) {
-                    Text("Doing Great!")
-                        .foregroundColor(.green)
-                        .bold()
-                        .tag("great")
+                Text("Not so great")
+                    .foregroundColor(.red)
+                    .bold()
+                    .tag("not great")
 
-                    Text("Not so great")
-                        .foregroundColor(.red)
-                        .bold()
-                        .tag("not great")
-
-
-                 }
-            .padding(.top,-100)
-            .tabViewStyle( PageTabViewStyle())
 
         }
+        .padding(.top,-100)
+        .tabViewStyle( PageTabViewStyle())
 
         Text("This is anonymous")
             .multilineTextAlignment(.center)
