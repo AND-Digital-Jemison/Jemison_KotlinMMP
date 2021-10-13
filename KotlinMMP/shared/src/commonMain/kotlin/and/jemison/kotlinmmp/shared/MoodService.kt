@@ -5,8 +5,8 @@ class MoodService {
     val moodName = "GOOD_MOOD"
 
     private val moods = arrayOf(
-        Mood("Doing Great", "#2196F3", "rocket-up"),
-        Mood("Not So Great", "#FFEB3B", "rocket-down" )
+        Mood("Doing Great", "#FFFFFF", "rocket-up"),
+        Mood("Not So Great", "#FFFFFF", "rocket-down" )
     )
 
     fun getMood(id: Int): Mood {
