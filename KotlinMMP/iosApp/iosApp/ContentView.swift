@@ -14,8 +14,8 @@ struct ContentView: View {
             .multilineTextAlignment(.center)
        
         TabView(selection: $selectedTab) {
-            MoodTab(moodId: 0)
-            MoodTab(moodId: 1)
+            MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+            MoodTab(moodId: MoodService.Companion().BAD_MOOD)
         }
         .padding(.top,-100)
         .tabViewStyle( PageTabViewStyle())

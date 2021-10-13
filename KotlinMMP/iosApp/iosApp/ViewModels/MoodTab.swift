@@ -14,5 +14,4 @@ struct MoodTab : View{
             .bold()
             .tag("great")
         }
-    
 }
