@@ -12,6 +12,8 @@ import com.microsoft.appcenter.crashes.Crashes
 
 
 class MainActivity : AppCompatActivity() {
+    private val moodService = MoodService()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,9 +33,8 @@ class MainActivity : AppCompatActivity() {
     private fun renderMoodOptionsPager() {
         val moodOptionsPager: ViewPager2 = findViewById(R.id.mood_options_view_pager)
 
-        val moodService = MoodService()
         val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
-            MoodOptionFragment(moodService.getMood(0)), MoodOptionFragment(moodService.getMood(1))
+            MoodOptionFragment(moodService.getMood(MoodService.GOOD_MOOD)), MoodOptionFragment(moodService.getMood(MoodService.BAD_MOOD))
         )
 
         val adapter = MoodOptionsAdapter(moodOptionFragments, this)
