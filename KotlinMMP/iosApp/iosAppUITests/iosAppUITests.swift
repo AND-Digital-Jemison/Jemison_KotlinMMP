@@ -25,7 +25,7 @@ class iosAppUITests: XCTestCase {
            XCTAssert(greatText.exists)
         
            greatText.swipeLeft()
-           let notGreatText = app.staticTexts["Not so great"]
+           let notGreatText = app.staticTexts["Not So Great!"]
            XCTAssert(notGreatText.exists)
         
            notGreatText.swipeRight()
