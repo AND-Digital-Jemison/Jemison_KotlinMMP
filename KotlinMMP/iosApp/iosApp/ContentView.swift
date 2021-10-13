@@ -14,17 +14,8 @@ struct ContentView: View {
             .multilineTextAlignment(.center)
        
         TabView(selection: $selectedTab) {
-                Text("Doing Great!")
-                    .foregroundColor(.green)
-                    .bold()
-                    .tag("great")
-
-                Text("Not so great")
-                    .foregroundColor(.red)
-                    .bold()
-                    .tag("not great")
-
-
+            MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+            MoodTab(moodId: MoodService.Companion().BAD_MOOD)
         }
         .padding(.top,-100)
         .tabViewStyle( PageTabViewStyle())
