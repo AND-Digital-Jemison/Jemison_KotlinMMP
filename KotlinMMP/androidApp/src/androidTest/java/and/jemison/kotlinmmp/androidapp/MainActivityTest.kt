@@ -67,7 +67,7 @@ class MainActivityTest {
     }
 
     companion object {
-        private const val GOOD_MOOD_TEXT = "Doing Great!"
-        private const val BAD_MOOD_TEXT = "Not So Great!"
+        private const val GOOD_MOOD_TEXT = "Doing Great"
+        private const val BAD_MOOD_TEXT = "Not So Great"
     }
 }
