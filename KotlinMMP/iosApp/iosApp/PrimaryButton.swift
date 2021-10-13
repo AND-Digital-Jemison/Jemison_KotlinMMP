@@ -12,5 +12,6 @@ struct PrimaryButton: ButtonStyle {
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.gray.opacity(0.3))
             .border(Color.white)
+            .font(Font.custom("Poppins-ExtraLight", size: 20))
     }
 }

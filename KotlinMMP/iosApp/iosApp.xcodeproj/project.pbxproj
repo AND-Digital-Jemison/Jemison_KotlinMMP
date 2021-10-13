@@ -14,6 +14,9 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		EC0FB6202715DC3400D2DD1F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0FB61F2715DC3300D2DD1F /* Media.xcassets */; };
 		EC0FB6582715ED7D00D2DD1F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */; };
+		EC13BDCD2716E42D00241B6F /* Tahu!.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCC2716E42D00241B6F /* Tahu!.ttf */; };
+		EC13BDD02716E6B200241B6F /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */; };
+		EC13BDD22716E6C800241B6F /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		D10B657AFBD56E8D94C7C695 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EC0FB61F2715DC3300D2DD1F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		EC13BDCC2716E42D00241B6F /* Tahu!.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tahu!.ttf"; sourceTree = "<group>"; };
+		EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */,
+				EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */,
+				EC13BDCC2716E42D00241B6F /* Tahu!.ttf */,
 				824C89302705DB8E007D3DB8 /* iosApp.entitlements */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -210,6 +219,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC13BDD22716E6C800241B6F /* Poppins-ExtraLight.ttf in Resources */,
+				EC13BDCD2716E42D00241B6F /* Tahu!.ttf in Resources */,
+				EC13BDD02716E6B200241B6F /* Poppins-Bold.ttf in Resources */,
 				EC0FB6202715DC3400D2DD1F /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,6 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    
     @State private var selectedTab = "great"
 
 	var body: some View {
@@ -13,33 +12,28 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("How are you doing today?")
-                    .font(.largeTitle)
+                    .font(Font.custom("Poppins-Bold", size: 30))
                     .multilineTextAlignment(.center)
                     .padding(.top, 100)
                     .foregroundColor(.white)
                 
-                Text("(Swipe to change mood)")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                
                 TabView(selection: $selectedTab) {
                     VStack{
-                        Image("rocket")
+                        Image("rocket-up")
                             .resizable()
                             .scaledToFit()
                         Text("Doing Great")
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                            .font(Font.custom("Tahu!", size: 40))
                     }.tag("great")
                     
                     VStack{
-                        Image("rocket")
+                        Image("rocket-down")
                             .resizable()
                             .scaledToFit()
-                            .rotationEffect(.degrees(180))
                         Text("Not so great")
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                            .font(Font.custom("Tahu!", size: 40))
                             
                     }.tag("not great")
                 }
@@ -49,17 +43,12 @@ struct ContentView: View {
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
-//                }.padding()
-//                 .frame(minWidth: 0, maxWidth: .infinity)
-//                 .background(Color.gray.opacity(0.3))
-//                 .border(Color.white)
-//                 .cornerRadius(10)
-//                 .foregroundColor(.white)
                  
                 Text("This is anonymous")
                     .padding()
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
+                    .font(Font.custom("Poppins-ExtraLight", size: 16))
                     
             
                    
