@@ -2,34 +2,43 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    @State private var selectedTab = "great"
+    @State private var selectedTab = "Doing Great"
 
 	var body: some View {
-        Text("How are you doing today?")
-            .font(.largeTitle)
-            .multilineTextAlignment(.center)
-            .padding(.top, 100)
-            .lineSpacing(10)
-        Text("(Swipe to change mood)")
-            .multilineTextAlignment(.center)
-       
-        TabView(selection: $selectedTab) {
-            MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
-            MoodTab(moodId: MoodService.Companion().BAD_MOOD)
-        }
-        .padding(.top,-100)
-        .tabViewStyle( PageTabViewStyle())
+        ZStack() {
+            Image("background-purple")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("How are you doing today?")
+                    .font(Font.custom("Poppins-Bold", size: 30))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 100)
+                    .foregroundColor(.white)
 
-        Text("This is anonymous")
-            .multilineTextAlignment(.center)
+                TabView(selection: $selectedTab) {
+                    MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+                    MoodTab(moodId: MoodService.Companion().BAD_MOOD)
+                }
+                .padding(.top,-100)
+                .tabViewStyle( PageTabViewStyle())
 
-        Button("Submit") {
-            print("Button tapped! Response selected: ", selectedTab)
+                Button("SUBMIT") {
+                    print("Button tapped! Response selected: ", selectedTab)
+                }.buttonStyle(PrimaryButton())
+
+                Text("This is anonymous")
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .font(Font.custom("Poppins-ExtraLight", size: 16))
+
+
+
+            } .padding([.bottom, .leading, .trailing], 20)
         }
-            .padding()
-            .background(Color.black)
-            .foregroundColor(.white)
-            .cornerRadius(20)
+
 	}
         
 }

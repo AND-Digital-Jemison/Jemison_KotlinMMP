@@ -3,8 +3,8 @@ package and.jemison.kotlinmmp.shared
 class MoodService {
 
     private val moods = arrayOf(
-        Mood("Doing Great!", "#2196F3"),
-        Mood("Not So Great!", "#FFEB3B")
+        Mood("Doing Great", "#FFFFFF", "rocket-up"),
+        Mood("Not So Great", "#FFFFFF", "rocket-down" )
     )
 
     fun getMood(id: Int): Mood {

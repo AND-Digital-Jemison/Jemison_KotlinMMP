@@ -9,9 +9,13 @@ struct MoodTab : View{
     }
     
     var body: some View {
-        Text(mood.text)
-            .foregroundColor(Color(hex: mood.colour))
-            .bold()
-            .tag("great")
-        }
+        VStack{
+            Image(mood.image)
+                .resizable()
+                .scaledToFit()
+            Text(mood.text)
+                .foregroundColor(Color(hex: mood.colour))
+                .font(Font.custom("Tahu!", size: 40))
+        }.tag(mood.text)
+    }
 }
