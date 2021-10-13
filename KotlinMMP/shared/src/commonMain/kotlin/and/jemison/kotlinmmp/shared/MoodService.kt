@@ -2,8 +2,6 @@ package and.jemison.kotlinmmp.shared
 
 class MoodService {
 
-    val moodName = "GOOD_MOOD"
-
     private val moods = arrayOf(
         Mood("Doing Great!", "#2196F3"),
         Mood("Not So Great!", "#FFEB3B")
