@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    @State private var selectedTab = "great"
+    @State private var selectedTab = "Doing Great"
 
 	var body: some View {
         ZStack() {
@@ -16,26 +16,10 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(.top, 100)
                     .foregroundColor(.white)
-                
+
                 TabView(selection: $selectedTab) {
-                    VStack{
-                        Image("rocket-up")
-                            .resizable()
-                            .scaledToFit()
-                        Text("Doing Great")
-                            .foregroundColor(.white)
-                            .font(Font.custom("Tahu!", size: 40))
-                    }.tag("great")
-                    
-                    VStack{
-                        Image("rocket-down")
-                            .resizable()
-                            .scaledToFit()
-                        Text("Not so great")
-                            .foregroundColor(.white)
-                            .font(Font.custom("Tahu!", size: 40))
-                            
-                    }.tag("not great")
+                    MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+                    MoodTab(moodId: MoodService.Companion().BAD_MOOD)
                 }
                 .padding(.top,-100)
                 .tabViewStyle( PageTabViewStyle())
@@ -43,15 +27,15 @@ struct ContentView: View {
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
-                 
+
                 Text("This is anonymous")
                     .padding()
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
-                    
-            
-                   
+
+
+
             } .padding([.bottom, .leading, .trailing], 20)
         }
 
