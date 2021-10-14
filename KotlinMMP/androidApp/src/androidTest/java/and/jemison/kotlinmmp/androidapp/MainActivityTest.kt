@@ -16,6 +16,14 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import android.graphics.Bitmap
+
+import android.graphics.drawable.Drawable
+//import jdk.tools.jlink.internal.ImageFileCreator.resourceName
+import and.jemison.kotlinmmp.androidapp.testutils.DrawableMatcher
+import android.view.View
+import org.hamcrest.Matcher
+
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -42,17 +50,31 @@ class MainActivityTest {
 
     @Test
     fun showMoodOptions() {
-        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing Great!")).check(doesNotExist())
+        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
+
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
 
         onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
 
-        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Not So Great!")).check(doesNotExist())
+        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
+
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodnothappy)))
 
         onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
 
-        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Doing Great!")).check(doesNotExist())
+        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
+
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
+
     }
+
+    private fun withDrawable(resourceId: Int): Matcher<View?> {
+        return DrawableMatcher(resourceId)
+    }
+
+    fun noDrawable(): Matcher<View?> {
+        return DrawableMatcher(-1)
+    }
+
+
 }
