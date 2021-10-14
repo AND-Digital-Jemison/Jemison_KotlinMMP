@@ -18,7 +18,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
 
                 TabView(selection: $selectedTab) {
-                    MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+                    MoodTab(moodId:  MoodService.Companion().GOOD_MOOD).id("tab1")
                     MoodTab(moodId: MoodService.Companion().BAD_MOOD)
                 }
                 .id("tab")
