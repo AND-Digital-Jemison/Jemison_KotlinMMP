@@ -1,6 +1,5 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.shared.Mood
 import and.jemison.kotlinmmp.shared.MoodService
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         val moodOptionsPager: ViewPager2 = findViewById(R.id.mood_options_view_pager)
 
         val moodOptionFragments: ArrayList<Fragment> = arrayListOf(
-            MoodOptionFragment(moodService.getMood(MoodService.GOOD_MOOD)), MoodOptionFragment(moodService.getMood(MoodService.BAD_MOOD))
+            MoodOptionFragment(moodService.getMood(MoodService.GOOD_MOOD), R.drawable.moodhappy),
+            MoodOptionFragment(moodService.getMood(MoodService.BAD_MOOD), R.drawable.moodnothappy)
         )
 
         val adapter = MoodOptionsAdapter(moodOptionFragments, this)

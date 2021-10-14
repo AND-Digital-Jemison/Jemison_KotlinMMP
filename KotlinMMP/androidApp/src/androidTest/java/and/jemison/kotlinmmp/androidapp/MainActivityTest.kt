@@ -17,6 +17,11 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+import and.jemison.kotlinmmp.androidapp.testutils.DrawableMatcher
+import android.view.View
+import org.hamcrest.Matcher
+
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityTest {
@@ -51,6 +56,7 @@ class MainActivityTest {
 
         checkBadMoodDisplayed()
 
+
         onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
 
         checkGoodMoodDisplayed()
@@ -59,15 +65,26 @@ class MainActivityTest {
     private fun checkGoodMoodDisplayed() {
         onView(withText(GOOD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
         onView(withText(BAD_MOOD_TEXT)).check(doesNotExist())
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
     }
 
     private fun checkBadMoodDisplayed() {
         onView(withText(BAD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
         onView(withText(GOOD_MOOD_TEXT)).check(doesNotExist())
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodnothappy)))
     }
 
     companion object {
         private const val GOOD_MOOD_TEXT = "Doing Great"
         private const val BAD_MOOD_TEXT = "Not So Great"
     }
+
+    private fun withDrawable(resourceId: Int): Matcher<View?> {
+        return DrawableMatcher(resourceId)
+    }
+
+    fun noDrawable(): Matcher<View?> {
+        return DrawableMatcher(-1)
+    }
+
 }
