@@ -83,7 +83,6 @@ android {
         androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
         implementation("androidx.viewpager2:viewpager2:1.0.0")
 
-        // Jetpack Compose dependencies
         implementation("androidx.activity:activity-compose:1.3.1")
         implementation("androidx.compose.material:material:1.0.3")
         implementation("androidx.compose.animation:animation:1.0.3")
