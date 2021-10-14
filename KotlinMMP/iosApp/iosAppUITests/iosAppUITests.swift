@@ -19,22 +19,23 @@ class iosAppUITests: XCTestCase {
     }
     
     func testSwipe() throws {
-           app.launch()
-           
-           let greatImage = app.images.element(matching: .image, identifier: "rocket-up")
-           let greatText = app.staticTexts["Doing Great"]
-           XCTAssert(greatText.exists)
-           XCTAssert(greatImage.exists)
+        app.launch()
+        let view = app.collectionViews.element
         
-           greatImage.swipeLeft()
-           let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
-           let notGreatText = app.staticTexts["Not So Great"]
-           XCTAssert(notGreatText.exists)
-           XCTAssert(notGreatImage.exists)
+        let greatImage = app.images.element(matching: .image, identifier: "rocket-up")
+        let greatText = app.staticTexts["Doing Great"]
+        XCTAssert(greatText.exists)
+        XCTAssert(greatImage.exists)
 
-           notGreatImage.swipeRight()
-           XCTAssert(greatImage.exists)
-           XCTAssert(greatText.exists)
+        view.swipeLeft()
+        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
+        let notGreatText = app.staticTexts["Not So Great"]
+        XCTAssert(notGreatText.exists)
+        XCTAssert(notGreatImage.exists)
+
+        view.swipeRight()
+        XCTAssert(greatImage.exists)
+        XCTAssert(greatText.exists)
        }
 
 }
