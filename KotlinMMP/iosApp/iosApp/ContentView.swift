@@ -21,9 +21,12 @@ struct ContentView: View {
                     MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
                     MoodTab(moodId: MoodService.Companion().BAD_MOOD)
                 }
+                .id("tab")
                 .padding()
                 .tabViewStyle( PageTabViewStyle())
-
+                
+                
+                
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
@@ -39,6 +42,7 @@ struct ContentView: View {
                width:UIScreen.main.bounds.width,
                height:UIScreen.main.bounds.height
             )
+            
             
             
             
