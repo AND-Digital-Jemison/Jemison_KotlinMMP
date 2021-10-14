@@ -25,17 +25,14 @@ class iosAppUITests: XCTestCase {
         let greatText = app.staticTexts["Doing Great"]
         XCTAssert(greatText.exists)
         XCTAssert(greatImage.exists)
-        //let tab1 = app.descendants(matching: .any)
-        app.cells.element(boundBy:0).swipeLeft()
-        //tab1.firstMatch.swipeLeft()
-        //let tab = app.descendants(matching: .cell)
-        //tab.element.swipeLeft()
+
+        app.windows.element(boundBy:0).swipeLeft()
         let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
         let notGreatText = app.staticTexts["Not So Great"]
         XCTAssert(notGreatText.exists)
         XCTAssert(notGreatImage.exists)
 
-        app.cells.element(boundBy:0).firstMatch.swipeRight()
+        app.windows.element(boundBy:0).swipeRight()
         XCTAssert(greatImage.exists)
         XCTAssert(greatText.exists)
        }
