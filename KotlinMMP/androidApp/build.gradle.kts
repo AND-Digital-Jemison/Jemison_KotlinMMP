@@ -78,6 +78,10 @@ android {
         kotlinCompilerExtensionVersion = "1.0.3"
     }
 
+    repositories {
+        mavenCentral()
+    }
+
     dependencies {
         androidTestImplementation("androidx.test:runner:1.4.0")
         androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -92,6 +96,7 @@ android {
 
         implementation("com.google.android.material:compose-theme-adapter:1.0.3")
         implementation("com.google.accompanist:accompanist-appcompat-theme:0.16.0")
+        implementation("com.google.accompanist:accompanist-pager:0.19.0")
     }
 
 }
