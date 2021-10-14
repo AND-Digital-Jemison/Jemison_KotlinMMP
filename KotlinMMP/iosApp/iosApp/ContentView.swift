@@ -21,7 +21,7 @@ struct ContentView: View {
                     MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
                     MoodTab(moodId: MoodService.Companion().BAD_MOOD)
                 }
-                .padding(.top,-100)
+                .padding()
                 .tabViewStyle( PageTabViewStyle())
 
                 Button("SUBMIT") {
@@ -33,19 +33,29 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
-
-
-
-            } .padding([.bottom, .leading, .trailing], 20)
+            }
+            .padding([.bottom, .leading, .trailing], 20)
+            .frame(
+               width:UIScreen.main.bounds.width,
+               height:UIScreen.main.bounds.height
+            )
+            
+            
+            
+            
         }
-
 	}
         
 }
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView()
+        ContentView()
+                    .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+                    .previewDisplayName("iPhone 12")
+        ContentView()
+                    .previewDevice(PreviewDevice(rawValue: "iPhone 8 plus"))
+                    .previewDisplayName("iPhone 8 plus")
 	}
 }
 
