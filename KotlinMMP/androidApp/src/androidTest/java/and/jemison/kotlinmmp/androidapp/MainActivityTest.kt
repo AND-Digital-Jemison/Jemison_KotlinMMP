@@ -38,7 +38,10 @@ class MainActivityTest {
     fun setUp() {
         activityRule.scenario.onActivity {
             viewPager2IdlingResource =
-                ViewPager2IdlingResource(it.findViewById(R.id.mood_options_view_pager), "viewPagerIdlingResource")
+                ViewPager2IdlingResource(
+                    it.findViewById(R.id.mood_options_view_pager),
+                    "viewPagerIdlingResource"
+                )
             IdlingRegistry.getInstance().register(viewPager2IdlingResource)
         }
     }
@@ -50,22 +53,33 @@ class MainActivityTest {
 
     @Test
     fun showMoodOptions() {
-        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
-
-        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
+        checkGoodMoodDisplayed()
 
         onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
 
-        onView(withText("Not So Great!")).check(matches(isCompletelyDisplayed()))
+        checkBadMoodDisplayed()
 
-        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodnothappy)))
 
-        onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
+        onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
 
-        onView(withText("Doing Great!")).check(matches(isCompletelyDisplayed()))
+        checkGoodMoodDisplayed()
+    }
 
+    private fun checkGoodMoodDisplayed() {
+        onView(withText(GOOD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
+        onView(withText(BAD_MOOD_TEXT)).check(doesNotExist())
         onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
+    }
 
+    private fun checkBadMoodDisplayed() {
+        onView(withText(BAD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
+        onView(withText(GOOD_MOOD_TEXT)).check(doesNotExist())
+        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodnothappy)))
+    }
+
+    companion object {
+        private const val GOOD_MOOD_TEXT = "Doing Great"
+        private const val BAD_MOOD_TEXT = "Not So Great"
     }
 
     private fun withDrawable(resourceId: Int): Matcher<View?> {
@@ -75,6 +89,5 @@ class MainActivityTest {
     fun noDrawable(): Matcher<View?> {
         return DrawableMatcher(-1)
     }
-
 
 }

@@ -2,11 +2,45 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greeting()
+    @State private var selectedTab = "Doing Great"
 
 	var body: some View {
-		Text(greet)
+        ZStack() {
+            Image("background-purple")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("How are you doing today?")
+                    .font(Font.custom("Poppins-Bold", size: 30))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 100)
+                    .foregroundColor(.white)
+
+                TabView(selection: $selectedTab) {
+                    MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
+                    MoodTab(moodId: MoodService.Companion().BAD_MOOD)
+                }
+                .padding(.top,-100)
+                .tabViewStyle( PageTabViewStyle())
+
+                Button("SUBMIT") {
+                    print("Button tapped! Response selected: ", selectedTab)
+                }.buttonStyle(PrimaryButton())
+
+                Text("This is anonymous")
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .font(Font.custom("Poppins-ExtraLight", size: 16))
+
+
+
+            } .padding([.bottom, .leading, .trailing], 20)
+        }
+
 	}
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -14,3 +48,5 @@ struct ContentView_Previews: PreviewProvider {
 		ContentView()
 	}
 }
+
+
