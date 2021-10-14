@@ -26,7 +26,7 @@ class iosAppUITests: XCTestCase {
         XCTAssert(greatText.exists)
         XCTAssert(greatImage.exists)
         //let tab1 = app.descendants(matching: .any)
-        app.cells.firstMatch.swipeLeft()
+        app.cells.element(boundBy:0).swipeLeft()
         //tab1.firstMatch.swipeLeft()
         //let tab = app.descendants(matching: .cell)
         //tab.element.swipeLeft()
@@ -35,7 +35,7 @@ class iosAppUITests: XCTestCase {
         XCTAssert(notGreatText.exists)
         XCTAssert(notGreatImage.exists)
 
-        app.cells.firstMatch.swipeRight()
+        app.cells.element(boundBy:0).firstMatch.swipeRight()
         XCTAssert(greatImage.exists)
         XCTAssert(greatText.exists)
        }
