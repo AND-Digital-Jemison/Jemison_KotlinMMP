@@ -16,10 +16,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import android.graphics.Bitmap
 
-import android.graphics.drawable.Drawable
-//import jdk.tools.jlink.internal.ImageFileCreator.resourceName
 import and.jemison.kotlinmmp.androidapp.testutils.DrawableMatcher
 import android.view.View
 import org.hamcrest.Matcher
@@ -60,7 +57,7 @@ class MainActivityTest {
         checkBadMoodDisplayed()
 
 
-        onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
+        onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
 
         checkGoodMoodDisplayed()
     }
