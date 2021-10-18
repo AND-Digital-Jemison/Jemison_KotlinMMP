@@ -93,10 +93,15 @@ android {
         implementation("androidx.compose.ui:ui-tooling:1.0.3")
         implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-rc01")
         androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.3")
+        debugImplementation("androidx.compose.ui:ui-test-manifest:1.0.3")
 
         implementation("com.google.android.material:compose-theme-adapter:1.0.3")
         implementation("com.google.accompanist:accompanist-appcompat-theme:0.16.0")
         implementation("com.google.accompanist:accompanist-pager:0.19.0")
     }
 
+    packagingOptions {
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+    }
 }
