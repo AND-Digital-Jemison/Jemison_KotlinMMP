@@ -84,13 +84,9 @@ jobs:
         run: pod install
         working-directory: ${{env.working-directory}}/iosApp
 
-      - name: Gradle build
-        run: ./gradlew build -x test
-        working-directory: ${{env.working-directory}}
-
-      - name: Project build
-        run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-        working-directory: ${{env.working-directory}}/iosApp
+      # - name: Project build
+      #   run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      #   working-directory: ${{env.working-directory}}/iosApp
 
       - name: Emulator tests
         run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
