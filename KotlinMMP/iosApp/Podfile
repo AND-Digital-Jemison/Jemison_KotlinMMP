@@ -2,6 +2,5 @@ target 'iosApp' do
   use_frameworks!
   platform :ios, '15.0'
   pod 'AppCenter'
-  pod 'xcbeautify'
   pod 'shared', :path => '../shared'
 end
