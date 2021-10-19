@@ -4,10 +4,3 @@ target 'iosApp' do
   pod 'AppCenter'
   pod 'shared', :path => '../shared'
 end
-
-target 'iosAppUITests' do
-  use_frameworks!
-  platform :ios, '15.0'
-  pod 'AppCenter'
-  pod 'shared', :path => '../shared'
-end

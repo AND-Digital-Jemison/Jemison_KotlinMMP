@@ -8,17 +8,14 @@ PODS:
   - AppCenter/Crashes (4.3.0):
     - AppCenter/Core
   - shared (1.0)
-  - xcbeautify (0.9.1)
 
 DEPENDENCIES:
   - AppCenter
   - shared (from `../shared`)
-  - xcbeautify
 
 SPEC REPOS:
   trunk:
     - AppCenter
-    - xcbeautify
 
 EXTERNAL SOURCES:
   shared:
@@ -27,8 +24,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
   shared: 90ade93db1aa54af7f3563f585e897b8dd6c2db2
-  xcbeautify: a1ddeb6f57d626ad9395c5c96540edf726a48f6b
 
-PODFILE CHECKSUM: 4e0136ac78045c3a772dc5a281bd907f608a899c
+PODFILE CHECKSUM: 59b5a1c910d0e4f1a29e8f6abf3b6809589d231c
 
 COCOAPODS: 1.11.2
