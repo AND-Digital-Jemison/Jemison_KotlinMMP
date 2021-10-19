@@ -81,9 +81,9 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
 
     - name: Project build
-      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       working-directory: ${{env.working-directory}}/iosApp
 
     - name: Emulator tests
-      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       working-directory: ${{env.working-directory}}/iosApp
