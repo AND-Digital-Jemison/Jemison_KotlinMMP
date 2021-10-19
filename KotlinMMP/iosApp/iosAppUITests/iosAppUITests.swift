@@ -21,15 +21,15 @@ class iosAppUITests: XCTestCase {
     func testSwipe() throws {
         app.launch()
         
-        let greatImage = app.images.element(matching: .image, identifier: "rocket-up")
-        let greatText = app.staticTexts["Doing Great"]
+        let greatImage = app.images["mood0-image"]
+        let greatText = app.staticTexts["mood0-text"]
         XCTAssert(greatText.exists)
         XCTAssert(greatImage.exists)
 
         greatImage.swipeLeft()
         
-        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
-        let notGreatText = app.staticTexts["Not So Great"]
+        let notGreatImage = app.images["mood1-image"]
+        let notGreatText = app.staticTexts["mood1-text"]
         XCTAssert(notGreatText.exists)
         XCTAssert(notGreatImage.exists)
 
@@ -37,5 +37,4 @@ class iosAppUITests: XCTestCase {
         XCTAssert(greatImage.exists)
         XCTAssert(greatText.exists)
        }
-
 }
