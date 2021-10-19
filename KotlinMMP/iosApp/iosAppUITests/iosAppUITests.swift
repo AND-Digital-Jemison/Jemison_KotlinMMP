@@ -26,15 +26,16 @@ class iosAppUITests: XCTestCase {
         XCTAssert(greatText.exists)
         XCTAssert(greatImage.exists)
 
-        app.windows.element(boundBy:0).swipeLeft()
-        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
-        let notGreatText = app.staticTexts["Not So Great"]
-        XCTAssert(notGreatText.exists)
-        XCTAssert(notGreatImage.exists)
-
-        app.windows.element(boundBy:0).swipeRight()
-        XCTAssert(greatImage.exists)
-        XCTAssert(greatText.exists)
+        greatImage.swipeLeft()
+        
+//        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
+//        let notGreatText = app.staticTexts["Not So Great"]
+//        XCTAssert(notGreatText.exists)
+//        XCTAssert(notGreatImage.exists)
+//
+//        notGreatImage.swipeRight()
+//        XCTAssert(greatImage.exists)
+//        XCTAssert(greatText.exists)
        }
 
 }
