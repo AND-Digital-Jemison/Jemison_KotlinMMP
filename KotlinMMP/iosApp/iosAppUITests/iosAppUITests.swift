@@ -28,14 +28,14 @@ class iosAppUITests: XCTestCase {
 
         greatImage.swipeLeft()
         
-//        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
-//        let notGreatText = app.staticTexts["Not So Great"]
-//        XCTAssert(notGreatText.exists)
-//        XCTAssert(notGreatImage.exists)
-//
-//        notGreatImage.swipeRight()
-//        XCTAssert(greatImage.exists)
-//        XCTAssert(greatText.exists)
+        let notGreatImage = app.images.element(matching: .image, identifier: "rocket-down")
+        let notGreatText = app.staticTexts["Not So Great"]
+        XCTAssert(notGreatText.exists)
+        XCTAssert(notGreatImage.exists)
+
+        notGreatImage.swipeRight()
+        XCTAssert(greatImage.exists)
+        XCTAssert(greatText.exists)
        }
 
 }
