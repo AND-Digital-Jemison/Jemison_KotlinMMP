@@ -89,5 +89,5 @@ jobs:
       #   working-directory: ${{env.working-directory}}/iosApp
 
       - name: Emulator tests
-        run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        run: ./ios-build.sh
         working-directory: ${{env.working-directory}}/iosApp
