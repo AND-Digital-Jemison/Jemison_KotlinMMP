@@ -37,7 +37,7 @@ jobs:
           java-version: "11"
 
       - name: Unit tests
-        run:
+        run: ./gradlew test
         working-directory: ${{env.working-directory}}
 
   android-ui-tests:
