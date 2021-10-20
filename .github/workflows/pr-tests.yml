@@ -84,7 +84,7 @@ jobs:
         ls
         cd Pods
         ls
-        cd Target Support Files
+        cd Target\ Support\ Files 
         ls
         cd
         ls 
