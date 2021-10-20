@@ -76,25 +76,13 @@ jobs:
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
        
-    - run: |
-        ls
-        cd KotlinMMP
-        ls
-        cd iosApp
-        ls
-        cd Pods
-        ls
-        cd Target\ Support\ Files 
-        ls
-        cd
-        ls 
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
         java-version: "11"
     - name: Build application
       run: |
-        set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
+        set -o pipefail && xcodebuild clean -workspace iosApp.xcworkspace -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
       working-directory: ${{env.working-directory}}/iosApp
     - name: Upload products
       uses: actions/upload-artifact@v1
