@@ -13,8 +13,8 @@ env:
   SCHEME: "iosApp"
   DEVICE: "iPhone 13"
   DERIVED_DATA_PATH: "DerivedData"
-  UI_TEST_TARGET: "iosApp"
-  UNIT_TEST_TARGET: "iosApp"
+  UI_TEST_TARGET: "iosAppUITests"
+  UNIT_TEST_TARGET: "iosAppTests"
 jobs:
   # linting:
   #   runs-on: ubuntu-latest
