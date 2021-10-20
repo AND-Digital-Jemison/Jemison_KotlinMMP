@@ -121,6 +121,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: Products
+        path: ${{env.working-directory}}/iosApp
     - name: macos-version
       run: sw_vers
     - uses: actions/checkout@v2
