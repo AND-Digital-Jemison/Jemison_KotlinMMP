@@ -80,11 +80,15 @@ jobs:
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
        
-#     - run: ls
-#     - run: cd ${{env.working-directory}}
-#     - run: ls
-#     - run: cd iosApp
-#     - run: ls
+    - run: ls
+    - run: cd ${{env.working-directory}}
+    - run: ls
+    - run: cd iosApp
+    - run: ls
+    - run: cd Pods
+    - run: ls
+    - run: cd Target Support Files
+    - run: ls
     - name: Build application
       run: |
         set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
