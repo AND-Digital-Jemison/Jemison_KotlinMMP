@@ -10,7 +10,11 @@ on:
 
 env:
   working-directory: ./KotlinMMP
-
+  SCHEME: "iosApp"
+  DEVICE: "iPhone 13"
+  DERIVED_DATA_PATH: "DerivedData"
+  UI_TEST_TARGET: "iosApp"
+  UNIT_TEST_TARGET: "iosApp"
 jobs:
   # linting:
   #   runs-on: ubuntu-latest
@@ -60,33 +64,79 @@ jobs:
   #         disable-animations: true
   #         working-directory: ${{env.working-directory}}
 
-  ios-ui-tests:
-    runs-on: macos-11
-
+  build:
+    name: Build
+    runs-on: macOS-latest
     steps:
-      - name: gradle-version
-        run: gradle -v
+    - name: Checkout project
+      uses: actions/checkout@v1
+    - name: Build application
+      run: |
+        set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
+    - name: Upload products
+      uses: actions/upload-artifact@v1
+      with:
+        name: Products
+        path: DerivedData/Build/Products
 
-      - name: macos-version
-        run: sw_vers
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-      - name: Setup Java JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: "11"
+#   unit_test:
+#     name: Unit test
+#     runs-on: macOS-latest
+#     needs: build
+#     steps:
+#     - name: Checkout project
+#       uses: actions/checkout@v1
+#     - name: Download products
+#       uses: actions/download-artifact@v1
+#       with:
+#         name: Products
+#     - name: Run unit tests
+#       run: |
+#         set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:$UNIT_TEST_TARGET | xcpretty --color --simple
+#     - name: Upload test logs
+#       uses: actions/upload-artifact@v1
+#       with:
+#         name: TestLogs
+#         path: DerivedData/Logs/Test
 
-      - name: Force xcode 13
-        run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+  ui_test:
+    name: UI test
+    runs-on: macOS-latest
+    needs: build
+    steps:
+    - name: Checkout project 
+      uses: actions/checkout@v1
+    - name: Download products
+      uses: actions/download-artifact@v1
+      with:
+        name: Products
+    - name: Run UI tests
+      run: |
+        set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:iosApp | xcpretty  --color --simple
+        
+#   ios-ui-tests:
+#     runs-on: macos-11
 
-      # - name: Project build
-      #   run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-      #   working-directory: ${{env.working-directory}}/iosApp
+#     steps:
+#       - name: gradle-version
+#         run: gradle -v
 
-      - name: Emulator tests
-        run: sh ./ios-build.sh
-        working-directory: ${{env.working-directory}}/iosApp
+#       - name: macos-version
+#         run: sw_vers
+#       - uses: actions/checkout@v2
+#         with:
+#           ref: ${{ github.head_ref }}
+#       - name: Setup Java JDK
+#         uses: actions/setup-java@v1
+#         with:
+#           java-version: "11"
 
-      - name: TESTING OUTPUT
-        run: find . -type f -name '/Users/runner/Library/Developer/Xcode/DerivedData/iosApp-*/Logs/Test/*.xcresult.sh' -exec cat {} \;
+#       - name: Force xcode 13
+#         run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+
+#       - name: Emulator tests
+#         run: sh ./ios-build.sh
+#         working-directory: ${{env.working-directory}}/iosApp
+
+#       - name: TESTING OUTPUT
+#         run: find . -type f -name '/Users/runner/Library/Developer/Xcode/DerivedData/iosApp-*/Logs/Test/*.xcresult.sh' -exec cat {} \;
