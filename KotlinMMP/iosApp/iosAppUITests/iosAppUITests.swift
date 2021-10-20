@@ -26,7 +26,7 @@ class iosAppUITests: XCTestCase {
         XCTAssert(greatText.exists)
         XCTAssert(greatImage.exists)
 
-        greatImage.swipeLeft()
+        greatText.swipeLeft()
         
         let notGreatImage = app.images["mood1-image"]
         let notGreatText = app.staticTexts["mood1-text"]
