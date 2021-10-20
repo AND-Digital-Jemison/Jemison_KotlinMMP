@@ -33,8 +33,8 @@ class iosAppUITests: XCTestCase {
         XCTAssert(notGreatText.exists)
         XCTAssert(notGreatImage.exists)
 
-        notGreatImage.swipeRight()
-        XCTAssert(greatImage.exists)
-        XCTAssert(greatText.exists)
+//        notGreatImage.swipeRight()
+//        XCTAssert(greatImage.exists)
+//        XCTAssert(greatText.exists)
        }
 }
