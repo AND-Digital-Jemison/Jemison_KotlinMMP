@@ -37,11 +37,6 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        val moodOptions = mapOf(
-            0 to MoodOption(R.drawable.undraw_maker_launch_crhe_v3_up, R.string.doingGreat),
-            1 to MoodOption(R.drawable.undraw_maker_launch_crhe_v3_down, R.string.notSoGreat),
-        )
-
         setContent {
             Image(
                 painter = painterResource(R.drawable.mobile_background_grad_6_428x926),
@@ -61,14 +56,11 @@ class MainActivity : AppCompatActivity() {
                     text = stringResource(R.string.swipeHelp),
                     style = moodTypography.body1,
                 )
-                HorizontalPager(
-                    count = 2,
-                    modifier = Modifier.height(425.dp)
-                ) { page ->
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        moodOptions[page]?.let { MoodOptionSwipe(it) }
-                    }
-                }
+                MoodPager(listOf(
+                    MoodOption(R.drawable.undraw_maker_launch_crhe_v3_up, R.string.doingGreat),
+                    MoodOption(R.drawable.undraw_maker_launch_crhe_v3_down, R.string.notSoGreat),
+                )).createPager()
+                Spacer(modifier = Modifier.padding(top = 10.dp))
                 Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = stringResource(R.string.submitButton),
@@ -82,18 +74,5 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-    }
-
-    @Composable
-    private fun MoodOptionSwipe(moodOption: MoodOption) {
-        Image(
-            painter = painterResource(moodOption.imageId),
-            contentDescription = stringResource(moodOption.moodDescriptionId),
-            modifier = Modifier.height(300.dp)
-        )
-        Text(
-            text = stringResource(moodOption.moodDescriptionId),
-            style = moodTypography.h2,
-        )
     }
 }
