@@ -1,5 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -16,28 +17,23 @@ class MainActivityTest {
     val composeTestRule = createAndroidComposeRule<MainActivity>()
 
     @Test
-    fun defaultMoodRenders() {
-        composeTestRule.onNodeWithText(GOOD_MOOD_TEXT).assertIsDisplayed()
+    fun pageRenders() {
+        composeTestRule.onNodeWithText(HOW_ARE_YOU).assertIsDisplayed()
+        composeTestRule.onNodeWithText(SWIPE_HELP).assertIsDisplayed()
+
+        val defaultMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
+        defaultMoodText.assertIsDisplayed()
         composeTestRule.onNodeWithText(BAD_MOOD_TEXT).assertIsNotDisplayed()
-    }
 
-    @Test
-    fun swipeBetweenMoods() {
-        val goodMood = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
-        val badMood = composeTestRule.onNodeWithText(BAD_MOOD_TEXT)
-
-        goodMood.performGesture { swipeLeft() }
-
-        badMood.assertIsDisplayed()
-        goodMood.assertIsNotDisplayed()
-
-        badMood.performGesture { swipeRight() }
-
-        goodMood.assertIsDisplayed()
-        badMood.assertIsNotDisplayed()
+        composeTestRule.onNodeWithText(SUBMIT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(DISCLAIMER).assertIsDisplayed()
     }
 
     companion object {
+        private const val HOW_ARE_YOU = "How are you feeling today?"
+        private const val SWIPE_HELP = "(Swipe to change mood)"
+        private const val SUBMIT = "Submit"
+        private const val DISCLAIMER = "This is completely anonymous."
         private const val GOOD_MOOD_TEXT = "Doing Great!"
         private const val BAD_MOOD_TEXT = "Not So Great"
     }
