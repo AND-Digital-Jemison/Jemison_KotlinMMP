@@ -37,15 +37,10 @@ struct ContentView: View {
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
             }
             .padding([.bottom, .leading, .trailing], 20)
-            .frame(
-               width:UIScreen.main.bounds.width,
-               height:UIScreen.main.bounds.height
-            )
-            
-            
-            
-            
-            
+//            .frame(
+//               width:UIScreen.main.bounds.width,
+//               height:UIScreen.main.bounds.height
+//            )
         }
 	}
         
