@@ -78,7 +78,7 @@ jobs:
        
     - run: |
         ls
-        cd ${{env.working-directory}}
+        cd KotlinMMP
         ls
         cd iosApp
         ls
