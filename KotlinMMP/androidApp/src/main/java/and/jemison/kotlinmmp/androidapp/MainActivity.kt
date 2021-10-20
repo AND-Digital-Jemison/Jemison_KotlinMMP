@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -41,8 +42,9 @@ class MainActivity : AppCompatActivity() {
         setContent {
             Image(
                 painter = painterResource(R.drawable.mobile_background_grad_6_428x926),
-                contentDescription = "Mood Background",
-                contentScale = ContentScale.FillBounds
+                contentDescription = "Purple Background",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier.testTag("moodBackgroundPurple")
             )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,

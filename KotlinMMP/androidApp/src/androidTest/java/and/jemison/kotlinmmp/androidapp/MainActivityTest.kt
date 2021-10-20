@@ -1,6 +1,5 @@
 package and.jemison.kotlinmmp.androidapp
 
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -18,6 +17,7 @@ class MainActivityTest {
 
     @Test
     fun pageRenders() {
+        composeTestRule.onNodeWithTag(MOOD_BACKGROUND).assertIsDisplayed()
         composeTestRule.onNodeWithText(HOW_ARE_YOU).assertIsDisplayed()
         composeTestRule.onNodeWithText(SWIPE_HELP).assertIsDisplayed()
 
@@ -30,6 +30,7 @@ class MainActivityTest {
     }
 
     companion object {
+        private const val MOOD_BACKGROUND = "moodBackgroundPurple"
         private const val HOW_ARE_YOU = "How are you feeling today?"
         private const val SWIPE_HELP = "(Swipe to change mood)"
         private const val SUBMIT = "Submit"
