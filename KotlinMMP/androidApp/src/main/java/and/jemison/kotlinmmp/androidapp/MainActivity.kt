@@ -1,5 +1,8 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.androidapp.components.moodpager.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodImageMetadata
+import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -57,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 MoodPager(listOf(
                     MoodOption(
                         R.string.doingGreat,
-                        ImageMetadata(
+                        MoodImageMetadata(
                             R.drawable.undraw_maker_launch_crhe_v3_up,
                             "rocketUp",
                             "Rocket flying up"
@@ -65,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     ),
                     MoodOption(
                         R.string.notSoGreat,
-                        ImageMetadata(
+                        MoodImageMetadata(
                             R.drawable.undraw_maker_launch_crhe_v3_down,
                             "rocketDown",
                             "Rocket crashing down"

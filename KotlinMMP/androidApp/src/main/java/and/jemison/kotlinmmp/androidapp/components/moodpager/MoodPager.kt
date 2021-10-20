@@ -1,5 +1,7 @@
-package and.jemison.kotlinmmp.androidapp
+package and.jemison.kotlinmmp.androidapp.components.moodpager
 
+import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
+import and.jemison.kotlinmmp.androidapp.moodTypography
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -31,9 +33,9 @@ class MoodPager(private val moodOptions: List<MoodOption>) {
     @Composable
     private fun MoodSwipeOption(moodOption: MoodOption) {
         Image(
-            painter = painterResource(moodOption.imageMetadata.imageId),
-            contentDescription = moodOption.imageMetadata.contentDescription,
-            modifier = Modifier.height(MOOD_IMAGE_HEIGHT).testTag(moodOption.imageMetadata.testId)
+            painter = painterResource(moodOption.moodImageMetadata.imageId),
+            contentDescription = moodOption.moodImageMetadata.contentDescription,
+            modifier = Modifier.height(MOOD_IMAGE_HEIGHT).testTag(moodOption.moodImageMetadata.testId)
         )
         Text(
             text = stringResource(moodOption.moodDescriptionId),

@@ -1,5 +1,8 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.androidapp.components.moodpager.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodImageMetadata
+import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -23,7 +26,7 @@ class MoodPagerTest {
         val testMoodOptions: List<MoodOption> = listOf(
             MoodOption(
                 R.string.doingGreat,
-                ImageMetadata(
+                MoodImageMetadata(
                     R.drawable.undraw_maker_launch_crhe_v3_up,
                     ROCKET_UP_TEST_TAG,
                     "Rocket flying up"
@@ -31,7 +34,7 @@ class MoodPagerTest {
             ),
             MoodOption(
                 R.string.notSoGreat,
-                ImageMetadata(
+                MoodImageMetadata(
                     R.drawable.undraw_maker_launch_crhe_v3_down,
                     ROCKET_DOWN_TEST_TAG,
                     "Rocket crashing down"
