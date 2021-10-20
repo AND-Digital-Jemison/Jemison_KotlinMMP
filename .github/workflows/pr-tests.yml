@@ -88,5 +88,5 @@ jobs:
         run: sh ./ios-build.sh
         working-directory: ${{env.working-directory}}/iosApp
 
-      - name: TESTING OUTPUT: 
+      - name: TESTING OUTPUT
         run: find . -type f -name '/Users/runner/Library/Developer/Xcode/DerivedData/iosApp-*/Logs/Test/*.xcresult.sh' -exec cat {} \;
