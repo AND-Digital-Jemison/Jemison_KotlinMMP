@@ -21,8 +21,22 @@ class MoodPagerTest {
     @Before
     fun setUp() {
         val testMoodOptions: List<MoodOption> = listOf(
-            MoodOption(R.drawable.undraw_maker_launch_crhe_v3_up, R.string.doingGreat),
-            MoodOption(R.drawable.undraw_maker_launch_crhe_v3_down, R.string.notSoGreat),
+            MoodOption(
+                R.string.doingGreat,
+                ImageMetadata(
+                    R.drawable.undraw_maker_launch_crhe_v3_up,
+                    ROCKET_UP_TEST_TAG,
+                    "Rocket flying up"
+                )
+            ),
+            MoodOption(
+                R.string.notSoGreat,
+                ImageMetadata(
+                    R.drawable.undraw_maker_launch_crhe_v3_down,
+                    ROCKET_DOWN_TEST_TAG,
+                    "Rocket crashing down"
+                )
+            )
         )
 
         composeTestRule.setContent {
@@ -39,36 +53,31 @@ class MoodPagerTest {
     @Test
     fun swipeTextBetweenMoods() {
         val goodMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
+        val goodMoodImage =  composeTestRule.onNodeWithTag(ROCKET_UP_TEST_TAG)
+
         val badMoodText = composeTestRule.onNodeWithText(BAD_MOOD_TEXT)
+        val badMoodImage = composeTestRule.onNodeWithTag(ROCKET_DOWN_TEST_TAG)
 
-        testSwipe(goodMoodText, badMoodText)
-    }
+        goodMoodText.performGesture { swipeLeft() }
 
-    @Test
-    fun swipeImageBetweenMoods() {
-        val goodMoodImage = composeTestRule.onAllNodesWithContentDescription(GOOD_MOOD_TEXT)[0]
-        val badMoodImage = composeTestRule.onAllNodesWithContentDescription(BAD_MOOD_TEXT)[0]
+        badMoodText.assertIsDisplayed()
+        badMoodImage.assertIsDisplayed()
+        goodMoodText.assertIsNotDisplayed()
+        goodMoodImage.assertIsNotDisplayed()
 
-        testSwipe(goodMoodImage, badMoodImage)
-    }
+        badMoodText.performGesture { swipeRight() }
 
-    private fun testSwipe(
-        initialNode: SemanticsNodeInteraction,
-        nextNode: SemanticsNodeInteraction
-    ) {
-        initialNode.performGesture { swipeLeft() }
-
-        nextNode.assertIsDisplayed()
-        initialNode.assertIsNotDisplayed()
-
-        nextNode.performGesture { swipeRight() }
-
-        initialNode.assertIsDisplayed()
-        nextNode.assertIsNotDisplayed()
+        goodMoodText.assertIsDisplayed()
+        goodMoodImage.assertIsDisplayed()
+        badMoodText.assertIsNotDisplayed()
+        badMoodImage.assertIsNotDisplayed()
     }
 
     companion object {
         private const val GOOD_MOOD_TEXT = "Doing Great!"
         private const val BAD_MOOD_TEXT = "Not So Great"
+
+        private const val ROCKET_UP_TEST_TAG = "rocketUp"
+        private const val ROCKET_DOWN_TEST_TAG = "rocketDown"
     }
 }
