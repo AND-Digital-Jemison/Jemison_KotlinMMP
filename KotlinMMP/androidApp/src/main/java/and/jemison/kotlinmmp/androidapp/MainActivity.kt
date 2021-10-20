@@ -7,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -16,7 +15,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
@@ -57,8 +55,22 @@ class MainActivity : AppCompatActivity() {
                     style = moodTypography.body1,
                 )
                 MoodPager(listOf(
-                    MoodOption(R.drawable.undraw_maker_launch_crhe_v3_up, R.string.doingGreat),
-                    MoodOption(R.drawable.undraw_maker_launch_crhe_v3_down, R.string.notSoGreat),
+                    MoodOption(
+                        R.string.doingGreat,
+                        ImageMetadata(
+                            R.drawable.undraw_maker_launch_crhe_v3_up,
+                            "rocketUp",
+                            "Rocket flying up"
+                        )
+                    ),
+                    MoodOption(
+                        R.string.notSoGreat,
+                        ImageMetadata(
+                            R.drawable.undraw_maker_launch_crhe_v3_down,
+                            "rocketDown",
+                            "Rocket crashing down"
+                        )
+                    )
                 )).createPager()
                 Spacer(modifier = Modifier.padding(top = 10.dp))
                 Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {

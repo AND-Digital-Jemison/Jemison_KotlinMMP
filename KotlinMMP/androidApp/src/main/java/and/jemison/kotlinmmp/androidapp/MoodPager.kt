@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -30,9 +31,9 @@ class MoodPager(private val moodOptions: List<MoodOption>) {
     @Composable
     private fun MoodSwipeOption(moodOption: MoodOption) {
         Image(
-            painter = painterResource(moodOption.imageId),
-            contentDescription = stringResource(moodOption.moodDescriptionId),
-            modifier = Modifier.height(MOOD_IMAGE_HEIGHT)
+            painter = painterResource(moodOption.imageMetadata.imageId),
+            contentDescription = moodOption.imageMetadata.contentDescription,
+            modifier = Modifier.height(MOOD_IMAGE_HEIGHT).testTag(moodOption.imageMetadata.testId)
         )
         Text(
             text = stringResource(moodOption.moodDescriptionId),
