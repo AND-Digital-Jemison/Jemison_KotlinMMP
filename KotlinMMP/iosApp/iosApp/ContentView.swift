@@ -7,7 +7,7 @@ struct ContentView: View {
 	var body: some View {
         ZStack() {
             Image("background-purple")
-               // .resizable()
+                    .resizable()
 //                .scaledToFill()
                 //.aspectRatio(contentMode: .fit)
 //                .edgesIgnoringSafeArea(.all)
