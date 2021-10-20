@@ -73,10 +73,6 @@ jobs:
         ref: ${{ github.head_ref }}
     - name: macos-version
       run: sw_vers
-    - name: Setup Java JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: "11"
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
        
@@ -89,6 +85,12 @@ jobs:
     - run: ls
     - run: cd Target Support Files
     - run: ls
+    - run: cd
+    - run: ls
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: "11"
     - name: Build application
       run: |
         set -o pipefail && xcodebuild clean -scheme $SCHEME -destination "platform=iOS Simulator,name=$DEVICE" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
