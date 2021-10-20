@@ -135,7 +135,7 @@ jobs:
     
     - name: Run UI tests
       run: |
-        set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:iosApp | xcpretty  --color --simple
+        set -o pipefail && xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:iosAppUITests | xcpretty  --color --simple
       working-directory: ${{env.working-directory}}/iosApp   
 #   ios-ui-tests:
 #     runs-on: macos-11
