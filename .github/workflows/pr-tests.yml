@@ -77,16 +77,16 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
        
     - run: |
-        ls /
-        cd ${{env.working-directory}} /
-        ls /
-        cd iosApp /
-        ls / 
-        cd Pods /
-        ls /
-        cd Target Support Files /
-        ls /
-        cd /
+        ls
+        cd ${{env.working-directory}}
+        ls
+        cd iosApp
+        ls
+        cd Pods
+        ls
+        cd Target Support Files
+        ls
+        cd
         ls 
     - name: Setup Java JDK
       uses: actions/setup-java@v1
