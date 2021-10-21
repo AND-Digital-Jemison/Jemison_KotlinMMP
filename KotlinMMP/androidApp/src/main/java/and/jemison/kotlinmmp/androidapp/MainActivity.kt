@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                 painter = painterResource(R.drawable.mobile_background_grad_6_428x926),
                 contentDescription = "Purple Background",
                 contentScale = ContentScale.FillBounds,
-                modifier = Modifier.testTag("moodBackgroundPurple")
             )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
