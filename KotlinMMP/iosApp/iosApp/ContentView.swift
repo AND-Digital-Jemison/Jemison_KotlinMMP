@@ -5,8 +5,6 @@ struct ContentView: View {
     @State private var selectedTab = "Doing Great"
 
 	var body: some View {
-//        print(UIScreen.main.bounds.width);
-//        print(UIScreen.main.bounds.height);
         ZStack() {
             Image("background-purple")
                     .resizable()
