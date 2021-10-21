@@ -115,17 +115,15 @@ jobs:
     runs-on: macos-11
     needs: build
     steps:
-    - name: Checkout project 
-      uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     - name: Download products
       uses: actions/download-artifact@v1
       with:
         name: Products
     - name: macos-version
       run: sw_vers
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.head_ref }}
     - name: Setup Java JDK
       uses: actions/setup-java@v1
       with:
