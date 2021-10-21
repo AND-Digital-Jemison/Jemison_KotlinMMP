@@ -5,12 +5,13 @@ struct ContentView: View {
     @State private var selectedTab = "Doing Great"
 
 	var body: some View {
+//        print(UIScreen.main.bounds.width);
+//        print(UIScreen.main.bounds.height);
         ZStack() {
             Image("background-purple")
                     .resizable()
-//                .scaledToFill()
-                //.aspectRatio(contentMode: .fit)
-//                .edgesIgnoringSafeArea(.all)
+                .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("How are you doing today?")
                     .font(Font.custom("Poppins-Bold", size: 30))
@@ -25,8 +26,6 @@ struct ContentView: View {
                 .padding()
                 .tabViewStyle( PageTabViewStyle())
                 
-                
-                
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
@@ -37,16 +36,11 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
             }
-//            .padding([.bottom, .leading, .trailing], 20)
-//            .background(<#T##Background#>)
-//            .frame(
-//               width:UIScreen.main.bounds.width,
-//               height:UIScreen.main.bounds.height
-//            )
-            
-            
-
-
+            .padding([.bottom, .leading, .trailing], 20)
+            .frame(
+               width:UIScreen.main.bounds.width,
+               height:UIScreen.main.bounds.height
+            )
         }
 	}
         

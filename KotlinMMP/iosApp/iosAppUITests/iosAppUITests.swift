@@ -21,6 +21,11 @@ class iosAppUITests: XCTestCase {
     func testSwipe() throws {
         app.launch()
         
+        print("**********UI TESTING IS GREAT")
+        
+        print("UI width: " + String(describing: UIScreen.main.bounds.width));
+        print("UI height: " + String(describing: UIScreen.main.bounds.height));
+        
         let greatImage = app.images["mood0-image"]
         let greatText = app.staticTexts["mood0-text"]
         XCTAssert(greatText.exists)
