@@ -135,6 +135,15 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
     
     - run: find . -type f -name "*.xctestrun"
+    - run: |
+        ls
+        cd KotlinMMP
+        ls
+        cd iosApp
+        ls
+        cd DerivedData
+        ls
+        ls
     - name: Run UI tests
       run: |
         set -o pipefail && xcodebuild test-without-building -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" -xctestrun $(find . -type f -name "*.xctestrun") -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:iosAppUITests | xcpretty  --color --simple
