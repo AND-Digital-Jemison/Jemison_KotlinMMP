@@ -3,8 +3,8 @@ import shared
 
 struct ContentView: View {
     @State private var selectedTab = "Doing Great"
-
-	var body: some View {
+    
+    var body: some View {
         ZStack() {
             Image("background-purple")
                 .resizable()
@@ -16,37 +16,36 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(.top, 100)
                     .foregroundColor(.white)
-
+                
                 TabView(selection: $selectedTab) {
                     MoodTab(moodId:  MoodService.Companion().GOOD_MOOD)
                     MoodTab(moodId: MoodService.Companion().BAD_MOOD)
                 }
-                .padding(.top,-100)
+                .padding()
                 .tabViewStyle( PageTabViewStyle())
-
+                
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
-
+                
                 Text("This is anonymous")
                     .padding()
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
-
-
-
-            } .padding([.bottom, .leading, .trailing], 20)
+            }
+            .padding([.bottom, .leading, .trailing], 20)
+            .frame( width:UIScreen.main.bounds.width, height:UIScreen.main.bounds.height)
         }
-
-	}
         
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+    static var previews: some View {
+        ContentView()
+    }
 }
 
 
