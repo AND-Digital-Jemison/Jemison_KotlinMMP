@@ -122,6 +122,7 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: Products
+        path:  ${{env.working-directory}}/iosApp
     - name: macos-version
       run: sw_vers
     - name: Setup Java JDK
@@ -132,21 +133,21 @@ jobs:
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
     
     - run: find . -type f -name "*.xctestrun"
-    - run: |
-        ls
-        echo --
-        cd Products
-        ls
-        echo --
-        cd ../KotlinMMP
-        ls
-        echo --
-        cd iosApp
-        ls
-        echo --
-        cd DerivedData
-        ls
-        echo --
+#     - run: |
+#         ls
+#         echo --
+#         cd Products
+#         ls
+#         echo --
+#         cd ../KotlinMMP
+#         ls
+#         echo --
+#         cd iosApp
+#         ls
+#         echo --
+#         cd DerivedData
+#         ls
+#         echo --
     - name: Run UI tests
       run: |
         set -o pipefail && xcodebuild test-without-building -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" -xctestrun $(find . -type f -name "*.xctestrun") -derivedDataPath $DERIVED_DATA_PATH -enableCodeCoverage YES -only-testing:iosAppUITests | xcpretty  --color --simple
