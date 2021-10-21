@@ -8,6 +8,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
+import com.amplifyframework.AmplifyException
+import com.amplifyframework.core.Amplify
+import com.amplifyframework.datastore.AWSDataStorePlugin
+import com.amplifyframework.api.aws.AWSApiPlugin
+//import com.amplifyframework.datastore.generated.model.Mood
+import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         if (BuildConfig.APP_CENTER_KEY_LOCAL != "noLocalKey") {
             val appCenterKey = BuildConfig.APP_CENTER_KEY_LOCAL
 
@@ -26,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
+
+        configureAmplify()
+
         renderMoodOptionsPager()
     }
 
@@ -39,5 +47,16 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MoodOptionsAdapter(moodOptionFragments, this)
         moodOptionsPager.adapter = adapter
+    }
+
+    private fun configureAmplify() {
+        try {
+            Amplify.addPlugin(AWSApiPlugin())
+            Amplify.addPlugin(AWSDataStorePlugin())
+            Amplify.configure(applicationContext)
+            Log.i("Amplify", "Initialized Amplify")
+        } catch (e: AmplifyException) {
+            Log.e("Amplify", "Could not initialize Amplify", e)
+        }
     }
 }
