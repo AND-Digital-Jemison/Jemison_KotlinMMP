@@ -1,8 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
 import and.jemison.kotlinmmp.androidapp.components.moodpager.MoodPager
-import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodImageMetadata
-import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -59,24 +57,7 @@ class MainActivity : AppCompatActivity() {
                     text = stringResource(R.string.swipeHelp),
                     style = moodTypography.body1,
                 )
-                MoodPager(listOf(
-                    MoodOption(
-                        R.string.doingGreat,
-                        MoodImageMetadata(
-                            R.drawable.undraw_maker_launch_crhe_v3_up,
-                            "rocketUp",
-                            "Rocket flying up"
-                        )
-                    ),
-                    MoodOption(
-                        R.string.notSoGreat,
-                        MoodImageMetadata(
-                            R.drawable.undraw_maker_launch_crhe_v3_down,
-                            "rocketDown",
-                            "Rocket crashing down"
-                        )
-                    )
-                )).createPager()
+                MoodPager().createPager()
                 Spacer(modifier = Modifier.padding(top = 10.dp))
                 Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
                     Text(

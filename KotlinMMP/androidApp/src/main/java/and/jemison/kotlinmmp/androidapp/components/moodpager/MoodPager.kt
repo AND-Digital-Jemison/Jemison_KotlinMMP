@@ -1,7 +1,9 @@
 package and.jemison.kotlinmmp.androidapp.components.moodpager
 
-import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
 import and.jemison.kotlinmmp.androidapp.moodTypography
+import and.jemison.kotlinmmp.androidapp.utils.DrawableService
+import and.jemison.kotlinmmp.shared.Mood
+import and.jemison.kotlinmmp.shared.MoodService
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -16,29 +18,34 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 
-class MoodPager(private val moodOptions: List<MoodOption>) {
+class MoodPager() {
+    private val moodService = MoodService()
+
     @ExperimentalPagerApi
     @Composable
     fun createPager() {
         HorizontalPager(
-            count = moodOptions.size,
+            count = moodService.getMoodCount(),
             modifier = Modifier.height(PAGER_HEIGHT)
         ) { page ->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                MoodSwipeOption(moodOptions[page])
+                moodSwipeOption(page)
             }
         }
     }
 
     @Composable
-    private fun MoodSwipeOption(moodOption: MoodOption) {
+    private fun moodSwipeOption(moodId: Int) {
+        val mood = moodService.getMood(moodId)
         Image(
-            painter = painterResource(moodOption.moodImageMetadata.imageId),
-            contentDescription = moodOption.moodImageMetadata.contentDescription,
-            modifier = Modifier.height(MOOD_IMAGE_HEIGHT).testTag(moodOption.moodImageMetadata.testId)
+            painter = painterResource(DrawableService().convertImageToDrawable(mood.image)!!),
+            contentDescription = mood.contentDescription,
+            modifier = Modifier
+                .height(MOOD_IMAGE_HEIGHT)
+                .testTag("mood$moodId-image")
         )
         Text(
-            text = stringResource(moodOption.moodDescriptionId),
+            text = mood.text,
             style = moodTypography.h2,
         )
     }

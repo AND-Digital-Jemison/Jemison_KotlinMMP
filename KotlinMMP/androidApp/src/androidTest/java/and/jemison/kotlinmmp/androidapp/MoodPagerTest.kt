@@ -1,8 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
 import and.jemison.kotlinmmp.androidapp.components.moodpager.MoodPager
-import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodImageMetadata
-import and.jemison.kotlinmmp.androidapp.components.moodpager.dataclasses.MoodOption
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -23,27 +21,8 @@ class MoodPagerTest {
     @ExperimentalPagerApi
     @Before
     fun setUp() {
-        val testMoodOptions: List<MoodOption> = listOf(
-            MoodOption(
-                R.string.doingGreat,
-                MoodImageMetadata(
-                    R.drawable.undraw_maker_launch_crhe_v3_up,
-                    ROCKET_UP_TEST_TAG,
-                    "Rocket flying up"
-                )
-            ),
-            MoodOption(
-                R.string.notSoGreat,
-                MoodImageMetadata(
-                    R.drawable.undraw_maker_launch_crhe_v3_down,
-                    ROCKET_DOWN_TEST_TAG,
-                    "Rocket crashing down"
-                )
-            )
-        )
-
         composeTestRule.setContent {
-            MoodPager(testMoodOptions).createPager()
+            MoodPager().createPager()
         }
     }
 
@@ -80,7 +59,7 @@ class MoodPagerTest {
         private const val GOOD_MOOD_TEXT = "Doing Great!"
         private const val BAD_MOOD_TEXT = "Not So Great"
 
-        private const val ROCKET_UP_TEST_TAG = "rocketUp"
-        private const val ROCKET_DOWN_TEST_TAG = "rocketDown"
+        private const val ROCKET_UP_TEST_TAG = "mood0-image"
+        private const val ROCKET_DOWN_TEST_TAG = "mood1-image"
     }
 }
