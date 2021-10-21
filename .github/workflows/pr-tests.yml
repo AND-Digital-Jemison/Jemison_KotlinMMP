@@ -82,7 +82,7 @@ jobs:
         java-version: "11"
     - name: Build application
       run: |
-        set -o pipefail && xcodebuild clean -workspace iosApp.xcworkspace -scheme $SCHEME -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" -derivedDataPath $DERIVED_DATA_PATH build-for-testing | xcpretty --color --simple
+        set -o pipefail && xcodebuild clean -workspace iosApp.xcworkspace -scheme $SCHEME -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" -derivedDataPath $DERIVED_DATA_PATH build-for-testing
       working-directory: ${{env.working-directory}}/iosApp
     - name: Upload products
       uses: actions/upload-artifact@v1
