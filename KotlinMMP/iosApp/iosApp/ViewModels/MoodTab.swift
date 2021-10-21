@@ -14,7 +14,7 @@ struct MoodTab : View{
                 .resizable()
                 .scaledToFit()
             Text(mood.text)
-                .foregroundColor(Color(hex: mood.colour))
+                .foregroundColor(Color(hex: "#FFFFFF"))
                 .font(Font.custom("Tahu!", size: 40))
         }.tag(mood.text)
     }
