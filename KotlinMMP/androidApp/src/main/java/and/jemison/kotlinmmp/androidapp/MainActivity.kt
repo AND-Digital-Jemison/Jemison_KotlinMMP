@@ -1,6 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.androidapp.components.moodpager.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     text = stringResource(R.string.swipeHelp),
                     style = moodTypography.body1,
                 )
-                MoodPager().createPager()
+                MoodPager()
                 Spacer(modifier = Modifier.padding(top = 10.dp))
                 Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
                     Text(
