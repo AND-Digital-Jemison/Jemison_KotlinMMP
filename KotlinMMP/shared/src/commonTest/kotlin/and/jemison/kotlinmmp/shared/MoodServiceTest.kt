@@ -8,9 +8,10 @@ class MoodServiceTest {
     @Test
     fun getMoodFromId0() {
         val mood = MoodService().getMood(MoodService.GOOD_MOOD)
-        assertTrue(mood.text == "Doing Great")
+        assertTrue(mood.text == "Doing Great!")
         assertTrue(mood.textColour == "#FFFFFF")
         assertTrue { mood.image == "rocket-up" }
+        assertTrue(mood.contentDescription == "Rocket flying up")
     }
 
     @Test
@@ -19,5 +20,6 @@ class MoodServiceTest {
         assertTrue(mood.text == "Not So Great")
         assertTrue(mood.textColour == "#FFFFFF")
         assertTrue { mood.image == "rocket-down" }
+        assertTrue(mood.contentDescription == "Rocket crashing down")
     }
 }
