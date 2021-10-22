@@ -197,7 +197,7 @@ jobs:
 
   upload-android-to-s3:
     runs-on: ubuntu-latest
-    needs: [linting, unit-tests, android-ui-tests, android-build-package, ios-ui-tests, ios-build-package]
+    needs: [android-build-package]
 
     steps:
     - uses: actions/download-artifact@v2
