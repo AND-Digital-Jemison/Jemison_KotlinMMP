@@ -23,17 +23,17 @@ class MainActivityTest {
 //        val defaultMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
 //        defaultMoodText.assertIsDisplayed()
 //        composeTestRule.onNodeWithText(BAD_MOOD_TEXT).assertIsNotDisplayed()
-//
-//        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
-//        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
+
+        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
     }
 //
     companion object {
         private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
         private const val SWIPE_HELP_TEXT = "(Swipe to change mood)"
-//        private const val SUBMIT_TEXT = "Submit"
-//        private const val DISCLAIMER_TEXT = "This is completely anonymous."
 //        private const val GOOD_MOOD_TEXT = "Doing Great!"
 //        private const val BAD_MOOD_TEXT = "Not So Great"
+        private const val SUBMIT_TEXT = "Submit"
+        private const val DISCLAIMER_TEXT = "This is completely anonymous."
     }
 }
