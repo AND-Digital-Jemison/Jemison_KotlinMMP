@@ -2,7 +2,7 @@ name: Deployment Pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [feature/upload-bundle-to-S3]
     paths-ignore:
       - '**.md'
       
@@ -194,6 +194,25 @@ jobs:
         file: androidApp-release.apk
         notifyTesters: true
         debug: true
+
+  upload-android-to-s3:
+    runs-on: ubuntu-latest
+    needs: [linting, unit-tests, android-ui-tests, android-build-package, ios-ui-tests, ios-build-package]
+
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: release-apk
+
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        SOURCE_DIR: ${{env.working-directory}}/androidApp/build/outputs/bundle/release/androidApp-release.aab
 
   push-to-prod:
     runs-on: ubuntu-latest
