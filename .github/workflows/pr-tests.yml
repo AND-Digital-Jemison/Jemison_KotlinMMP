@@ -63,6 +63,7 @@ jobs:
         arch: x86_64
         target: google_apis
         emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        profile: Pixel 2
 
   ios-ui-tests:
     runs-on: 	macos-11
