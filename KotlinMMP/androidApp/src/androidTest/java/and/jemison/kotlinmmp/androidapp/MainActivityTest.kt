@@ -24,7 +24,7 @@ class MainActivityTest {
         defaultMoodText.assertIsDisplayed()
         composeTestRule.onNodeWithTag(BAD_MOOD_TEST_TAG).assertIsNotDisplayed()
 
-//        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
 //        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
     }
 //
@@ -33,7 +33,7 @@ class MainActivityTest {
         private const val SWIPE_HELP_TEXT = "(Swipe to change mood)"
         private const val GOOD_MOOD_TEST_TAG = "mood0-text"
         private const val BAD_MOOD_TEST_TAG = "mood1-text"
-//        private const val SUBMIT_TEXT = "Submit"
+        private const val SUBMIT_TEXT = "Submit"
 //        private const val DISCLAIMER_TEXT = "This is completely anonymous."
     }
 }
