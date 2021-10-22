@@ -20,9 +20,9 @@ class MainActivityTest {
         composeTestRule.onNodeWithText(HOW_ARE_YOU_TEXT).assertIsDisplayed()
         composeTestRule.onNodeWithText(SWIPE_HELP_TEXT).assertIsDisplayed()
 
-        val defaultMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEST_TAG)
+        val defaultMoodText = composeTestRule.onNodeWithTag(GOOD_MOOD_TEST_TAG)
         defaultMoodText.assertIsDisplayed()
-//        composeTestRule.onNodeWithText(BAD_MOOD_TEXT).assertIsNotDisplayed()
+//        composeTestRule.onNodeWithTag(BAD_MOOD_TEXT).assertIsNotDisplayed()
 
         composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
         composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
