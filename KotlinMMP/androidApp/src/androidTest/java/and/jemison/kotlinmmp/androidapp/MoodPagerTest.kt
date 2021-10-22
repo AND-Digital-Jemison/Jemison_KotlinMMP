@@ -28,16 +28,16 @@ class MoodPagerTest {
 
     @Test
     fun defaultMoodRenders() {
-        composeTestRule.onNodeWithText(GOOD_MOOD_TEXT).assertIsDisplayed()
-        composeTestRule.onNodeWithText(BAD_MOOD_TEXT).assertIsNotDisplayed()
+        composeTestRule.onNodeWithText(GOOD_MOOD_TEST_TAG).assertIsDisplayed()
+        composeTestRule.onNodeWithText(BAD_MOOD_TEST_TAG).assertIsNotDisplayed()
     }
 
     @Test
     fun swipeTextBetweenMoods() {
-        val goodMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
+        val goodMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEST_TAG)
         val goodMoodImage =  composeTestRule.onNodeWithTag(ROCKET_UP_TEST_TAG)
 
-        val badMoodText = composeTestRule.onNodeWithText(BAD_MOOD_TEXT)
+        val badMoodText = composeTestRule.onNodeWithText(BAD_MOOD_TEST_TAG)
         val badMoodImage = composeTestRule.onNodeWithTag(ROCKET_DOWN_TEST_TAG)
 
         goodMoodText.performGesture { swipeLeft() }
@@ -56,8 +56,8 @@ class MoodPagerTest {
     }
 
     companion object {
-        private const val GOOD_MOOD_TEXT = "Doing Great!"
-        private const val BAD_MOOD_TEXT = "Not So Great"
+        private const val GOOD_MOOD_TEST_TAG = "mood0-text"
+        private const val BAD_MOOD_TEST_TAG = "mood1-text"
 
         private const val ROCKET_UP_TEST_TAG = "mood0-image"
         private const val ROCKET_DOWN_TEST_TAG = "mood1-image"

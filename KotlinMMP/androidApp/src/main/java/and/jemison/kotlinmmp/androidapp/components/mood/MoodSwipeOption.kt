@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -17,12 +18,13 @@ fun MoodSwipeOption(moodId: Int) {
     Image(
         painter = painterResource(DrawableService().convertImageToDrawable(mood.image)!!),
         contentDescription = mood.contentDescription,
-        modifier = androidx.compose.ui.Modifier
+        modifier = Modifier
             .height(275.dp)
             .testTag("mood$moodId-image")
     )
     Text(
         text = mood.text,
         style = moodTypography.h2,
+        modifier = Modifier.testTag("mood$moodId-text")
     )
 }
