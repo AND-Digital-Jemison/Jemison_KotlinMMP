@@ -12,11 +12,11 @@ import org.junit.runner.RunWith
 @LargeTest
 class MainActivityTest {
 
-//    @get:Rule
-//    val composeTestRule = createAndroidComposeRule<MainActivity>()
-//
-//    @Test
-//    fun pageRenders() {
+    @get:Rule
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
+
+    @Test
+    fun pageRenders() {
 //        composeTestRule.onNodeWithText(HOW_ARE_YOU_TEXT).assertIsDisplayed()
 //        composeTestRule.onNodeWithText(SWIPE_HELP_TEXT).assertIsDisplayed()
 //
@@ -26,7 +26,7 @@ class MainActivityTest {
 //
 //        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
 //        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
-//    }
+    }
 //
 //    companion object {
 //        private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
