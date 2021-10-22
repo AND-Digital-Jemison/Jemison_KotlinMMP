@@ -93,6 +93,11 @@ jobs:
         name: release-apk
         path: ${{env.working-directory}}/androidApp/build/outputs/apk/release/androidApp-release.apk
 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: release-aab
+        path: ${{env.working-directory}}/androidApp/build/outputs/bundle/release/androidApp-release.aab
+
   ios-ui-tests:
     runs-on: 	macos-11
 
