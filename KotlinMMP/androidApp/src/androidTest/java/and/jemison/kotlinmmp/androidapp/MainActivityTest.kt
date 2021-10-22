@@ -17,7 +17,7 @@ class MainActivityTest {
 
     @Test
     fun pageRenders() {
-//        composeTestRule.onNodeWithText(HOW_ARE_YOU_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(HOW_ARE_YOU_TEXT).assertIsDisplayed()
 //        composeTestRule.onNodeWithText(SWIPE_HELP_TEXT).assertIsDisplayed()
 //
 //        val defaultMoodText = composeTestRule.onNodeWithText(GOOD_MOOD_TEXT)
@@ -28,12 +28,12 @@ class MainActivityTest {
 //        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
     }
 //
-//    companion object {
-//        private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
+    companion object {
+        private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
 //        private const val SWIPE_HELP_TEXT = "(Swipe to change mood)"
 //        private const val SUBMIT_TEXT = "Submit"
 //        private const val DISCLAIMER_TEXT = "This is completely anonymous."
 //        private const val GOOD_MOOD_TEXT = "Doing Great!"
 //        private const val BAD_MOOD_TEXT = "Not So Great"
-//    }
+    }
 }
