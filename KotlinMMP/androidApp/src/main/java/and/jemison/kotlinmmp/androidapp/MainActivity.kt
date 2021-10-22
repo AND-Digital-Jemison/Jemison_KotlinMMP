@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(40.dp)
+                modifier = Modifier.padding(20.dp)
             ) {
                 Text(
                     text = stringResource(R.string.howAreYou),
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     style = moodTypography.body1,
                 )
                 MoodPager()
-                Spacer(modifier = Modifier.padding(top = 10.dp))
+                Spacer(modifier = Modifier.padding(top = 20.dp))
                 Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = stringResource(R.string.submitButton),
