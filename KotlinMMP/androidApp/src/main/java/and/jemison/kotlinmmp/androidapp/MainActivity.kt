@@ -1,6 +1,8 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodHeader
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodSubmit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -39,36 +41,38 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             Image(
-                painter = painterResource(R.drawable.mobile_background_grad_6_428x926),
+                painter = painterResource(R.drawable.background),
                 contentDescription = "Purple Background",
-                contentScale = ContentScale.FillBounds,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
             )
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(20.dp)
+                modifier = Modifier
+                    .padding(20.dp)
+                    .fillMaxWidth()
             ) {
-                Text(
-                    text = stringResource(R.string.howAreYou),
-                    style = moodTypography.h1,
-                    textAlign = TextAlign.Center
-                )
-                Text(
-                    text = stringResource(R.string.swipeHelp),
-                    style = moodTypography.body1,
-                )
-                MoodPager()
-                Spacer(modifier = Modifier.padding(top = 20.dp))
-                Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = stringResource(R.string.submitButton),
-                        style = moodTypography.body1
-                    )
+                MoodHeader()
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxHeight()
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Spacer(modifier = Modifier.padding(top = 50.dp))
+                    MoodPager()
                 }
-                Spacer(modifier = Modifier.padding(top = 10.dp))
-                Text(
-                    text = stringResource(R.string.submitDisclaimer),
-                    style = moodTypography.body1,
-                )
+            }
+            Row(
+                verticalAlignment = Alignment.Bottom,
+                modifier = Modifier.fillMaxHeight()
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(20.dp)
+                ) {
+                    MoodSubmit()
+                }
             }
         }
     }

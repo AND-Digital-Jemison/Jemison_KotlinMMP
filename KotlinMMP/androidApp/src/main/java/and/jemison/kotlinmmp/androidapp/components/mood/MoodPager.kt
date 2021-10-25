@@ -16,7 +16,7 @@ fun MoodPager() {
     val moodService = MoodService()
     HorizontalPager(
         count = moodService.getMoodCount(),
-        modifier = Modifier.height(350.dp)
+        modifier = Modifier.height(375.dp)
     ) { page ->
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             MoodSwipeOption(page)
