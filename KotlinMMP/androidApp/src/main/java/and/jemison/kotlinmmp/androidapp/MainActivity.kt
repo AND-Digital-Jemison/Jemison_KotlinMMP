@@ -52,13 +52,11 @@ class MainActivity : AppCompatActivity() {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                Box(modifier = Modifier.padding(20.dp).weight(1.0F)) {
+                Box(modifier = Modifier.padding(20.dp)) {
                     MoodHeader()
                 }
-                Box(modifier = Modifier.weight(2F)) {
-                    MoodPager()
-                }
-                Box(modifier = Modifier.padding(20.dp).weight(1.0F)) {
+                MoodPager()
+                Box(modifier = Modifier.padding(20.dp)) {
                     MoodSubmit()
                 }
             }
