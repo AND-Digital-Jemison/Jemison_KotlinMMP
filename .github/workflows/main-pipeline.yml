@@ -66,9 +66,6 @@ jobs:
         script: ./gradlew connectedCheck
         disable-animations: true
         working-directory: ${{env.working-directory}}
-        force-avd-creation: false
-        arch: x86_64
-        emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
 
   android-build-package:
     runs-on: ubuntu-latest
