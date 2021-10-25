@@ -62,7 +62,6 @@ jobs:
         force-avd-creation: false
         arch: x86_64
         emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-        profile: Pixel
 
   ios-ui-tests:
     runs-on: 	macos-11
