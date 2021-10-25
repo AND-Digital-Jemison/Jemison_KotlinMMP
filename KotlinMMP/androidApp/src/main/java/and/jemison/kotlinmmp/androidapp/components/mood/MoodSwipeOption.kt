@@ -19,7 +19,7 @@ fun MoodSwipeOption(moodId: Int) {
         painter = painterResource(DrawableService().convertImageToDrawable(mood.image)!!),
         contentDescription = mood.contentDescription,
         modifier = Modifier
-            .height(275.dp)
+            .height(250.dp)
             .testTag("mood$moodId-image")
     )
     Text(

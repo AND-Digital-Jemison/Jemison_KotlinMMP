@@ -46,34 +46,19 @@ class MainActivity : AppCompatActivity() {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
-
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
-                    .padding(20.dp)
-                    .fillMaxWidth()
+                    .fillMaxSize()
             ) {
-                MoodHeader()
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxHeight()
-            ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Spacer(modifier = Modifier.padding(top = 50.dp))
+                Box(modifier = Modifier.padding(20.dp).weight(1.0F)) {
+                    MoodHeader()
+                }
+                Box(modifier = Modifier.weight(2F)) {
                     MoodPager()
                 }
-            }
-
-            Row(
-                verticalAlignment = Alignment.Bottom,
-                modifier = Modifier.fillMaxHeight()
-            ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.padding(20.dp)
-                ) {
+                Box(modifier = Modifier.padding(20.dp).weight(1.0F)) {
                     MoodSubmit()
                 }
             }
