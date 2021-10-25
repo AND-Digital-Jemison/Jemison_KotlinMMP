@@ -68,8 +68,9 @@ jobs:
         working-directory: ${{env.working-directory}}
         force-avd-creation: false
         arch: x86_64
-        target: google_apis
+        target: [default, google_apis]
         emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        profile: Pixel
 
   android-build-package:
     runs-on: ubuntu-latest
