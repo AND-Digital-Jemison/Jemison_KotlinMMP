@@ -1,90 +1,39 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.androidapp.testutils.ViewPager2IdlingResource
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions.swipeLeft
-import androidx.test.espresso.action.ViewActions.swipeRight
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
-import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.compose.ui.test.*
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import and.jemison.kotlinmmp.androidapp.testutils.DrawableMatcher
-import android.view.View
-import org.hamcrest.Matcher
-
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityTest {
 
     @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
-
-    private lateinit var viewPager2IdlingResource: ViewPager2IdlingResource
-
-    @Before
-    fun setUp() {
-        activityRule.scenario.onActivity {
-            viewPager2IdlingResource =
-                ViewPager2IdlingResource(
-                    it.findViewById(R.id.mood_options_view_pager),
-                    "viewPagerIdlingResource"
-                )
-            IdlingRegistry.getInstance().register(viewPager2IdlingResource)
-        }
-    }
-
-    @After
-    fun tearDown() {
-        IdlingRegistry.getInstance().unregister(viewPager2IdlingResource)
-    }
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
 
     @Test
-    fun showMoodOptions() {
-        checkGoodMoodDisplayed()
+    fun pageRenders() {
+        composeTestRule.onNodeWithText(HOW_ARE_YOU_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(SWIPE_HELP_TEXT).assertIsDisplayed()
 
-        onView(withId(R.id.mood_options_view_pager)).perform(swipeLeft())
+        val defaultMoodText = composeTestRule.onNodeWithTag(GOOD_MOOD_TEST_TAG)
+        defaultMoodText.assertIsDisplayed()
+        composeTestRule.onNodeWithTag(BAD_MOOD_TEST_TAG).assertIsNotDisplayed()
 
-        checkBadMoodDisplayed()
-
-
-        onView(withId(R.id.mood_options_view_pager)).perform(swipeRight())
-
-        checkGoodMoodDisplayed()
+        composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
+        composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
     }
-
-    private fun checkGoodMoodDisplayed() {
-        onView(withText(GOOD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
-        onView(withText(BAD_MOOD_TEXT)).check(doesNotExist())
-        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodhappy)))
-    }
-
-    private fun checkBadMoodDisplayed() {
-        onView(withText(BAD_MOOD_TEXT)).check(matches(isCompletelyDisplayed()))
-        onView(withText(GOOD_MOOD_TEXT)).check(doesNotExist())
-        onView(withId(R.id.moodimage)).check(matches(withDrawable(R.drawable.moodnothappy)))
-    }
-
+    
     companion object {
-        private const val GOOD_MOOD_TEXT = "Doing Great"
-        private const val BAD_MOOD_TEXT = "Not So Great"
+        private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
+        private const val SWIPE_HELP_TEXT = "(Swipe to change mood)"
+        private const val GOOD_MOOD_TEST_TAG = "mood0-text"
+        private const val BAD_MOOD_TEST_TAG = "mood1-text"
+        private const val SUBMIT_TEXT = "Submit"
+        private const val DISCLAIMER_TEXT = "This is completely anonymous."
     }
-
-    private fun withDrawable(resourceId: Int): Matcher<View?> {
-        return DrawableMatcher(resourceId)
-    }
-
-    fun noDrawable(): Matcher<View?> {
-        return DrawableMatcher(-1)
-    }
-
 }

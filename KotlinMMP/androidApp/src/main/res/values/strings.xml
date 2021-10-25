@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="howAreYou">How are you feeling today?</string>
-    <string name="swipe">(Swipe to change mood)</string>
-    <string name="submitText">Your submission is anonymous</string>
+    <string name="swipeHelp">(Swipe to change mood)</string>
+    <string name="doingGreat">Doing Great!</string>
+    <string name="notSoGreat">Not So Great</string>
     <string name="submitButton">Submit</string>
-    <string name="defaultMood">I\'m Okay</string>
-    <string name="mood_image">Mood image</string>
+    <string name="submitDisclaimer">This is completely anonymous.</string>
 </resources>

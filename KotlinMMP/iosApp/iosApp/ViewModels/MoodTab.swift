@@ -16,7 +16,7 @@ struct MoodTab : View{
                 .scaledToFit()
                 .accessibilityIdentifier(identifier+"-image")
             Text(mood.text)
-                .foregroundColor(Color(hex: mood.colour))
+                .foregroundColor(Color(hex: mood.textColour))
                 .font(Font.custom("Tahu!", size: 40))
                 .accessibilityIdentifier(identifier+"-text")
         }
