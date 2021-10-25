@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 MoodHeader()
             }
+
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxHeight()
@@ -63,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                     MoodPager()
                 }
             }
+
             Row(
                 verticalAlignment = Alignment.Bottom,
                 modifier = Modifier.fillMaxHeight()
