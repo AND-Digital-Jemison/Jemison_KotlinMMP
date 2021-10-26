@@ -66,6 +66,7 @@ jobs:
         script: ./gradlew connectedCheck
         disable-animations: true
         working-directory: ${{env.working-directory}}
+        profile: pixel
 
   android-build-package:
     runs-on: ubuntu-latest
