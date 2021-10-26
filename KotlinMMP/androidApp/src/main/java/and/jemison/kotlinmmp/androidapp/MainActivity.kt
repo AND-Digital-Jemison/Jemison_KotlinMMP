@@ -16,6 +16,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.amplifyframework.AmplifyException
+import com.amplifyframework.api.aws.AWSApiPlugin
+import com.amplifyframework.core.Amplify
+import com.amplifyframework.datastore.AWSDataStorePlugin
+import com.amplifyframework.datastore.generated.model.Mood
+import android.util.Log
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
@@ -36,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                 Analytics::class.java, Crashes::class.java
             )
         }
+
+        configureAmplify()
 
         setContent {
             Image(
@@ -58,7 +66,9 @@ class MainActivity : AppCompatActivity() {
                 )
                 MoodPager()
                 Spacer(modifier = Modifier.padding(top = 20.dp))
-                Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+                Button(onClick = {
+                    System.out.println("Button clicked: " )
+                }, modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = stringResource(R.string.submitButton),
                         style = moodTypography.body1
@@ -70,6 +80,17 @@ class MainActivity : AppCompatActivity() {
                     style = moodTypography.body1,
                 )
             }
+        }
+    }
+
+    private fun configureAmplify() {
+        try {
+            Amplify.addPlugin(AWSApiPlugin())
+            Amplify.addPlugin(AWSDataStorePlugin())
+            Amplify.configure(applicationContext)
+            Log.i("Amplify", "Initialized Amplify")
+        } catch (e: AmplifyException) {
+            Log.e("Amplify", "Could not initialize Amplify", e)
         }
     }
 }
