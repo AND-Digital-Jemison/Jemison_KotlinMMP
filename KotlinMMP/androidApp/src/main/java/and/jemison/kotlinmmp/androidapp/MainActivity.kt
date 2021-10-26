@@ -1,6 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.moodPager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         configureAmplify()
 
+        var moodPageState = 0
         setContent {
             Image(
                 painter = painterResource(R.drawable.mobile_background_grad_6_428x926),
@@ -64,10 +65,10 @@ class MainActivity : AppCompatActivity() {
                     text = stringResource(R.string.swipeHelp),
                     style = moodTypography.body1,
                 )
-                MoodPager()
+                moodPageState = moodPager()
                 Spacer(modifier = Modifier.padding(top = 20.dp))
                 Button(onClick = {
-                    System.out.println("Button clicked: " )
+                    System.out.println("Button clicked: " + moodPageState)
                 }, modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = stringResource(R.string.submitButton),
