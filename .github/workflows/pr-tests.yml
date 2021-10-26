@@ -59,7 +59,7 @@ jobs:
         script: ./gradlew connectedCheck
         disable-animations: true
         working-directory: ${{env.working-directory}}
-        profile: Pixel 2 API 30
+        profile: Pixel_2
 
   ios-ui-tests:
     runs-on: 	macos-11
