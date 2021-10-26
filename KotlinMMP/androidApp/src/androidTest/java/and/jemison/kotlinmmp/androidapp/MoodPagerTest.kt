@@ -1,6 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.moodPager
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -22,7 +22,7 @@ class MoodPagerTest {
     @Before
     fun setUp() {
         composeTestRule.setContent {
-            MoodPager()
+            moodPager()
         }
     }
 

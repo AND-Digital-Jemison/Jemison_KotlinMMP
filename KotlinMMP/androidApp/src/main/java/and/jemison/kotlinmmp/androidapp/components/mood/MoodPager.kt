@@ -14,7 +14,7 @@ import com.google.accompanist.pager.rememberPagerState
 
 @ExperimentalPagerApi
 @Composable
-fun moodPager(): Int {
+fun moodPager(): String {
     val moodService = MoodService()
     val pagerState = rememberPagerState()
 
@@ -27,5 +27,5 @@ fun moodPager(): Int {
             MoodSwipeOption(page)
         }
     }
-    return pagerState.currentPage
+    return moodService.getMood(pagerState.currentPage).text
 }
