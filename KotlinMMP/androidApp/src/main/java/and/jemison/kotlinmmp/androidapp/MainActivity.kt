@@ -8,15 +8,10 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.microsoft.appcenter.AppCenter
@@ -41,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             Image(
-                painter = painterResource(R.drawable.background),
+                painter = painterResource(R.drawable.purple_background),
                 contentDescription = "Purple Background",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
