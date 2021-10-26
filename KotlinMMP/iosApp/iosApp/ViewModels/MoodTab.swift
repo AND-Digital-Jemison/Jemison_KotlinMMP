@@ -2,23 +2,26 @@ import SwiftUI
 import shared
 
 struct MoodTab : View{
-    var mood: Mood
+    var mood: MoodInfo
     var identifier: String
     init(moodId: Int32) {
+        print(MoodService().getMood(id: moodId))
         mood =  MoodService().getMood(id: moodId)
         identifier = "mood" + String(moodId)
     }
     
     var body: some View {
-        VStack {
+        VStack{
             Image(mood.image)
                 .resizable()
                 .scaledToFit()
                 .accessibilityIdentifier(identifier+"-image")
+                
             Text(mood.text)
                 .foregroundColor(Color(hex: mood.textColour))
                 .font(Font.custom("Tahu!", size: 40))
                 .accessibilityIdentifier(identifier+"-text")
-        }
+        }.tag(mood.text)
+        
     }
 }

@@ -1,5 +1,6 @@
 import SwiftUI
 import shared
+import Amplify
 
 struct ContentView: View {
     @State private var selectedTab = "Doing Great"
@@ -26,6 +27,16 @@ struct ContentView: View {
                 
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
+                    let mood = Mood(text: "my mood")
+
+                    Amplify.DataStore.save(mood) {
+                        switch $0 {
+                        case .success:
+                            print("Created a new post successfully")
+                        case .failure(let error):
+                            print("Error creating post - \(error.localizedDescription)")
+                        }
+                    }
                 }.buttonStyle(PrimaryButton())
                 
                 Text("This is anonymous")

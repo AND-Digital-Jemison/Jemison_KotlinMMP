@@ -1,4 +1,11 @@
 PODS:
+  - Amplify (1.15.3):
+    - Amplify/Default (= 1.15.3)
+  - Amplify/Default (1.15.3)
+  - AmplifyPlugins/AWSDataStorePlugin (1.15.3):
+    - AWSCore (~> 2.26.1)
+    - AWSPluginsCore (= 1.15.3)
+    - SQLite.swift (= 0.12.2)
   - AppCenter (4.3.0):
     - AppCenter/Analytics (= 4.3.0)
     - AppCenter/Crashes (= 4.3.0)
@@ -7,24 +14,43 @@ PODS:
   - AppCenter/Core (4.3.0)
   - AppCenter/Crashes (4.3.0):
     - AppCenter/Core
+  - AWSCore (2.26.2)
+  - AWSPluginsCore (1.15.3):
+    - Amplify (= 1.15.3)
+    - AWSCore (~> 2.26.1)
   - shared (1.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
+  - Amplify
+  - AmplifyPlugins/AWSDataStorePlugin
   - AppCenter
   - shared (from `../shared`)
 
 SPEC REPOS:
   trunk:
+    - Amplify
+    - AmplifyPlugins
     - AppCenter
+    - AWSCore
+    - AWSPluginsCore
+    - SQLite.swift
 
 EXTERNAL SOURCES:
   shared:
     :path: "../shared"
 
 SPEC CHECKSUMS:
+  Amplify: 0f1289c87ce5950d3c76d0e8e0ebbddbcda3cd30
+  AmplifyPlugins: c2e983fcde04092101425cbebf1c1dddf9c04123
   AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
+  AWSCore: dd7f74ab3f354aad435f83afdbfac91bcb7d44c2
+  AWSPluginsCore: 7a1acaf5c6224bf6c2b678c24800c16563a76361
   shared: 90ade93db1aa54af7f3563f585e897b8dd6c2db2
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: 59b5a1c910d0e4f1a29e8f6abf3b6809589d231c
+PODFILE CHECKSUM: 91575d04e8e7b2af1c4bd72f382b9835d60a9a05
 
 COCOAPODS: 1.11.2

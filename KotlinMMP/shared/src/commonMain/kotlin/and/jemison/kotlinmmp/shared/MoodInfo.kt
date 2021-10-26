@@ -1,6 +1,6 @@
 package and.jemison.kotlinmmp.shared
 
-data class Mood(
+data class MoodInfo(
     val text: String,
     val textColour: String,
     val image: String,
