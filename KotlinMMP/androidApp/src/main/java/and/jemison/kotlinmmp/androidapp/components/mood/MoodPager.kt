@@ -2,6 +2,7 @@ package and.jemison.kotlinmmp.androidapp.components.mood
 
 import and.jemison.kotlinmmp.shared.MoodService
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
