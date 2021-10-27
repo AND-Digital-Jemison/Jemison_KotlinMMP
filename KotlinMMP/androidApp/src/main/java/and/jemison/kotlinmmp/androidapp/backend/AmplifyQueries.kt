@@ -8,7 +8,6 @@ import com.amplifyframework.core.Amplify
 import com.amplifyframework.datastore.AWSDataStorePlugin
 import com.amplifyframework.datastore.generated.model.Mood
 
-
 class AmplifyQueries {
     fun configureAmplify(applicationContext: Context) {
         try {

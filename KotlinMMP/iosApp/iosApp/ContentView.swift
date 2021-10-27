@@ -3,7 +3,7 @@ import shared
 import Amplify
 
 struct ContentView: View {
-    @State private var selectedTab = "Doing Great"
+    @State private var selectedTab = MoodService().getMood(id: 0).moodValue
     
     var body: some View {
         ZStack() {

@@ -5,4 +5,5 @@ data class MoodInfo(
     val textColour: String,
     val image: String,
     val contentDescription: String,
+    val moodValue: String
 ) {}

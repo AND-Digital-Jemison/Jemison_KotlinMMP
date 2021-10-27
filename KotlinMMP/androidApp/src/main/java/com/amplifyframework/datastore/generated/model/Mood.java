@@ -27,7 +27,7 @@ public final class Mood implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField TEXT = field("text");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String text;
+  private final @ModelField(targetType="String") String text;
   public String getId() {
       return id;
   }
@@ -73,7 +73,7 @@ public final class Mood implements Model {
       .toString();
   }
   
-  public static TextStep builder() {
+  public static BuildStep builder() {
       return new Builder();
   }
   
@@ -106,18 +106,14 @@ public final class Mood implements Model {
     return new CopyOfBuilder(id,
       text);
   }
-  public interface TextStep {
+  public interface BuildStep {
+    Mood build();
+    BuildStep id(String id) throws IllegalArgumentException;
     BuildStep text(String text);
   }
   
 
-  public interface BuildStep {
-    Mood build();
-    BuildStep id(String id) throws IllegalArgumentException;
-  }
-  
-
-  public static class Builder implements TextStep, BuildStep {
+  public static class Builder implements BuildStep {
     private String id;
     private String text;
     @Override
@@ -131,7 +127,6 @@ public final class Mood implements Model {
     
     @Override
      public BuildStep text(String text) {
-        Objects.requireNonNull(text);
         this.text = text;
         return this;
     }
