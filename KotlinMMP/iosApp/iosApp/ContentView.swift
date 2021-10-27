@@ -27,7 +27,7 @@ struct ContentView: View {
                 
                 Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
-                    let mood = Mood(text: "my mood")
+                    let mood = Mood(text: selectedTab)
 
                     Amplify.DataStore.save(mood) {
                         switch $0 {

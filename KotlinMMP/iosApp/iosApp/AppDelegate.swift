@@ -8,6 +8,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // AmplifyModels is generated in the previous step
         let dataStorePlugin = AWSDataStorePlugin(modelRegistration: AmplifyModels())
         try Amplify.add(plugin: dataStorePlugin)
+        try Amplify.add(plugin: AWSAPIPlugin())
         try Amplify.configure()
         print("Amplify configured with DataStore plugin")
     } catch {
