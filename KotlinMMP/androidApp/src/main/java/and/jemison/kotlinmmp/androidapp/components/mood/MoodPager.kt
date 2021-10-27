@@ -28,5 +28,5 @@ fun moodPager(): String {
             MoodSwipeOption(page)
         }
     }
-    return moodService.getMood(pagerState.currentPage).text
+    return moodService.getMood(pagerState.currentPage).moodValue
 }

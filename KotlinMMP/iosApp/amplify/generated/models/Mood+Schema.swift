@@ -19,7 +19,7 @@ extension Mood {
     
     model.fields(
       .id(),
-      .field(mood.text, is: .required, ofType: .string)
+      .field(mood.text, is: .optional, ofType: .string)
     )
     }
 }
