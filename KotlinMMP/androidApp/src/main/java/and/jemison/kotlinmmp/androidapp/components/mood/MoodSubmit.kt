@@ -21,6 +21,7 @@ fun MoodSubmit(amplify: AmplifyQueries, moodCurrentText: String) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(onClick = {
+            print("cheese: $moodCurrentText")
             amplify.saveToMood(moodCurrentText)
                          }, modifier = Modifier.fillMaxWidth()) {
             Text(

@@ -1,19 +1,15 @@
 package and.jemison.kotlinmmp.androidapp
 
 import and.jemison.kotlinmmp.androidapp.backend.AmplifyQueries
-import and.jemison.kotlinmmp.androidapp.components.mood.MoodHeader
-import and.jemison.kotlinmmp.androidapp.components.mood.MoodSubmit
-import and.jemison.kotlinmmp.androidapp.components.mood.moodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodScreen
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
@@ -44,20 +40,28 @@ class MainActivity : AppCompatActivity() {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                Box(modifier = Modifier.padding(20.dp)) {
-                    MoodHeader()
-                }
-                var moodCurrentText = moodPager()
-                Box(modifier = Modifier.padding(20.dp)) {
-                    MoodSubmit(amplify, moodCurrentText)
-                }
-            }
+            MoodScreen(amplify)
+
+//            Image(
+//                painter = painterResource(R.drawable.purple_background),
+//                contentDescription = "Purple Background",
+//                contentScale = ContentScale.Crop,
+//                modifier = Modifier.fillMaxSize()
+//            )
+//            Column(
+//                horizontalAlignment = Alignment.CenterHorizontally,
+//                verticalArrangement = Arrangement.SpaceBetween,
+//                modifier = Modifier
+//                    .fillMaxSize()
+//            ) {
+//                Box(modifier = Modifier.padding(20.dp)) {
+//                    MoodHeader()
+//                }
+//                MoodPager(onMoodChange())
+//                Box(modifier = Modifier.padding(20.dp)) {
+//                    MoodSubmit(amplify, moodCurrentText)
+//                }
+//            }
         }
     }
 }
