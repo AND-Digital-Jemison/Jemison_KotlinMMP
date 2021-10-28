@@ -16,13 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MoodSubmit(amplify: AmplifyQueries, moodCurrentText: String) {
+fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
     Column (
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(onClick = {
-            print("cheese: $moodCurrentText")
-            amplify.saveToMood(moodCurrentText)
+            amplify.saveToMood(moodValue)
                          }, modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = stringResource(R.string.submitButton),
