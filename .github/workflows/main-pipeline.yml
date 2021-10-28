@@ -136,6 +136,15 @@ jobs:
     - name: gradle version
       run: gradle -v
 
+    - name: Install cocoapods
+      run: |
+        gem install cocoapods --pre
+
+    - run: CocoaPods@0
+      with:
+        forceRepoUpdate: true
+        projectDirectory: ${{env.working-directory}}/iosApp
+
     - uses: yukiarrr/ios-build-action@v1.4.0
       with:
         project-path: ${{env.working-directory}}/iosApp/iosApp.xcodeproj
