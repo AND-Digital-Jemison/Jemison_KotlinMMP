@@ -1,6 +1,7 @@
 package and.jemison.kotlinmmp.androidapp
 
-import and.jemison.kotlinmmp.androidapp.components.mood.moodPager
+import and.jemison.kotlinmmp.androidapp.backend.AmplifyQueries
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodScreen
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -21,8 +22,9 @@ class MoodPagerTest {
     @ExperimentalPagerApi
     @Before
     fun setUp() {
+        val amplify = AmplifyQueries()
         composeTestRule.setContent {
-            moodPager()
+            MoodScreen(amplify)
         }
     }
 

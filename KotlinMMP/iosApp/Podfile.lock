@@ -20,7 +20,7 @@ PODS:
     - AppCenter/Core
   - AppSyncRealTimeClient (1.5.0):
     - Starscream (~> 3.1.1)
-  - AWSCore (2.26.2)
+  - AWSCore (2.26.3)
   - AWSPluginsCore (1.15.3):
     - Amplify (= 1.15.3)
     - AWSCore (~> 2.26.1)
@@ -57,7 +57,7 @@ SPEC CHECKSUMS:
   AmplifyPlugins: c2e983fcde04092101425cbebf1c1dddf9c04123
   AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
   AppSyncRealTimeClient: 2b4482b1770a3e5cf64f9714a6d198550017b5a2
-  AWSCore: dd7f74ab3f354aad435f83afdbfac91bcb7d44c2
+  AWSCore: 7077ecff07ae3b184e65e2fa9855f6da048f9ae7
   AWSPluginsCore: 7a1acaf5c6224bf6c2b678c24800c16563a76361
   shared: 90ade93db1aa54af7f3563f585e897b8dd6c2db2
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3

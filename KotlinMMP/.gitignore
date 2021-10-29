@@ -53,3 +53,4 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 xcuserdata
+Pods/
