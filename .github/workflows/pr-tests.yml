@@ -85,10 +85,9 @@ jobs:
       run: |
           gem install cocoapods --pre
 
-    - run: pod install
-      working-directory: ${{env.working-directory}}/iosApp
-
     - name: Emulator tests
-      run: xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: | 
+          pod install
+          xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 13' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       working-directory: ${{env.working-directory}}/iosApp
 
