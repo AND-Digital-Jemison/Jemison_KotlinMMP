@@ -54,3 +54,4 @@ amplifytools.xcconfig
 
 xcuserdata
 Pods/
+Podfile.lock

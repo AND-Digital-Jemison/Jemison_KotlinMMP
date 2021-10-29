@@ -2,8 +2,5 @@ target 'iosApp' do
   use_frameworks!
   platform :ios, '15.0'
   pod 'AppCenter'
-  pod 'Amplify'
-  pod 'AmplifyPlugins/AWSDataStorePlugin'
-  pod 'AmplifyPlugins/AWSAPIPlugin'
   pod 'shared', :path => '../shared'
 end
