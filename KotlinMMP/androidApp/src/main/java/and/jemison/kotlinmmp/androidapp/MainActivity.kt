@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 Analytics::class.java, Crashes::class.java
             )
         }
-        var amplify = AmplifyQueries()
+        val amplify = AmplifyQueries()
         amplify.configureAmplify(applicationContext)
 
         setContent {
@@ -41,27 +41,6 @@ class MainActivity : AppCompatActivity() {
                 modifier = Modifier.fillMaxSize()
             )
             MoodScreen(amplify)
-
-//            Image(
-//                painter = painterResource(R.drawable.purple_background),
-//                contentDescription = "Purple Background",
-//                contentScale = ContentScale.Crop,
-//                modifier = Modifier.fillMaxSize()
-//            )
-//            Column(
-//                horizontalAlignment = Alignment.CenterHorizontally,
-//                verticalArrangement = Arrangement.SpaceBetween,
-//                modifier = Modifier
-//                    .fillMaxSize()
-//            ) {
-//                Box(modifier = Modifier.padding(20.dp)) {
-//                    MoodHeader()
-//                }
-//                MoodPager(onMoodChange())
-//                Box(modifier = Modifier.padding(20.dp)) {
-//                    MoodSubmit(amplify, moodCurrentText)
-//                }
-//            }
         }
     }
 }
