@@ -1,4 +1,7 @@
 PODS:
+  - Amplify (1.15.3):
+    - Amplify/Default (= 1.15.3)
+  - Amplify/Default (1.15.3)
   - AppCenter (4.3.0):
     - AppCenter/Analytics (= 4.3.0)
     - AppCenter/Crashes (= 4.3.0)
@@ -10,11 +13,13 @@ PODS:
   - shared (1.0)
 
 DEPENDENCIES:
+  - Amplify
   - AppCenter
   - shared (from `../shared`)
 
 SPEC REPOS:
   trunk:
+    - Amplify
     - AppCenter
 
 EXTERNAL SOURCES:
@@ -22,9 +27,10 @@ EXTERNAL SOURCES:
     :path: "../shared"
 
 SPEC CHECKSUMS:
+  Amplify: 0f1289c87ce5950d3c76d0e8e0ebbddbcda3cd30
   AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
   shared: 90ade93db1aa54af7f3563f585e897b8dd6c2db2
 
-PODFILE CHECKSUM: 59b5a1c910d0e4f1a29e8f6abf3b6809589d231c
+PODFILE CHECKSUM: 3e4c1566b83f7db945a5a41b3c5b5903192cf836
 
 COCOAPODS: 1.11.2
