@@ -24,7 +24,7 @@ struct ContentView: View {
                 .padding()
                 .tabViewStyle( PageTabViewStyle())
                 
-                Button("SUBMIT") {
+                Button("SUBMIT NOW") {
                     print("Button tapped! Response selected: ", selectedTab)
                 }.buttonStyle(PrimaryButton())
                 
