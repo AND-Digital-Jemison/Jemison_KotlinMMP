@@ -2,6 +2,6 @@ target 'iosApp' do
   use_frameworks!
   platform :ios, '15.0'
   pod 'AppCenter'
-  pod 'shared', :path => '../shared'
   pod 'Amplify'
+  pod 'shared', :path => '../shared'
 end
