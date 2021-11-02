@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 
 struct MoodTab : View{
-    var mood: Mood
+    var mood: MoodInfo
     var identifier: String
     init(moodId: Int32) {
         mood =  MoodService().getMood(id: moodId)

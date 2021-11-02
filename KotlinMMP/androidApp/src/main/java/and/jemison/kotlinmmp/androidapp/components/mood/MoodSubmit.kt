@@ -1,6 +1,7 @@
 package and.jemison.kotlinmmp.androidapp.components.mood
 
 import and.jemison.kotlinmmp.androidapp.R
+import and.jemison.kotlinmmp.androidapp.backend.AmplifyQueries
 import and.jemison.kotlinmmp.androidapp.moodTypography
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,11 +16,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MoodSubmit() {
+fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
     Column (
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+        Button(
+            onClick = { amplify.saveToMood(moodValue) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text(
                 text = stringResource(R.string.submitButton),
                 style = moodTypography.body1

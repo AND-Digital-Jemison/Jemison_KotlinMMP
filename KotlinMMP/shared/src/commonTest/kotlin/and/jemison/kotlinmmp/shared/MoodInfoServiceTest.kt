@@ -3,7 +3,7 @@ package and.jemison.kotlinmmp.shared
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-class MoodServiceTest {
+class MoodInfoServiceTest {
 
     @Test
     fun getMoodFromId0() {
