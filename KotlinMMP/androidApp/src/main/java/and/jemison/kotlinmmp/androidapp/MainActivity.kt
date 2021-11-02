@@ -1,7 +1,9 @@
 package and.jemison.kotlinmmp.androidapp
 
+import and.jemison.kotlinmmp.androidapp.backend.AmplifyQueries
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodHeader
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
+import and.jemison.kotlinmmp.androidapp.components.mood.MoodScreen
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodSubmit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        val amplify = AmplifyQueries()
+        amplify.configureAmplify(applicationContext)
+
         setContent {
             Image(
                 painter = painterResource(R.drawable.purple_background),
@@ -41,20 +46,7 @@ class MainActivity : AppCompatActivity() {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                Box(modifier = Modifier.padding(20.dp)) {
-                    MoodHeader()
-                }
-                MoodPager()
-                Box(modifier = Modifier.padding(20.dp)) {
-                    MoodSubmit()
-                }
-            }
+            MoodScreen(amplify)
         }
     }
 }
