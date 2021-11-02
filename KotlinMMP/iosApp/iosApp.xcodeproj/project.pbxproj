@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		EC13BDCD2716E42D00241B6F /* Tahu!.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCC2716E42D00241B6F /* Tahu!.ttf */; };
 		EC13BDD02716E6B200241B6F /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */; };
 		EC13BDD22716E6C800241B6F /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */; };
+		EF25649D27318797000D8A0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25649C27318797000D8A0F /* AppDelegate.swift */; };
 		F51D72A3D6E67E8A90010A5B /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774546E4676321469B96C41 /* AmplifyModels.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,23 +54,24 @@
 		1EAC93522715E79200C92830 /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAC93542715E79200C92830 /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		445AACCEAFCB9B0816182CF8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
-		6774546E4676321469B96C41 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		445AACCEAFCB9B0816182CF8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		6774546E4676321469B96C41 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78CBCD6490A305E728B1584C /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824C89302705DB8E007D3DB8 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		8FE13D835B0DFA220638C0EC /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
-		CAE3E62E7037DC14600E093A /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		CAE3E62E7037DC14600E093A /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D10B657AFBD56E8D94C7C695 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EC0FB61F2715DC3300D2DD1F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		EC13BDCC2716E42D00241B6F /* Tahu!.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tahu!.ttf"; sourceTree = "<group>"; };
 		EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		EFC2943D03C6A7469C2E7B65 /* Mood.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = amplify/generated/models/Mood.swift; sourceTree = "<group>"; };
-		EFD7B5081F0330ABE07EA3DE /* Mood+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Mood+Schema.swift"; path = "amplify/generated/models/Mood+Schema.swift"; sourceTree = "<group>"; };
+		EF25649C27318797000D8A0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFC2943D03C6A7469C2E7B65 /* Mood.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Mood.swift; path = amplify/generated/models/Mood.swift; sourceTree = "<group>"; };
+		EFD7B5081F0330ABE07EA3DE /* Mood+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Mood+Schema.swift"; path = "amplify/generated/models/Mood+Schema.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				EC0FB61F2715DC3300D2DD1F /* Media.xcassets */,
 				EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */,
+				EF25649C27318797000D8A0F /* AppDelegate.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				1EAC934B2715DAD700C92830 /* MoodTab.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				EC0FB6582715ED7D00D2DD1F /* PrimaryButton.swift in Sources */,
+				EF25649D27318797000D8A0F /* AppDelegate.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				1EAC934D2715E42000C92830 /* Color.swift in Sources */,
 				F51D72A3D6E67E8A90010A5B /* AmplifyModels.swift in Sources */,

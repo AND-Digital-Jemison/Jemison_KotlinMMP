@@ -19,6 +19,6 @@ struct MoodTab : View{
                 .foregroundColor(Color(hex: mood.textColour))
                 .font(Font.custom("Tahu!", size: 40))
                 .accessibilityIdentifier(identifier+"-text")
-        }
+        }.tag(mood.moodValue)
     }
 }

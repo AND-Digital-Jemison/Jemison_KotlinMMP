@@ -12,6 +12,7 @@ class MoodInfoServiceTest {
         assertTrue(mood.textColour == "#FFFFFF")
         assertTrue { mood.image == "rocket-up" }
         assertTrue(mood.contentDescription == "Rocket flying up")
+        assertTrue(mood.moodValue == "great")
     }
 
     @Test
@@ -21,5 +22,6 @@ class MoodInfoServiceTest {
         assertTrue(mood.textColour == "#FFFFFF")
         assertTrue { mood.image == "rocket-down" }
         assertTrue(mood.contentDescription == "Rocket crashing down")
+        assertTrue(mood.moodValue == "not-great")
     }
 }

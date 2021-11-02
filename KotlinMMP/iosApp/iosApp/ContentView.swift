@@ -1,8 +1,9 @@
 import SwiftUI
 import shared
+import Amplify
 
 struct ContentView: View {
-    @State private var selectedTab = "Doing Great"
+    @State private var selectedTab = MoodService().getMood(id: 0).moodValue
     
     var body: some View {
         ZStack() {
@@ -24,8 +25,18 @@ struct ContentView: View {
                 .padding()
                 .tabViewStyle( PageTabViewStyle())
                 
-                Button("SUBMIT NOW") {
+                Button("SUBMIT") {
                     print("Button tapped! Response selected: ", selectedTab)
+                    let mood = Mood(text: selectedTab)
+
+                    Amplify.DataStore.save(mood) {
+                        switch $0 {
+                        case .success:
+                            print("Created a new post successfully")
+                        case .failure(let error):
+                            print("Error creating post - \(error.localizedDescription)")
+                        }
+                    }
                 }.buttonStyle(PrimaryButton())
                 
                 Text("This is anonymous")
