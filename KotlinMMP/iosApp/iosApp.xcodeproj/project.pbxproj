@@ -13,13 +13,18 @@
 		1EAC934D2715E42000C92830 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC934C2715E42000C92830 /* Color.swift */; };
 		1EAC93552715E79200C92830 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC93542715E79200C92830 /* ColorTests.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		583BF6277C8054D992ED8C47 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = CAE3E62E7037DC14600E093A /* awsconfiguration.json */; };
 		6EBF4AA6362B7D763307BE83 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CBCD6490A305E728B1584C /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		8CE0528A3E420F625C7007D6 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC2943D03C6A7469C2E7B65 /* Mood.swift */; };
+		A0DA95CE1A1FDFDA11729B07 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 445AACCEAFCB9B0816182CF8 /* amplifyconfiguration.json */; };
+		CDB2EBC207916F3F1B2215D0 /* Mood+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7B5081F0330ABE07EA3DE /* Mood+Schema.swift */; };
 		EC0FB6202715DC3400D2DD1F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0FB61F2715DC3300D2DD1F /* Media.xcassets */; };
 		EC0FB6582715ED7D00D2DD1F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */; };
 		EC13BDCD2716E42D00241B6F /* Tahu!.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCC2716E42D00241B6F /* Tahu!.ttf */; };
 		EC13BDD02716E6B200241B6F /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */; };
 		EC13BDD22716E6C800241B6F /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */; };
+		F51D72A3D6E67E8A90010A5B /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774546E4676321469B96C41 /* AmplifyModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,18 +53,23 @@
 		1EAC93522715E79200C92830 /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAC93542715E79200C92830 /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		445AACCEAFCB9B0816182CF8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		6774546E4676321469B96C41 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78CBCD6490A305E728B1584C /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824C89302705DB8E007D3DB8 /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		8FE13D835B0DFA220638C0EC /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		CAE3E62E7037DC14600E093A /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; lastKnownFileType = text.json; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D10B657AFBD56E8D94C7C695 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EC0FB61F2715DC3300D2DD1F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		EC0FB6572715ED7D00D2DD1F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		EC13BDCC2716E42D00241B6F /* Tahu!.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tahu!.ttf"; sourceTree = "<group>"; };
 		EC13BDCF2716E6B200241B6F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		EC13BDD12716E6C800241B6F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		EFC2943D03C6A7469C2E7B65 /* Mood.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = Mood.swift; path = amplify/generated/models/Mood.swift; sourceTree = "<group>"; };
+		EFD7B5081F0330ABE07EA3DE /* Mood+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "Mood+Schema.swift"; path = "amplify/generated/models/Mood+Schema.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DF25EA7BDF7CD47DFAB2BA3 /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				6774546E4676321469B96C41 /* AmplifyModels.swift */,
+				EFD7B5081F0330ABE07EA3DE /* Mood+Schema.swift */,
+				EFC2943D03C6A7469C2E7B65 /* Mood.swift */,
+			);
+			name = AmplifyModels;
+			sourceTree = "<group>";
+		};
 		1E527F39270B4CC600B6F2AF /* iosAppUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +143,8 @@
 				7555FF7C242A565900829871 /* Products */,
 				BB23130B02D884FC9024ACDE /* Pods */,
 				F6D05DC8BCFB1BFFBE1D9E40 /* Frameworks */,
+				E9F3D9196C966E2FFA25C79D /* AmplifyConfig */,
+				0DF25EA7BDF7CD47DFAB2BA3 /* AmplifyModels */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +182,15 @@
 				8FE13D835B0DFA220638C0EC /* Pods-iosApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E9F3D9196C966E2FFA25C79D /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				CAE3E62E7037DC14600E093A /* awsconfiguration.json */,
+				445AACCEAFCB9B0816182CF8 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
 		F6D05DC8BCFB1BFFBE1D9E40 /* Frameworks */ = {
@@ -295,6 +326,8 @@
 				EC13BDCD2716E42D00241B6F /* Tahu!.ttf in Resources */,
 				EC13BDD02716E6B200241B6F /* Poppins-Bold.ttf in Resources */,
 				EC0FB6202715DC3400D2DD1F /* Media.xcassets in Resources */,
+				583BF6277C8054D992ED8C47 /* awsconfiguration.json in Resources */,
+				A0DA95CE1A1FDFDA11729B07 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,9 +381,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -386,6 +423,9 @@
 				EC0FB6582715ED7D00D2DD1F /* PrimaryButton.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				1EAC934D2715E42000C92830 /* Color.swift in Sources */,
+				F51D72A3D6E67E8A90010A5B /* AmplifyModels.swift in Sources */,
+				CDB2EBC207916F3F1B2215D0 /* Mood+Schema.swift in Sources */,
+				8CE0528A3E420F625C7007D6 /* Mood.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
