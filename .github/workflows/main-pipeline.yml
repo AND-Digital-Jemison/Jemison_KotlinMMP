@@ -204,9 +204,9 @@ jobs:
       with:
         name: release-aab
 
-     - name: list source directory content looking for built artefacts files
-       run: ls -la
-       working-directory: ./
+    - name: list source directory content looking for built artefacts files
+      run: ls -la
+      working-directory: ./
 
 #    - uses: jakejarvis/s3-sync-action@master
 #      with:
