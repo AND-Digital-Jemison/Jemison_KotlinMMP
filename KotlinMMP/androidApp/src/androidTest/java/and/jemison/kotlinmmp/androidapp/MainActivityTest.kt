@@ -27,6 +27,15 @@ class MainActivityTest {
         composeTestRule.onNodeWithText(SUBMIT_TEXT).assertIsDisplayed()
         composeTestRule.onNodeWithText(DISCLAIMER_TEXT).assertIsDisplayed()
     }
+
+    @Test
+    fun onSubmitSnackbarDisplay() {
+        val submitButton = composeTestRule.onNodeWithTag(MOOD_SUBMIT_TEST_TAG)
+        val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
+
+        submitButton.performClick()
+        snackbar.assertIsDisplayed()
+    }
     
     companion object {
         private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
@@ -35,5 +44,7 @@ class MainActivityTest {
         private const val BAD_MOOD_TEST_TAG = "mood1-text"
         private const val SUBMIT_TEXT = "Submit"
         private const val DISCLAIMER_TEXT = "This is completely anonymous."
+        private const val MOOD_SUBMIT_TEST_TAG = "mood-submit"
+        private const val SNACKBAR = "snackbar"
     }
 }
