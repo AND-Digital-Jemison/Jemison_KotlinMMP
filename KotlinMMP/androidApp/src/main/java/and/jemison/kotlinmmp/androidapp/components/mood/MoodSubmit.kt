@@ -27,7 +27,6 @@ fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
     ) {
         Button(
             onClick = {
-                coroutineScope.launch {
                     amplify.saveToMood(moodValue, onMessageChange = {snackBarMessage = it});
                     coroutineScope.launch {
                         snackbarHostState.showSnackbar(
@@ -37,7 +36,7 @@ fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
 
                         )
                     }
-                }
+
 
              },
             modifier = Modifier.fillMaxWidth().testTag("mood-submit")

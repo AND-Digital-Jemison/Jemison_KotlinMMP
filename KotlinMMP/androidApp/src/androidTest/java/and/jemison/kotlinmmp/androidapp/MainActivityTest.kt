@@ -31,9 +31,9 @@ class MainActivityTest {
     @Test
     fun onSubmitSnackbarDisplay() {
         val submitButton = composeTestRule.onNodeWithTag(MOOD_SUBMIT_TEST_TAG)
-        val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
-
+        submitButton.assertIsDisplayed()
         submitButton.performClick()
+        val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
         snackbar.assertIsDisplayed()
     }
     
