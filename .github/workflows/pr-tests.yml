@@ -51,7 +51,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
        java-version: '11'
-       
+
+    - name: Install Amplify CLI & Deploying Project
+      run: |
+          npm install -g @aws-amplify/cli --unsafe-perm=true
+          bash amplify-init.sh
+          bash amplify-push.sh
+          amplify codegen
+
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
