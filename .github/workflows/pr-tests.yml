@@ -59,8 +59,8 @@ jobs:
       run: |
         curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
         sudo installer -pkg ./AWSCLIV2.pkg -target /
-        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile my-profile
-        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile my-profile
+        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile default
+        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile default
         aws configure set default.region eu-west-1
 
     - name: Install Amplify CLI & Deploying Project

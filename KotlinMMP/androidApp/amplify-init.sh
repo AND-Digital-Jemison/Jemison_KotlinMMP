@@ -1,7 +1,7 @@
 AWS_CONFIG="{\
 \"configLevel\":\"project\",\
-\"useProfile\":false,\
-\"profileName\":\"my-profile\"\
+\"useProfile\":true,\
+\"profileName\":\"default\"\
 }"
 
 FRONTEND="{\
