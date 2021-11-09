@@ -14,7 +14,7 @@ AMPLIFY="{\
 \"defaultEditor\":\"android\"\
 }"
 
-amplify pull \
+amplify init \
 --frontend $FRONTEND \
 --amplify $AMPLIFY \
 --yes
