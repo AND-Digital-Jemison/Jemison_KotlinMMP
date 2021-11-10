@@ -67,14 +67,13 @@ jobs:
       run: |
           npm install -g @aws-amplify/cli --unsafe-perm=true
           bash amplify-init.sh
-          amplify push
+          bash amplify-push.sh
       working-directory: ${{env.working-directory}}/androidApp
 
-    - name: Commit Amplify Files
-      uses: stefanzweifel/git-auto-commit-action@v4.2.0
+    - uses: stefanzweifel/git-auto-commit-action@v4.2.0
       with:
         commit_message: Apply automatic changes
-        file_pattern: amplify/* amplifyconfiguration.json awsconfiguration.json
+        file_pattern: androidApp/amplify/* amplifyconfiguration.json awsconfiguration.json
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
