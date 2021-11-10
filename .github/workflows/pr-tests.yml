@@ -52,17 +52,6 @@ jobs:
       with:
        java-version: '11'
 
-    - name: Install AWS CLI & Configuring Profile Credentials
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: |
-        curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-        sudo installer -pkg ./AWSCLIV2.pkg -target /
-        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile default
-        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile default
-        aws configure set default.region eu-west-1
-
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
