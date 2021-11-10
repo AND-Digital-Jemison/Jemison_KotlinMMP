@@ -63,18 +63,6 @@ jobs:
         aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile default
         aws configure set default.region eu-west-1
 
-    - name: Install Amplify CLI & Deploying Project
-      run: |
-          npm install -g @aws-amplify/cli --unsafe-perm=true
-          bash amplify-init.sh
-          bash amplify-push.sh
-      working-directory: ${{env.working-directory}}/androidApp
-
-    - uses: stefanzweifel/git-auto-commit-action@v4.2.0
-      with:
-        commit_message: Apply automatic changes
-        file_pattern: androidApp/amplify/* amplifyconfiguration.json awsconfiguration.json
-
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
