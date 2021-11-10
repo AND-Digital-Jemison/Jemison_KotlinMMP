@@ -67,7 +67,8 @@ jobs:
       run: |
           npm install -g @aws-amplify/cli --unsafe-perm=true
           bash amplify-init.sh
-          amplify push
+          bash amplify-push.sh
+          amplify codegen
       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
@@ -75,6 +76,7 @@ jobs:
       with:
         commit_message: Apply automatic changes
         file_pattern: amplify/* amplifyconfiguration.json awsconfiguration.json
+       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
