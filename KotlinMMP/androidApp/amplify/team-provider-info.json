@@ -11,5 +11,18 @@
       "StackId": "arn:aws:cloudformation:eu-west-1:095908439828:stack/amplify-kotlinmmp-dev-143047/7b782f80-17bb-11ec-b166-0205fe562a85",
       "AmplifyAppId": "d194x8oiwokw1k"
     }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gcmobile-test-153826-authRole",
+      "UnauthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-test-153826-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-test-153826-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-gcmobile-test-153826-deployment",
+      "UnauthRoleName": "amplify-gcmobile-test-153826-unauthRole",
+      "StackName": "amplify-gcmobile-test-153826",
+      "StackId": "arn:aws:cloudformation:eu-west-1:095908439828:stack/amplify-gcmobile-test-153826/4234a4a0-423c-11ec-bf0e-02213e755193",
+      "AmplifyAppId": "d194x8oiwokw1k"
+    }
   }
 }
