@@ -33,8 +33,8 @@ class MainActivityTest {
         val submitButton = composeTestRule.onNodeWithTag(MOOD_SUBMIT_TEST_TAG)
         submitButton.assertIsDisplayed()
         submitButton.performClick()
-//        val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
-//        snackbar.assertIsDisplayed()
+        val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
+        snackbar.assertIsDisplayed()
     }
     
     companion object {
