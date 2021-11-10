@@ -68,7 +68,6 @@ jobs:
           npm install -g @aws-amplify/cli --unsafe-perm=true
           bash amplify-init.sh
           bash amplify-push.sh
-          amplify codegen
       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
