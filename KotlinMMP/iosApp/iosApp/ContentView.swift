@@ -1,9 +1,13 @@
 import SwiftUI
 import shared
 import Amplify
+import SSToastMessage
 
 struct ContentView: View {
     @State private var selectedTab = MoodService().getMood(id: 0).moodValue
+    @State var showToast = false
+    
+//    let moodSubmitToastColor: UIColor = UIColor(named: "MoodSubmitToastColor")!
     
     var body: some View {
         ZStack() {
@@ -33,6 +37,7 @@ struct ContentView: View {
                         switch $0 {
                         case .success:
                             print("Created a new post successfully")
+                            showToast = true
                         case .failure(let error):
                             print("Error creating post - \(error.localizedDescription)")
                         }
@@ -44,14 +49,34 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .font(Font.custom("Poppins-ExtraLight", size: 16))
+    
             }
             .padding([.bottom, .leading, .trailing], 20)
             .frame( width:UIScreen.main.bounds.width, height:UIScreen.main.bounds.height)
+            .present(isPresented: self.$showToast, type: .toast, position: .bottom, autohideDuration: 2) {
+                       self.createMoodSubmitToastView()
+            }
+            
+            
         }
         
     }
     
-}
+    
+    
+    func createMoodSubmitToastView() -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text("Mood submitted!")
+                .lineLimit(2)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .font(Font.custom("Poppins-ExtraLight", size: 20))
+                .foregroundColor(.white)
+            }.padding()
+             .background(Color.purple)
+
+        }
+    
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -60,3 +85,4 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+}
