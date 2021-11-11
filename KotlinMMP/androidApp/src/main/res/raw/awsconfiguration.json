@@ -6,14 +6,14 @@
     },
     "AppSync": {
         "Default": {
-            "ApiUrl": "https://mig6wx55mzfqjdgvyynkngclve.appsync-api.eu-west-1.amazonaws.com/graphql",
+            "ApiUrl": "https://c3qvphx45rbx7fmu5wpo2g3bc4.appsync-api.eu-west-1.amazonaws.com/graphql",
             "Region": "eu-west-1",
             "AuthMode": "API_KEY",
-            "ApiKey": "da2-ed6zlgluwvcdnat6fxzsubu3ji",
+            "ApiKey": "da2-uctohkn43feepkqclq6fdz6i2q",
             "ClientDatabasePrefix": "gcmobiletest_API_KEY"
         },
         "gcmobiletest_AWS_IAM": {
-            "ApiUrl": "https://mig6wx55mzfqjdgvyynkngclve.appsync-api.eu-west-1.amazonaws.com/graphql",
+            "ApiUrl": "https://c3qvphx45rbx7fmu5wpo2g3bc4.appsync-api.eu-west-1.amazonaws.com/graphql",
             "Region": "eu-west-1",
             "AuthMode": "AWS_IAM",
             "ClientDatabasePrefix": "gcmobiletest_AWS_IAM"
