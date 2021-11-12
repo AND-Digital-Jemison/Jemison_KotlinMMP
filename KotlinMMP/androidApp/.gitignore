@@ -18,6 +18,4 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 **.sample
-awsconfiguration.json
-amplifyconfiguration.json
 #amplify-do-not-edit-end
