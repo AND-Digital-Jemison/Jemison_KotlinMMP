@@ -71,14 +71,11 @@ jobs:
       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
-      uses: stefanzweifel/git-auto-commit-action@v4.2.0
+      uses: EndBug/add-and-commit@v7
       with:
-        branch: ${{ github.head_ref }}
-        ref: ${{ github.head_ref }}
-        commit_message: Apply automatic changes
-        file_pattern: amplifyconfiguration.json awsconfiguration.json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        add: '["amplifyconfiguration.json", "awsconfiguration.json"]'
+        message: Apply automatic changes
+        pull: 'NO-PULL'
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
