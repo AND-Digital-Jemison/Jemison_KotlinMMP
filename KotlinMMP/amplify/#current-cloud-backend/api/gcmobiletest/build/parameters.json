@@ -1,8 +1,0 @@
-{
-    "CreateAPIKey": 1,
-    "AppSyncApiName": "gcmobiletest",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-kotlinmmp-dev-143047-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/4c801b744a3c255372718b6f1e46cd5e476d9aba"
-}
