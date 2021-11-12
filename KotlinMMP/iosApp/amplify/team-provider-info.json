@@ -1,4 +1,30 @@
 {
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gcmobile-test-153826-authRole",
+      "UnauthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-test-153826-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-test-153826-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-gcmobile-test-153826-deployment",
+      "UnauthRoleName": "amplify-gcmobile-test-153826-unauthRole",
+      "StackName": "amplify-gcmobile-test-153826",
+      "StackId": "arn:aws:cloudformation:eu-west-1:095908439828:stack/amplify-gcmobile-test-153826/4234a4a0-423c-11ec-bf0e-02213e755193",
+      "AmplifyAppId": "d194x8oiwokw1k"
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gcmobile-prod-150524-authRole",
+      "UnauthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-prod-150524-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::095908439828:role/amplify-gcmobile-prod-150524-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-gcmobile-prod-150524-deployment",
+      "UnauthRoleName": "amplify-gcmobile-prod-150524-unauthRole",
+      "StackName": "amplify-gcmobile-prod-150524",
+      "StackId": "arn:aws:cloudformation:eu-west-1:095908439828:stack/amplify-gcmobile-prod-150524/add255f0-1c7f-11ec-8b5e-0286e2b5e6d7",
+      "AmplifyAppId": "d194x8oiwokw1k"
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-kotlinmmp-dev-143047-authRole",
