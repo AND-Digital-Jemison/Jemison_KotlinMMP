@@ -68,7 +68,7 @@ jobs:
           npm install -g @aws-amplify/cli --unsafe-perm=true
           bash amplify-init.sh
           amplify push --yes
-          working-directory: ${{env.working-directory}}/androidApp
+      working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
       uses: stefanzweifel/git-auto-commit-action@v4.2.0
