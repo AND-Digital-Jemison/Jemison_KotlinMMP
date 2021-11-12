@@ -6,4 +6,5 @@ target 'iosApp' do
   pod 'AmplifyPlugins/AWSDataStorePlugin'
   pod 'AmplifyPlugins/AWSAPIPlugin'
   pod 'shared', :path => '../shared'
+  pod 'SSToastMessage'
 end

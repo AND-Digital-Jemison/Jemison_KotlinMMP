@@ -36,5 +36,21 @@ class iosAppUITests: XCTestCase {
         XCTAssert(greatImage.exists)
         XCTAssert(greatText.exists)
     }
+    
+    func testMoodSubmitToastPopup() throws {
+        app.launch()
+        
+        let greatImage = app.images["mood0-image"]
+        let submitButton = app.buttons["SUBMIT"]
+        let moodSubmittedText = app.staticTexts["Mood submitted!"]
+
+        submitButton.tap()
+        XCTAssert(moodSubmittedText.exists)
+
+        greatImage.swipeLeft()
+        submitButton.tap()
+        XCTAssert(moodSubmittedText.exists)
+        
+    }
 
 }
