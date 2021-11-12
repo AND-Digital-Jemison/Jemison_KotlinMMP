@@ -28,6 +28,7 @@ PODS:
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
+  - SSToastMessage (1.0.0)
   - Starscream (3.1.1)
 
 DEPENDENCIES:
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - AmplifyPlugins/AWSDataStorePlugin
   - AppCenter
   - shared (from `../shared`)
+  - SSToastMessage
 
 SPEC REPOS:
   trunk:
@@ -46,6 +48,7 @@ SPEC REPOS:
     - AWSCore
     - AWSPluginsCore
     - SQLite.swift
+    - SSToastMessage
     - Starscream
 
 EXTERNAL SOURCES:
@@ -61,8 +64,9 @@ SPEC CHECKSUMS:
   AWSPluginsCore: 7a1acaf5c6224bf6c2b678c24800c16563a76361
   shared: 90ade93db1aa54af7f3563f585e897b8dd6c2db2
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SSToastMessage: 36f6bb3175e78b3424a03946a6c3d2588b322e0a
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: a11352b13bd2ac9eabd8f7e2366fb59926524e7f
+PODFILE CHECKSUM: d5a0ff98311d456bf9a106f830e3384a2f320030
 
 COCOAPODS: 1.11.2
