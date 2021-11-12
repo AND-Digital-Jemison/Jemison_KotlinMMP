@@ -73,7 +73,7 @@ jobs:
     - name: Commit Amplify Files
       uses: EndBug/add-and-commit@v7
       with:
-        add: '["./androidApp/src/main/res/raw/amplifyconfiguration.json", "./androidApp/src/main/res/raw/amplifyconfiguration.jsonawsconfiguration.json"]'
+        add: './androidApp/src/main/res/raw'
         message: Apply automatic changes
 
     - name: Emulator tests
