@@ -6,9 +6,7 @@ import SSToastMessage
 struct ContentView: View {
     @State private var selectedTab = MoodService().getMood(id: 0).moodValue
     @State var showToast = false
-    
-//    let moodSubmitToastColor: UIColor = UIColor(named: "MoodSubmitToastColor")!
-    
+        
     var body: some View {
         ZStack() {
             Image("background-purple")
