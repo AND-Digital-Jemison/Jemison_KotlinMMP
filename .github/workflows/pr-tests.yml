@@ -41,7 +41,7 @@ jobs:
       working-directory: ${{env.working-directory}}
 
   android-ui-tests:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
       
     steps:
     - name: gradle-version
