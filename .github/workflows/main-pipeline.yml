@@ -83,6 +83,8 @@ jobs:
         branch: ${{ github.head_ref }}
         commit_message: Apply automatic changes
         file_pattern:  amplifyconfiguration.json awsconfiguration.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
