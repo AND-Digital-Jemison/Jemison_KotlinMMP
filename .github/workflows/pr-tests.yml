@@ -73,7 +73,7 @@ jobs:
     - name: Commit Amplify Files
       uses: EndBug/add-and-commit@v7
       with:
-        add: './androidApp/src/main/res/raw'
+        add: '.'
         message: Apply automatic changes
 
     - name: Emulator tests
