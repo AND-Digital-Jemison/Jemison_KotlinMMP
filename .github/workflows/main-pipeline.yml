@@ -80,7 +80,7 @@ jobs:
     - name: Commit Amplify Files
       uses: stefanzweifel/git-auto-commit-action@v4.2.0
       with:
-        branch: main
+        ref: ${{ github.head_ref }}
         commit_message: Apply automatic changes
         file_pattern:  amplifyconfiguration.json awsconfiguration.json
 
