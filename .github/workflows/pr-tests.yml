@@ -75,7 +75,6 @@ jobs:
       with:
         commit_message: Apply automatic changes
         file_pattern: amplifyconfiguration.json awsconfiguration.json
-        working-directory: ${{env.working-directory}}/androidApp
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
