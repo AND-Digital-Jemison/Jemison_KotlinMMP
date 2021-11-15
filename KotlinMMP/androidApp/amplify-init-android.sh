@@ -3,7 +3,7 @@ FRONTEND="{\
 }"
 
 AMPLIFY="{\
-\"envName\":${BuildConfig.ENV_NAME},\
+\"envName\":\"dev\",\
 \"appId\":\"d194x8oiwokw1k\",\
 \"defaultEditor\":\"android\"\
 }"
