@@ -70,6 +70,12 @@ jobs:
           amplify push --yes
       working-directory: ${{env.working-directory}}/androidApp
 
+    - name: Commit Amplify Files
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: '.'
+        message: Apply automatic changes
+
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
@@ -113,6 +119,12 @@ jobs:
           bash amplify-init-ios.sh
           amplify push --yes
       working-directory: ${{env.working-directory}}/iosApp
+
+    - name: Commit Amplify Files
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: '.'
+        message: Apply automatic changes
 
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer

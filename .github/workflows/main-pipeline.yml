@@ -78,10 +78,10 @@ jobs:
       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
-      uses: stefanzweifel/git-auto-commit-action@v4.2.0
+      uses: EndBug/add-and-commit@v7
       with:
-        commit_message: Apply automatic changes
-        file_pattern:  amplifyconfiguration.json awsconfiguration.json
+        add: '.'
+        message: Apply automatic changes
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
@@ -123,6 +123,12 @@ jobs:
         bash amplify-init-android.sh
         amplify push --yes
       working-directory: ${{env.working-directory}}/androidApp
+
+    - name: Commit Amplify Files
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: '.'
+        message: Apply automatic changes
 
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
@@ -168,6 +174,12 @@ jobs:
         amplify push --yes
       working-directory: ${{env.working-directory}}/iosApp
 
+    - name: Commit Amplify Files
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: '.'
+        message: Apply automatic changes
+
     - name: Force xcode 13
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
 
@@ -211,6 +223,12 @@ jobs:
         bash amplify-init-ios.sh
         amplify push --yes
       working-directory: ${{env.working-directory}}/iosApp
+
+    - name: Commit Amplify Files
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: '.'
+        message: Apply automatic changes
 
     - name: gradle version
       run: gradle -v
