@@ -1,11 +1,11 @@
 FRONTEND="{\
-\"frontend\":\"android\"\
+\"frontend\":\"ios\"\
 }"
 
 AMPLIFY="{\
 \"envName\":\"test\",\
 \"appId\":\"d194x8oiwokw1k\",\
-\"defaultEditor\":\"android\"\
+\"defaultEditor\":\"AndroidStudio\"\
 }"
 
 amplify init \
