@@ -1,11 +1,16 @@
+ANDROIDCONFIG="{\
+\"ResDir\":\"src/main/src\"\
+}"
+
 FRONTEND="{\
-\"frontend\":\"android\"\
+\"frontend\":\"android\",\
+\"config\":$ANDROIDCONFIG\
 }"
 
 AMPLIFY="{\
 \"envName\":\"dev\",\
 \"appId\":\"d194x8oiwokw1k\",\
-\"defaultEditor\":\"android\"\
+\"defaultEditor\":\"Android Studio\",\
 }"
 
 amplify init \
