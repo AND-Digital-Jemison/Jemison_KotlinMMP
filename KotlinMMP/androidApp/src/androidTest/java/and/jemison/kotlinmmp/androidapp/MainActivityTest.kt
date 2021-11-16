@@ -1,11 +1,14 @@
 package and.jemison.kotlinmmp.androidapp
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.*
+import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
@@ -14,6 +17,7 @@ class MainActivityTest {
 
     @get:Rule
     val composeTestRule = createAndroidComposeRule<MainActivity>()
+
 
     @Test
     fun pageRenders() {
@@ -34,9 +38,10 @@ class MainActivityTest {
         submitButton.assertIsDisplayed()
         submitButton.performClick()
         val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
+        composeTestRule.registerIdlingResource(snackbar)
         snackbar.assertIsDisplayed()
     }
-    
+
     companion object {
         private const val HOW_ARE_YOU_TEXT = "How are you feeling today?"
         private const val SWIPE_HELP_TEXT = "(Swipe to change mood)"
@@ -47,4 +52,8 @@ class MainActivityTest {
         private const val MOOD_SUBMIT_TEST_TAG = "mood-submit"
         private const val SNACKBAR = "snackbar"
     }
+}
+
+private fun <R1 : TestRule, A : ComponentActivity> AndroidComposeTestRule<R1, A>.registerIdlingResource(snackbar: SemanticsNodeInteraction) {
+
 }
