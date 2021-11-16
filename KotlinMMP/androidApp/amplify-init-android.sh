@@ -10,7 +10,7 @@ FRONTEND="{\
 AMPLIFY="{\
 \"envName\":\"dev\",\
 \"appId\":\"d194x8oiwokw1k\",\
-\"defaultEditor\":\"Android Studio\",\
+\"defaultEditor\":\"AndroidStudio\",\
 }"
 
 amplify init \
