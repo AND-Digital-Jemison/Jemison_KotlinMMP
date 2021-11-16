@@ -42,7 +42,6 @@ jobs:
 
   android-ui-tests:
     runs-on: macos-latest
-
     steps:
     - name: gradle-version
       run: gradle -v
@@ -67,6 +66,7 @@ jobs:
       run: |
           npm install -g @aws-amplify/cli --unsafe-perm=true
           bash amplify-init.sh
+          amplify push --yes
       working-directory: ${{env.working-directory}}/androidApp
 
     - name: Commit Amplify Files
