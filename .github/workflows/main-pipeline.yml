@@ -103,8 +103,9 @@ jobs:
     - name: Commit Amplify Files
       uses: EndBug/add-and-commit@v7
       with:
-        add: '.'
+        add: '["./KotlinMMP/androidApp/src/main/res/raw/amplifyconfiguration.json","./KotlinMMP/androidApp/src/main/res/raw/awsconfiguration.json"]'
         message: Apply automatic changes
+        push: origin main --force
 
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
@@ -179,8 +180,9 @@ jobs:
     - name: Commit Amplify Files
       uses: EndBug/add-and-commit@v7
       with:
-        add: '.'
+        add: '["./KotlinMMP/iosApp/amplifyconfiguration.json","./KotlinMMP/iosApp/awsconfiguration.json"]'
         message: Apply automatic changes
+        push: origin main --force
 
 
     - name: gradle version
