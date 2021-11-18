@@ -1,3 +1,5 @@
+echo BuildConfig.ENV_NAME
+
 ANDROIDCONFIG="{\
 \"ResDir\":\"src/main/src\"\
 }"
