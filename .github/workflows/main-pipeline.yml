@@ -43,10 +43,7 @@ jobs:
        java-version: '11'
 
     - name: Unit tests
-      #run: ./gradlew test
-      #run: ./gradlew test
-      #run: ./gradlew test
-      run: adb shell am instrument -w -m    -e debug false -e class 'and.jemison.kotlinmmp.androidapp.MainActivityTest#onSubmitSnackbarDisplay' and.jemison.kotlinmmp.android.test/androidx.test.runner.AndroidJUnitRunner
+      run: ./gradlew test
       working-directory: ${{env.working-directory}}
 
   android-ui-tests:
