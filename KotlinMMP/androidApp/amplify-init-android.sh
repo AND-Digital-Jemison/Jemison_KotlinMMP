@@ -8,7 +8,7 @@ FRONTEND="{\
 }"
 
 AMPLIFY="{\
-\"envName\":\"test\",\
+\"envName\":\"${BuildConfig.ENV_NAME}\",\
 \"appId\":\"d194x8oiwokw1k\",\
 \"defaultEditor\":\"AndroidStudio\",\
 }"

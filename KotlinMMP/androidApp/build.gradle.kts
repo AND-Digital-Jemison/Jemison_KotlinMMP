@@ -33,6 +33,11 @@ android {
             rootDir
         ).getProperty("APP_CENTER_KEY_LOCAL") else "\"noLocalKey\""
 
+    val envName: String =
+        if (gradleLocalProperties(rootDir).getProperty("ENV_NAME") != null) gradleLocalProperties(
+            rootDir
+        ).getProperty("ENV_NAME") else "\"noLocalKey\""
+
     defaultConfig {
         applicationId = "and.jemison.kotlinmmp.android"
         minSdk = 24
@@ -40,7 +45,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
-        buildConfigField("String", "ENV_NAME", "\"${System.getenv("ENV_NAME")}\"")
+        buildConfigField("String", "ENV_NAME", envName)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
