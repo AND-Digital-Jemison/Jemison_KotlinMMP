@@ -1,4 +1,4 @@
-ENV=$(cat ./src/main/assets/env)
+ENV=$(cat ./src/main/assets/env.txt)
 
 let CURRENT_ENV
 
