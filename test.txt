@@ -1,1 +1,1 @@
-ENV_NAME=kotlin-env-vars
+ENV_NAME=dev
