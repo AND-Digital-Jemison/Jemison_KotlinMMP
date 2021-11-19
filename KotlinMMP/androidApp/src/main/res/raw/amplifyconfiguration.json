@@ -6,10 +6,10 @@
             "awsAPIPlugin": {
                 "gcmobiletest": {
                     "endpointType": "GraphQL",
-                    "endpoint": "https://c3qvphx45rbx7fmu5wpo2g3bc4.appsync-api.eu-west-1.amazonaws.com/graphql",
+                    "endpoint": "https://mig6wx55mzfqjdgvyynkngclve.appsync-api.eu-west-1.amazonaws.com/graphql",
                     "region": "eu-west-1",
                     "authorizationType": "API_KEY",
-                    "apiKey": "da2-uctohkn43feepkqclq6fdz6i2q"
+                    "apiKey": "da2-ed6zlgluwvcdnat6fxzsubu3ji"
                 }
             }
         }
