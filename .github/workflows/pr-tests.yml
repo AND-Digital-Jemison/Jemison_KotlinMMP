@@ -71,8 +71,7 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
-        #script: ./gradlew connectedCheck
-        script: ./gradlew --debug connectedCheck
+        script: ./gradlew connectedCheck
         disable-animations: true
         working-directory: ${{env.working-directory}}
         profile: pixel
