@@ -38,7 +38,7 @@ class MainActivityTest {
         submitButton.assertIsDisplayed()
         submitButton.performClick()
         val snackbar = composeTestRule.onNodeWithTag(SNACKBAR)
-        composeTestRule.registerIdlingResource(snackbar)
+//        composeTestRule.registerIdlingResource(snackbar)
         snackbar.assertIsDisplayed()
     }
 

@@ -27,7 +27,7 @@ fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
     ) {
         Button(
             onClick = {
-                    amplify.saveToMood(moodValue, onMessageChange = {snackBarMessage = it});
+                    amplify.saveToMood(moodValue, onMessageChange = {snackBarMessage = it})
                     coroutineScope.launch {
                         snackbarHostState.showSnackbar(
                             message = snackBarMessage,
@@ -53,10 +53,11 @@ fun MoodSubmit(amplify: AmplifyQueries, moodValue: String) {
         )
 
         SnackbarHost(
-            modifier = Modifier.padding(top = 10.dp).testTag("snackbar"),
+            modifier = Modifier.padding(top = 10.dp),
             hostState = snackbarHostState,
             snackbar = {
                 Snackbar(
+                    modifier = Modifier.padding(top = 10.dp).testTag("snackbar"),
                     action = {
                         TextButton(onClick = {
                             snackbarHostState.currentSnackbarData?.dismiss()
