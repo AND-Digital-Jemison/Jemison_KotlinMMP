@@ -1,5 +1,6 @@
 package and.jemison.kotlinmmp.androidapp
 
+import io.github.cdimascio.dotenv.dotenv
 import and.jemison.kotlinmmp.androidapp.backend.AmplifyQueries
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodHeader
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodPager
@@ -7,6 +8,7 @@ import and.jemison.kotlinmmp.androidapp.components.mood.MoodScreen
 import and.jemison.kotlinmmp.androidapp.components.mood.MoodSubmit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -20,6 +22,10 @@ import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
 
+val dotenv = dotenv {
+    directory = "./assets"
+    filename = "env"
+}
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         val amplify = AmplifyQueries()
         amplify.configureAmplify(applicationContext)
-
+        Log.i("ENV_NAME", dotenv["ENV_NAME"])
         setContent {
             Image(
                 painter = painterResource(R.drawable.purple_background),
