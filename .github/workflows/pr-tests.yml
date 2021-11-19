@@ -53,8 +53,8 @@ jobs:
     - name: Commit env file
       uses: EndBug/add-and-commit@v7
       with:
-        add: "./KotlinMMP/test.txt"
         message: added env file
+
 
   android-ui-tests:
     runs-on: macos-latest
