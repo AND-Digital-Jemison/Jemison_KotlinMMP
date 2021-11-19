@@ -46,13 +46,9 @@ jobs:
 
     steps:
     - name: Save env_name
-      uses: DamianReeves/write-file-action
-      with:
-        path: ${{ env.destdir}}/env.txt
-        contents: |
-          echo "ENV_NAME=${{ github.head_ref }}"
-        write-mode: append
-
+      run: |
+        echo "ENV_NAME=${{ github.head_ref }}" > ${{env.destdir}}/env.txt
+        cat env.txt
     - name: Commit env file
       uses: EndBug/add-and-commit@v7
       with:
