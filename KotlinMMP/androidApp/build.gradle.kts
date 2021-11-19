@@ -45,7 +45,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
-        buildConfigField("String", "ENV_NAME", "test")
+        buildConfigField("String", "ENV_NAME", envName)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -66,6 +66,7 @@ android {
         }
         getByName("debug") {
             buildConfigField("String", "APP_CENTER_KEY_LOCAL", appCenterKey)
+            buildConfigField("String", "ENV_NAME", envName)
         }
     }
 

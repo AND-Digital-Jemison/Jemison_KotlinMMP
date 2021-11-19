@@ -1,5 +1,5 @@
-echo "Env name value: $(BuildConfig.ENV_NAME)"
-echo "App center key: $(BuildConfig.APP_CENTER_KEY_LOCAL)"
+source "../gradle.properties"
+echo "Env name value: $ENV_NAME"
 
 ANDROIDCONFIG="{\
 \"ResDir\":\"src/main/src\"\
@@ -11,7 +11,7 @@ FRONTEND="{\
 }"
 
 AMPLIFY="{\
-\"envName\":\"$(BuildConfig.ENV_NAME)\",\
+\"envName\":\"${ENV_NAME}\",\
 \"appId\":\"d194x8oiwokw1k\",\
 \"defaultEditor\":\"AndroidStudio\",\
 }"
