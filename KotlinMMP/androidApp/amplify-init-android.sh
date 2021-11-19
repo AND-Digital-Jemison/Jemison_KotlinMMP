@@ -2,9 +2,9 @@ ENV=$(cat ./src/main/assets/env)
 
 let CURRENT_ENV
 
-if [[ $ENV == *'ENV_NAME = "prod"'* ]]; then
+if [[ $ENV == *"ENV_NAME=prod"* ]]; then
   CURRENT_ENV=\"prod\"
-elif [[ $ENV == *'ENV_NAME = "test"'* ]]; then
+elif [[ $ENV == *"ENV_NAME=main"* ]]; then
   CURRENT_ENV=\"test\"
 else
   CURRENT_ENV=\"dev\"
