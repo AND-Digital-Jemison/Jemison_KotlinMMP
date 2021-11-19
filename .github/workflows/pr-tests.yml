@@ -49,10 +49,10 @@ jobs:
         echo "ENV_NAME=${{ github.head_ref }}" > test.txt
         cat test.txt
 
-    - name: Commit env file
-      uses: EndBug/add-and-commit@v7
-      with:
-        message: added env file
+#    - name: Commit env file
+#      uses: EndBug/add-and-commit@v7
+#      with:
+#        message: added env file
 
 
   android-ui-tests:

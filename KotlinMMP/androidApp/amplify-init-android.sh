@@ -1,5 +1,5 @@
-ENV=$(cat ./src/main/assets/env.txt)
-
+ENV=$(cat ../../test.txt)
+echo  $ENV
 let CURRENT_ENV
 
 if [[ $ENV == *"ENV_NAME=prod"* ]]; then
