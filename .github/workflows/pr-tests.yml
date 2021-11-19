@@ -61,7 +61,7 @@ jobs:
         profile: pixel
 
   ios-ui-tests:
-    runs-on: 	macos-11
+    runs-on: macos-11
       
     steps:
     - name: gradle-version
