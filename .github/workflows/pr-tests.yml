@@ -74,7 +74,6 @@ jobs:
       with:
         add: '["./KotlinMMP/androidApp/src/main/res/raw/amplifyconfiguration.json","./KotlinMMP/androidApp/src/main/res/raw/awsconfiguration.json"]'
         message: Apply automatic changes
-        push: origin main --force
 
     - name: Emulator tests
       uses: reactivecircus/android-emulator-runner@v2
