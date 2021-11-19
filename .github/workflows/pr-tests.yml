@@ -10,7 +10,7 @@ on:
   
 env:
   working-directory: ./KotlinMMP
-  destdir: /KotlinMMP/androidApp/src/main/assets
+  destdir: ./KotlinMMP/androidApp/src/main/assets
 
 jobs:
   linting:
@@ -51,6 +51,7 @@ jobs:
 #        echo "ENV_NAME=${{ github.head_ref }}" > env.txt
 #        cat env.txt
       working-directory: ${{env.destdir}}
+
     - name: Commit env file
       uses: EndBug/add-and-commit@v7
       with:
