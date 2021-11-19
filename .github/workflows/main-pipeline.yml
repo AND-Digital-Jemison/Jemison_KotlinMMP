@@ -105,7 +105,6 @@ jobs:
       with:
         add: '["./KotlinMMP/androidApp/src/main/res/raw/amplifyconfiguration.json","./KotlinMMP/androidApp/src/main/res/raw/awsconfiguration.json"]'
         message: Apply automatic changes
-        push: origin main --force
 
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
