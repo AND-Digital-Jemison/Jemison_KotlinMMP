@@ -10,7 +10,7 @@ on:
   
 env:
   working-directory: ./KotlinMMP
-  destdir: ./KotlinMMP/androidApp/src/main/assets/
+  destdir: ./KotlinMMP/androidApp/src/main/assets
 
 jobs:
   linting:
