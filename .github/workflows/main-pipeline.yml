@@ -133,6 +133,7 @@ jobs:
         branch: ${{ github.head_ref }}
         force: true
 
+
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
       working-directory: ${{env.working-directory}}
