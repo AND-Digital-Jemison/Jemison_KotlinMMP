@@ -91,7 +91,13 @@ jobs:
       with:
         add: './env.txt'
         message: added env file
-        push: origin main --force
+        push: false
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
 
     - name: Install AWS CLI & Configuring Profile Credentials
       env:
@@ -117,7 +123,13 @@ jobs:
       with:
         add: '["./KotlinMMP/androidApp/src/main/res/raw/amplifyconfiguration.json","./KotlinMMP/androidApp/src/main/res/raw/awsconfiguration.json"]'
         message: Apply automatic changes
-        push: origin main --force
+        push: false
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
 
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
@@ -176,7 +188,12 @@ jobs:
       with:
         add: './env.txt'
         message: added env file
-        push: origin main --force
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
 
     - name: Setup Java JDK
       uses: actions/setup-java@v1
@@ -206,8 +223,13 @@ jobs:
       with:
         add: '["./KotlinMMP/iosApp/amplifyconfiguration.json","./KotlinMMP/iosApp/awsconfiguration.json"]'
         message: Apply automatic changes
-        push: origin main --force
+        push: false
 
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
 
     - name: gradle version
       run: gradle -v
@@ -287,7 +309,8 @@ jobs:
       uses: EndBug/add-and-commit@v7
       with:
         message: added env file
-        push: origin prod --force
+        push: false
+
         
     - uses: ad-m/github-push-action@master
       with:
