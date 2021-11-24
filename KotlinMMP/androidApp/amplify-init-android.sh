@@ -16,13 +16,13 @@ ANDROIDCONFIG="{\
 
 FRONTEND="{\
 \"frontend\":\"android\",\
-\"config\":$ANDROIDCONFIG
+\"config\":$ANDROIDCONFIG\
 }"
 
 AMPLIFY="{\
 \"appId\":\"d194x8oiwokw1k\",\
 \"defaultEditor\":\"AndroidStudio\",\
-\"envName\":$ENV_NAME
+\"envName\":$ENV_NAME\
 }"
 
 amplify init \
