@@ -20,6 +20,7 @@ import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
 
+
 class MainActivity : AppCompatActivity() {
 
     @ExperimentalPagerApi
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         val amplify = AmplifyQueries()
         amplify.configureAmplify(applicationContext)
+
         setContent {
             Image(
                 painter = painterResource(R.drawable.purple_background),
