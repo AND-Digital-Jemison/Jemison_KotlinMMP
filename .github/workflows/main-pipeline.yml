@@ -90,6 +90,7 @@ jobs:
       uses: EndBug/add-and-commit@v7
       with:
         message: added env file
+        push: origin main --force
 
     - name: Install AWS CLI & Configuring Profile Credentials
       env:
@@ -173,6 +174,7 @@ jobs:
       uses: EndBug/add-and-commit@v7
       with:
         message: added env file
+        push: origin main --force
 
     - name: Setup Java JDK
       uses: actions/setup-java@v1
