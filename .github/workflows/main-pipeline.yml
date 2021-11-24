@@ -188,7 +188,6 @@ jobs:
       with:
         add: './env.txt'
         message: added env file
-        push: false
 
     - name: Push changes
       uses: ad-m/github-push-action@master
@@ -311,6 +310,7 @@ jobs:
       with:
         message: added env file
         push: false
+
         
     - uses: ad-m/github-push-action@master
       with:
