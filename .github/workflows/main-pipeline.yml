@@ -98,6 +98,7 @@ jobs:
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.head_ref }}
+          force: true
 
     - name: Install AWS CLI & Configuring Profile Credentials
       env:
@@ -130,6 +131,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.head_ref }}
+        force: true
 
     - name: build release package  (APK)
       run: ./gradlew assembleRelease -PstorePw=${{secrets.ANDROID_KEY_STORE_PASSWORD}} -PkeyPw=${{secrets.ANDROID_KEY_PASSWORD}}
@@ -195,6 +197,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.head_ref }}
+        force: true
 
     - name: Setup Java JDK
       uses: actions/setup-java@v1
@@ -231,6 +234,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.head_ref }}
+        force: true
 
     - name: gradle version
       run: gradle -v
@@ -316,4 +320,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: prod
+        force: true
     
