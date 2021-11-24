@@ -21,7 +21,6 @@ dependencies {
     implementation ("com.amplifyframework:core:1.24.0")
     implementation ("com.amplifyframework:aws-api:1.24.0")
     implementation ("com.amplifyframework:aws-datastore:1.24.0")
-
 }
 
 
