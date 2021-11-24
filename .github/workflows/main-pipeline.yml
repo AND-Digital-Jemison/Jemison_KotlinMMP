@@ -97,7 +97,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.head_ref }}
+          branch: main
           force: true
 
     - name: Install AWS CLI & Configuring Profile Credentials
@@ -130,7 +130,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.head_ref }}
+        branch: main
         force: true
 
 
@@ -191,12 +191,13 @@ jobs:
       with:
         add: './env.txt'
         message: added env file
+        push: false
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.head_ref }}
+        branch: main
         force: true
 
     - name: Setup Java JDK
@@ -233,7 +234,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.head_ref }}
+        branch: main
         force: true
 
     - name: gradle version
@@ -316,7 +317,6 @@ jobs:
         message: added env file
         push: false
 
-        
     - uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
