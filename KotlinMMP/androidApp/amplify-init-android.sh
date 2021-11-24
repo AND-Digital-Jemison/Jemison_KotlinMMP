@@ -1,16 +1,14 @@
-ENV=$(cat ../../test.txt)
-echo  $ENV
-let CURRENT_ENV
+let ENV_NAME
 
-if [[ $ENV == *"ENV_NAME=prod"* ]]; then
-  CURRENT_ENV=\"prod\"
-elif [[ $ENV == *"ENV_NAME=main"* ]]; then
-  CURRENT_ENV=\"test\"
+source "../../env.txt"
+
+if [[ $BRANCH_NAME == "prod" ]]; then
+  ENV_NAME=\"prod\"
+elif [[ $BRANCH_NAME == "main" ]]; then
+  ENV_NAME=\"test\"
 else
-  CURRENT_ENV=\"dev\"
+  ENV_NAME=\"dev\"
 fi
-
-echo "CURRENT ENV: $CURRENT_ENV"
 
 ANDROIDCONFIG="{\
 \"ResDir\":\"src/main/src\"\
@@ -18,13 +16,13 @@ ANDROIDCONFIG="{\
 
 FRONTEND="{\
 \"frontend\":\"android\",\
-\"config\":$ANDROIDCONFIG\
+\"config\":$ANDROIDCONFIG
 }"
 
 AMPLIFY="{\
 \"appId\":\"d194x8oiwokw1k\",\
 \"defaultEditor\":\"AndroidStudio\",\
-\"envName\":$CURRENT_ENV\
+\"envName\":$ENV_NAME
 }"
 
 amplify init \
