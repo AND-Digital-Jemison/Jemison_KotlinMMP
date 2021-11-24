@@ -22,9 +22,6 @@ dependencies {
     implementation ("com.amplifyframework:aws-api:1.24.0")
     implementation ("com.amplifyframework:aws-datastore:1.24.0")
 
-    // Environment Variable
-    implementation("io.github.cdimascio:dotenv-kotlin:6.2.2")
-
 }
 
 

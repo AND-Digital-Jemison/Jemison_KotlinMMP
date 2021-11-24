@@ -10,6 +10,8 @@ else
   CURRENT_ENV=\"dev\"
 fi
 
+echo "CURRENT ENV: $CURRENT_ENV"
+
 ANDROIDCONFIG="{\
 \"ResDir\":\"src/main/src\"\
 }"
