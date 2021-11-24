@@ -274,8 +274,19 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
         persist-credentials: false 
-        fetch-depth: 0      
+        fetch-depth: 0 
+        
+    - name: Save env_name
+      run: |
+          echo "BRANCH_NAME=prod" > env.txt
+          cat env.txt
 
+    - name: Commit env file
+      uses: EndBug/add-and-commit@v7
+      with:
+        message: added env file
+        push: origin prod --force
+        
     - uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
