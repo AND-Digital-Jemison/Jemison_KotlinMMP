@@ -20,13 +20,20 @@ class AmplifyQueries {
         }
     }
 
-    fun saveToMood(moodText: String) {
+    fun saveToMood(moodText: String, onMessageChange: (String) -> Unit ) {
         val mood = Mood.builder()
             .text(moodText)
             .build()
+
         Amplify.DataStore.save(mood,
-            { Log.i("MyAmplifyApp", "Saved a mood") },
-            { Log.e("MyAmplifyApp", "Save failed", it) }
+            {
+                onMessageChange("Mood Submitted!")
+                Log.i("MyAmplifyApp", "Saved a mood")
+            },
+            {
+                onMessageChange("Failed to submit mood")
+                Log.e("MyAmplifyApp", "Save failed", it)
+            }
         )
     }
 }
